@@ -5,7 +5,11 @@ My config files for VIM and ZSH
 
 Screenies!
 --------
+_VIM_
 ![](vim.png)
+<br/>
+
+_ZSH_<br/>
 ![](zsh.png)
 
 Dependencies
@@ -18,10 +22,10 @@ Dependencies
 - [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
 - Put the `mine` theme in `~/.oh-my-zsh/themes`
 
-Features in .vimrc
+Features in my .vimrc
 ----
 - A bunch of awesome plugins:
-  - Vundle
+  - [Vundle](http://www.vim.org/scripts/script.php?script_id=3458)
   - [SuperTab](http://www.vim.org/scripts/script.php?script_id=182)
   - [CtrlP](https://github.com/kien/ctrlp.vim)
   - [NerdTree](http://www.vim.org/scripts/script.php?script_id=1658)
@@ -36,7 +40,7 @@ Features in .vimrc
 - TagList can be toggled on and off with `,t`
 - Makes project with `,m`
 
-Features in .zshrc
+Features in my .zshrc
 ---
 - Fixes some of the slowness of zsh autocomplete
 - `finder` alias opens current directory in finder
