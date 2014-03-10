@@ -35,6 +35,7 @@ Features in my .vimrc
   - [delimitMate](http://www.vim.org/scripts/script.php?script_id=2754)
   - [vim-taglist](http://www.vim.org/scripts/script.php?script_id=273)
   - [SearchComplete](http://www.vim.org/scripts/script.php?script_id=474)
+  - [ToggleMaximize](http://www.vim.org/scripts/script.php?script_id=4285)
 - Leader is mapped to `,`
 - NerdTree can be toggled on and off with `,n`
 - TagList can be toggled on and off with `,t`

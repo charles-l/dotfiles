@@ -17,10 +17,10 @@ Bundle 'hallison/vim-markdown'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'Raimondi/delimitMate'
 Bundle 'thisivan/vim-taglist'
+Bundle 'toggle_maximize.vim'
 
 Bundle 'SearchComplete'
 Bundle 'jellybeans.vim'
-Bundle 'greplace.vim'
 
 let mapleader = ","
 set t_Co=256
