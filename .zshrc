@@ -1,67 +1,47 @@
-# Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
+setopt MENUCOMPLETE
+setopt AUTO_LIST
+setopt AUTO_MENU
+setopt LONG_LIST_JOBS
+setopt AUTO_PARAM_SLASH
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="mine"
+autoload -Uz promptinit compinit colors
+promptinit
+compinit
+colors
 
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+PAGER='less'
+EDITOR='vim'
+PROMPT="%{$fg[green]%}(%~)%{$reset_color%} "
+RPROMPT="%{$fg[cyan]%}%n%{$reset_color%} on %{$fg_bold[yellow]%}%m%{$reset_color%}" 
 
-# Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
-
-# Comment this out to disable bi-weekly auto-update checks
-DISABLE_AUTO_UPDATE="true"
-
-# Uncomment to change how often before auto-updates occur? (in days)
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
-
-# Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment following line if you want to disable command autocorrection
-# DISABLE_CORRECTION="true"
-
-# Uncomment following line if you want red dots to be displayed while waiting for completion
-COMPLETION_WAITING_DOTS="true"
-
-# Uncomment following line if you want to disable marking untracked files under
-# VCS as dirty. This makes repository status check for large repositories much,
-# much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git brew osx sublime web-search zsh-syntax-highlighting)
-
-source $ZSH/oh-my-zsh.sh
-
-# Customize to your needs...
-export PATH=$PATH:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Users/ninjacharlie/Dev/rock/bin/:/Users/ninjacharlie/Dev/sam
-
-# Path to OOC libraries
-export OOC_LIBS=~/Dev/libs/
+# OSX specific: Play nice with autojump
 [[ -s ~/.autojump/etc/profile.d/autojump.zsh ]] && . ~/.autojump/etc/profile.d/autojump.zsh
-autoload -U compinit && compinit
 
+bindkey ' ' magic-space
+
+zstyle ':completion:*::::' completer _expand _complete _ignored _approximate
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' menu select=1 _complete _ignored _approximate
 zstyle ':completion:*' accept-exact '*(N)'
-zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path ~/.zsh/cache
+zstyle ':completion::complete:*' use-cache on
+zstyle ':completion::complete:*' cache-path ~/.zsh/cache/$HOST
 
-alias finder="open -a \"finder\" ."
+## ALIASES 'N STUFF
+alias ls='ls -G'
+alias ll='ls -al'
+alias sl='ls -G'
+
+# Git aliases
+alias g='git'
+alias ga='git add'
+alias gr='git remove'
+alias gc='git commit'
+alias gp='git push'
+alias gh='git checkout'
+alias go='git clone'
+alias gs='git status'
+
+# OSX Specific
+alias finder="open -a \"finder\""
+alias syssleep="osascript -e 'tell app \"System Events\" to sleep'"
 alias tn="terminal-notifier -message "
-
-# Tell computer to sleep from the command line
-alias syssleep="osascript << EOT
-tell application \"System Events\"
-  sleep
-end
-EOT"

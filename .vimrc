@@ -1,42 +1,46 @@
 set tabstop=4
 set nu
 set nocompatible
-filetype off
+filetype plugin indent on
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
-
-Bundle 'tpope/vim-fugitive'
-Bundle 'ervandew/supertab'
 Bundle 'kien/ctrlp.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'fholgado/minibufexpl.vim'
 Bundle 'hallison/vim-markdown'
-Bundle 'scrooloose/nerdcommenter'
 Bundle 'Raimondi/delimitMate'
-Bundle 'thisivan/vim-taglist'
 Bundle 'toggle_maximize.vim'
-
 Bundle 'SearchComplete'
 Bundle 'jellybeans.vim'
+Bundle 'vim-pencil'
+
+let g:pencil#wrapModeDefault = 'soft'
+let g:pencil#cursorwrap = 0
+augroup pencil
+  autocmd!
+  autocmd FileType markdown call pencil#init()
+  autocmd FileType textile call pencil#init()
+  autocmd FileType text call pencil#init({'wrap': 'hard'})
+augroup END
 
 let mapleader = ","
 set t_Co=256
 set encoding=utf-8
 set expandtab
+set cursorline
 set shiftwidth=2
 set smarttab
 set autoindent
 set smartindent
 set softtabstop=2
 set nowrap
+set paste
 
 syntax enable 
 color jellybeans
 
-filetype plugin indent on
+autocmd VimEnter,VimLeave * silent !tmux set status
 
 nnoremap <silent> <leader>t :TlistToggle<CR>
 nnoremap <silent> <leader>n :NERDTreeToggle<CR>
