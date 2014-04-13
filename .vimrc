@@ -10,7 +10,6 @@ Bundle 'gmarik/vundle'
 Bundle 'kien/ctrlp.vim'
 Bundle 'hallison/vim-markdown'
 Bundle 'Raimondi/delimitMate'
-Bundle 'toggle_maximize.vim'
 Bundle 'SearchComplete'
 Bundle 'jellybeans.vim'
 Bundle 'vim-pencil'
@@ -35,13 +34,10 @@ set autoindent
 set smartindent
 set softtabstop=2
 set nowrap
-set paste
 
 syntax enable 
 color jellybeans
 
 autocmd VimEnter,VimLeave * silent !tmux set status
 
-nnoremap <silent> <leader>t :TlistToggle<CR>
-nnoremap <silent> <leader>n :NERDTreeToggle<CR>
 nnoremap <silent> <leader>m :!make<CR>
