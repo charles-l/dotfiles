@@ -35,6 +35,7 @@ Features in my .vimrc
 
 Features in my .bashrc
 ---
+- Random prompt color (makes differentiation between prompts easier)
 - Git aliases:
   - `g` = `git`
   - `ga` = `git add`
@@ -48,4 +49,4 @@ Features in my .bashrc
     - a.k.a. a pretty git log
 - `finder` alias opens current directory in finder
 - `tn` alias will open a terminal notification with the message in the following quotes
-- `syssleep` will send compter to sleep with simple applescript
+- `syssleep` will send computer to sleep with simple applescript
