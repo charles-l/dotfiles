@@ -8,7 +8,7 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
 
-Plugin 'gmarik/vundle' "Plugin Manager
+Plugin 'gmarik/Vundle.vim' "Plugin Manager
 Plugin 'kien/ctrlp.vim' "Fuzzy search directories
 Plugin 'hallison/vim-markdown' "Markdown support
 Plugin 'Raimondi/delimitMate' "Automatic bracket closing
@@ -17,8 +17,7 @@ Plugin 'jellybeans.vim' "Theme
 
 "Heavier weight plugins below. Comment out if you don't need them.
 Plugin 'bling/vim-airline' "Better statusline
-Plugin 'scrooloose/syntastic' "Syntax checking. Unless your using VIM as a full on IDE with syntax checking, I would reccomend disabling this one, because it doesn't support multithreading and will freeze VIM when you save the file as it check the syntax.
-Plugin 'jdonaldson/vaxe'      "Haxe support. Remove if you don't use it
+Plugin 'tpope/vim-dispatch' "Friggin amazing build tool
 
 call vundle#end()
 filetype plugin indent on
@@ -43,6 +42,4 @@ syntax enable
 color jellybeans
 
 "Rebind ',m' to run make
-nnoremap <silent> <leader>m :make<CR>
-"Rebind ',t' to open TagBar (disable if you disabled the plugin)
-nnoremap <silent> <leader>t :TagbarToggle<CR>
+nnoremap <silent> <leader>m :Make<CR>

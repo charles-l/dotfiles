@@ -1,12 +1,18 @@
+export EDITOR=vim
 # Pretty prompt
-export PS1="[\\[$(tput setaf 3)\]\W\[$(tput sgr0)\]] "
+col=$RANDOM
+let "col %= 255"
+export PS1="[\\[$(tput setaf $col)\]\W\[$(tput sgr0)\]] "
 
 ## ALIASES 'N STUFF
 alias ls='ls -G'
 alias ll='ls -al'
 alias sl='ls -G'
 
-alias love="open -a \"love\""
+# Use a newer version of screen installed from brew repo so I have 256 colors
+alias screen='screen-4.0.3'
+
+alias love="/Applications/love.app/Contents/MacOS/love"
 
 # Git aliases
 alias g='git'
@@ -23,3 +29,5 @@ alias gl="git log --all --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Cres
 alias finder="open -a \"finder\""
 alias syssleep="osascript -e 'tell app \"System Events\" to sleep'"
 alias tn="terminal-notifier -message "
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
