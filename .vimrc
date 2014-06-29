@@ -13,7 +13,9 @@ Plugin 'kien/ctrlp.vim' "Fuzzy search directories
 Plugin 'hallison/vim-markdown' "Markdown support
 Plugin 'Raimondi/delimitMate' "Automatic bracket closing
 Plugin 'SearchComplete' "Tab completion when searching files
-Plugin 'jellybeans.vim' "Theme
+Plugin 'airblade/vim-gitgutter' "Shows which lines have been added/modified/removed since last commit
+Plugin 'flazz/vim-colorschemes' "THEMES!
+
 
 "Heavier weight plugins below. Comment out if you don't need them.
 Plugin 'bling/vim-airline' "Better statusline
@@ -24,6 +26,7 @@ filetype plugin indent on
 
 "Makes airline show a bar at the top with all the open buffers
 let g:airline#extensions#tabline#enabled = 1
+let g:gitgutter_realtime = 1
 
 let mapleader = "," "Change the leader key to ','
 
@@ -39,7 +42,14 @@ set softtabstop=2
 set nowrap
 
 syntax enable
-color jellybeans
+colorscheme jellybeans
+
+set list
+set listchars=tab:::,trail:.,extends:#,nbsp:.
+set textwidth=80
+set colorcolumn=+1
+highlight clear SignColumn
 
 "Rebind ',m' to run make
 nnoremap <silent> <leader>m :Make<CR>
+

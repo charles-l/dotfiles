@@ -12,8 +12,6 @@ alias sl='ls -G'
 # Use a newer version of screen installed from brew repo so I have 256 colors
 alias screen='screen-4.0.3'
 
-alias love="/Applications/love.app/Contents/MacOS/love"
-
 # Git aliases
 alias g='git'
 alias ga='git add'
@@ -30,4 +28,13 @@ alias finder="open -a \"finder\""
 alias syssleep="osascript -e 'tell app \"System Events\" to sleep'"
 alias tn="terminal-notifier -message "
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+alias love="/Applications/love.app/Contents/MacOS/love"
+alias v="/usr/bin/vim"
+alias vim="open -a \"MacVim\""
+
+function ql {
+  qlmanage -p $1 >> /dev/null &
+}
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+export PATH=/usr/local/bin:$PATH
