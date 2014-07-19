@@ -27,6 +27,7 @@ alias gl="git log --all --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Cres
 alias finder="open -a \"finder\""
 alias syssleep="osascript -e 'tell app \"System Events\" to sleep'"
 alias tn="terminal-notifier -message "
+alias o="open -a"
 
 alias love="/Applications/love.app/Contents/MacOS/love"
 alias v="/usr/bin/vim"
@@ -38,3 +39,10 @@ function ql {
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 export PATH=/usr/local/bin:$PATH
+[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+#MAGICAL AUTOJUMP :)
+
+
+# added by duckpan installer
+eval $(perl -I${HOME}/perl5/lib/perl5 -Mlocal::lib)
+

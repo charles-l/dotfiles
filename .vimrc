@@ -10,14 +10,15 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim' "Plugin Manager
 Plugin 'kien/ctrlp.vim' "Fuzzy search directories
+Plugin 'tacahiroy/ctrlp-funky' "Ctrl-P extender to allow you to search functions in file.
+Plugin 'scrooloose/nerdtree' "Directory listing
 Plugin 'hallison/vim-markdown' "Markdown support
 Plugin 'Raimondi/delimitMate' "Automatic bracket closing
 Plugin 'SearchComplete' "Tab completion when searching files
 Plugin 'airblade/vim-gitgutter' "Shows which lines have been added/modified/removed since last commit
 Plugin 'flazz/vim-colorschemes' "THEMES!
-
-
-"Heavier weight plugins below. Comment out if you don't need them.
+Plugin 'Valloric/YouCompleteMe' "Autocomplete
+Plugin 'mattn/emmet-vim' "Text expansion
 Plugin 'bling/vim-airline' "Better statusline
 Plugin 'tpope/vim-dispatch' "Friggin amazing build tool
 
@@ -26,6 +27,13 @@ filetype plugin indent on
 
 "Makes airline show a bar at the top with all the open buffers
 let g:airline#extensions#tabline#enabled = 1
+
+"Ctrl-P configuration
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_extensions = ['funky', 'line']
+let g:ctrlp_funky_syntax_highlight = 1
+
+"Make gitgutter update in realtime
 let g:gitgutter_realtime = 1
 
 let mapleader = "," "Change the leader key to ','
@@ -46,10 +54,12 @@ colorscheme jellybeans
 
 set list
 set listchars=tab:::,trail:.,extends:#,nbsp:.
-set textwidth=80
 set colorcolumn=+1
 highlight clear SignColumn
 
-"Rebind ',m' to run make
+"Rebind stuff
 nnoremap <silent> <leader>m :Make<CR>
-
+nnoremap <silent> <leader>f :CtrlPFunky<Cr>
+nnoremap <silent> <leader>/ :CtrlPLine<Cr>
+nnoremap <silent> <leader>F :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
+nnoremap <silent> <leader>t :NERDTreeToggle<CR>
