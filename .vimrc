@@ -9,6 +9,9 @@ set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim' "Plugin Manager
+if v:version < 704
+  Plugin 'Valloric/YouCompleteMe' "Autocomplete
+endif
 Plugin 'kien/ctrlp.vim' "Fuzzy search directories
 Plugin 'tacahiroy/ctrlp-funky' "Ctrl-P extender to allow you to search functions in file.
 Plugin 'scrooloose/nerdtree' "Directory listing
@@ -17,10 +20,11 @@ Plugin 'Raimondi/delimitMate' "Automatic bracket closing
 Plugin 'SearchComplete' "Tab completion when searching files
 Plugin 'airblade/vim-gitgutter' "Shows which lines have been added/modified/removed since last commit
 Plugin 'flazz/vim-colorschemes' "THEMES!
-Plugin 'Valloric/YouCompleteMe' "Autocomplete
 Plugin 'mattn/emmet-vim' "Text expansion
 Plugin 'bling/vim-airline' "Better statusline
 Plugin 'tpope/vim-dispatch' "Friggin amazing build tool
+Plugin 'christoomey/vim-tmux-navigator' "Tmux/Vim integration
+Plugin 'epeli/slimux' "Inline REPL
 
 call vundle#end()
 filetype plugin indent on
@@ -48,6 +52,10 @@ set autoindent
 set smartindent
 set softtabstop=2
 set nowrap
+set scrolljump=5
+set backspace=2
+
+hi NonText cterm=NONE ctermfg=NONE
 
 syntax enable
 colorscheme jellybeans
@@ -60,6 +68,12 @@ highlight clear SignColumn
 "Rebind stuff
 nnoremap <silent> <leader>m :Make<CR>
 nnoremap <silent> <leader>f :CtrlPFunky<Cr>
-nnoremap <silent> <leader>/ :CtrlPLine<Cr>
 nnoremap <silent> <leader>F :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
+nnoremap <silent> <leader>/ :CtrlPLine<Cr>
 nnoremap <silent> <leader>t :NERDTreeToggle<CR>
+vmap <silent> <leader>r :SlimuxREPLSendSelection<CR>
+
+map <C-J> <C-W>j
+map <C-K> <C-W>k
+map <C-H> <C-W>h
+map <C-L> <C-W>l
