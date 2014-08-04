@@ -45,3 +45,9 @@ Features in my .bash_profile
 - Autojump
 - `finder` alias opens current directory in finder
 - `syssleep` will send computer to sleep with simple applescript
+
+Features in my .tmux.conf
+---
+- Sensible defaults
+- Vim movement
+- Vim/tmux integration
