@@ -3,7 +3,6 @@ set tabstop=4
 set nu
 set nocp
 set nocompatible
-filetype off
 
 "Boilerplate to enable Vundle
 set rtp+=~/.vim/bundle/Vundle.vim/
@@ -29,7 +28,7 @@ Plugin 'epeli/slimux' "Inline REPL
 Plugin 'scrooloose/syntastic' "Syntax checking
 Plugin 'AutoTag' "Ctags
 Plugin 'OmniCppComplete' "Cpp/C ctags C! C the ctags! C and Cpp Ctags C the C!
-Plugin 'AutoComplPop' "Autocomplete popup
+Plugin 'bufkill.vim' "Make buffers play nice
 
 call vundle#end()
 filetype plugin indent on
@@ -70,6 +69,9 @@ set nowrap
 set scrolljump=5
 set backspace=2
 set laststatus=2
+set autochdir
+set ofu=syntaxcomplete#Complete
+set clipboard=unnamed
 
 "I never found the backup files useful.
 set nobackup
@@ -79,8 +81,7 @@ inoremap <C-U> <C-G>u<C-U>
 syntax enable
 colorscheme jellybeans
 
-set colorcolumn=+1
-highlight clear SignColumn
+autocmd FileType c,h,cpp,hpp set omnifunc=omni#cpp#complete#Main
 
 "Bind stuff
 nnoremap <silent> <leader>m :Make<CR>
@@ -97,3 +98,26 @@ map <C-J> <C-W>j
 map <C-K> <C-W>k
 map <C-H> <C-W>h
 map <C-L> <C-W>l
+
+"Omnicomplete settings
+set completeopt=longest,menuone
+
+function! Smart_TabComplete()
+  let line = getline('.')
+  let col = col('.')
+  let substr = strpart(line, -1, col('.')+1)
+  let substr = matchstr(substr, "[^ \t]*$")
+  let first_char = col('.') == match(getline('.'),'\S')+1 "Allow tabbing at the front of a line.
+  if (strlen(substr)==0 || first_char)
+    return "\<tab>"
+  endif
+  let has_period = match(substr, '\.') != -1
+  let has_slash = match(substr, '\/') != -1
+  if (has_slash)
+    return "\<C-X>\<C-F>"
+  else
+    return "\<C-X>\<C-O>"
+  endif
+endfunction
+
+inoremap <Tab> <C-R>=Smart_TabComplete()<cr>
