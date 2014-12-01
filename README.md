@@ -25,21 +25,14 @@ Features and overview of .vimrc
   - [Taglist](http://www.vim.org/scripts/script.php%3Fscript_id%3D273)
   - [Vim Fugitive](https://github.com/tpope/vim-fugitive)
   - [Syntastic](https://github.com/scrooloose/syntastic)
-  - *C/C++ development plugins*
-    - [clang_complete](https://github.com/Rip-Rip/clang_complete)
 - Ctrl-P-like file searching using dmenu. Much faster and lighter weight.
 - Leader is mapped to `,`
 - Switch between C/C++ source files and header files using `,a`
-- Decent tab completetion (omnicomplete)
-- Auto bracket closing
 
 ------
-No shell configuration files, because you should use zsh and [Prezto](https://github.com/sorin-ionescu/prezto). It has all the configuration I'd want out of the box.
-
-------
-
 Features in my .tmux.conf
 ---
+- Ctrl-Space leader
 - Sensible defaults
 - Vim movement
 - Hidden status bar by default

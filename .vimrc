@@ -8,15 +8,10 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim' "Plugin Manager
 Plugin 'taglist.vim' "Source code browser
-Plugin 'flazz/vim-colorschemes' "THEMES!
 Plugin 'tpope/vim-fugitive' "Git wrapper
 Plugin 'scrooloose/syntastic' "Syntax checking
-Plugin 'Rip-Rip/clang_complete' "Clang completion
 
 call vundle#end()
-
-let g:clang_library_path='/usr/lib/llvm-3.4/lib/'
-let g:clang_snippets=1
 
 "Configure file browser
 let g:netrw_browse_split = 4
@@ -30,7 +25,6 @@ set fenc=utf-8
 set termencoding=utf-8
 set number
 set expandtab
-set cursorline
 set shiftwidth=2
 set smarttab
 set autoindent
@@ -42,7 +36,6 @@ set nowrap
 set backspace=2
 set laststatus=2
 set autochdir
-set omnifunc=syntaxcomplete#Complete
 highlight clear SignColumn
 
 "I never found the backup files useful.
@@ -54,7 +47,6 @@ set nowritebackup
 set noswapfile
 
 syntax enable
-colorscheme jellybeans
 
 "Strip trailing whitespace when writing a file
 autocmd BufWritePre * :%s/\s\+$//e
@@ -109,41 +101,6 @@ function! SwapSourceFile(cmd)
   endif
 endfunction
 
-""""""""""""""""
-" TAB COMPLETE "
-""""""""""""""""
-function! SmartTabComplete()
-  let line = getline('.')
-
-  let substr = strpart(line, -1, col('.')+1)
-  let substr = matchstr(substr, "[^ \t]*$")
-  if (strlen(substr)==0)
-    return "\<Tab>"
-  endif
-  let has_period = match(substr, '\.') != -1
-  let has_slash = match(substr, '\/') != -1
-  if (!has_period && !has_slash)
-    return "\<C-X>\<C-P>"
-  elseif ( has_slash )
-    return "\<C-X>\<C-F>"
-  else
-    return "\<C-X>\<C-O>"
-  endif
-endfunction
-
-"""""""""""""""""""
-" BRACKET CLOSING "
-"""""""""""""""""""
-let matches = split("[:],{:},(:),\":\",':',/*:*/,`:`", ",")
-for i in range(len(matches))
-  let o = split(matches[i], ":")[0]
-  let c = split(matches[i], ":")[1]
-  execute 'inoremap ' . o . ' ' . o . c . '<Left>'
-  execute 'inoremap ' . o . '<CR> ' . o . '<CR>' . c . '<Esc>O'
-  execute 'inoremap ' . o . '<Space>' . ' ' . o . '<Space><Space>' . c . '<Left><Left>'
-  execute 'inoremap ' . o . c . ' ' . o . c
-endfor
-
 """"""""""""""""""
 " KEYBOARD BINDS "
 """"""""""""""""""
@@ -155,8 +112,6 @@ nnoremap <silent> <leader>t :TlistToggle<CR>
 nnoremap <silent> [b :bp<CR>
 nnoremap <silent> ]b :bn<CR>
 nnoremap <leader>b :ls<CR>:b<Space>
-
-inoremap <Tab>    <c-r>=SmartTabComplete()<CR>
 
 "Move windows with C-Direction
 map <C-J> <C-W>j
