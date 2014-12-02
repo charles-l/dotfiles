@@ -25,13 +25,13 @@ set fenc=utf-8
 set termencoding=utf-8
 set number
 set expandtab
-set shiftwidth=2
+set shiftwidth=8
 set smarttab
 set autoindent
 set smartindent
-set tabstop=4
+set tabstop=8
 set hidden
-set softtabstop=2
+set softtabstop=8
 set nowrap
 set backspace=2
 set laststatus=2
