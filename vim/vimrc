@@ -55,7 +55,6 @@ let g:rbpt_colorpairs = [
 """""""""""""""""""""""
 " BASIC CONFIGURATION "
 """""""""""""""""""""""
-
 let mapleader = ","
 
 set t_Co=256 "MORE COLORS
@@ -75,6 +74,7 @@ colorscheme ir_black
 " Minor highlight tweaks
 highlight clear SignColumn
 highlight Pmenu ctermbg=DarkGrey ctermfg=White
+"highlight VertSplit ctermbg=black ctermfg=black
 
 "Strip trailing whitespace when writing a file
 autocmd BufWritePre * :%s/\s\+$//e

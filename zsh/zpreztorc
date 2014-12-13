@@ -1,0 +1,43 @@
+#
+# Sets Prezto options.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
+zstyle ':prezto:*:*' color 'yes'
+
+zstyle ':prezto:load' pmodule \
+  'environment' \
+  'terminal' \
+  'editor' \
+  'tmux' \
+  'history' \
+  'directory' \
+  'spectrum' \
+  'utility' \
+  'completion' \
+  'fasd' \
+  'git' \
+  'ruby' \
+  'syntax-highlighting' \
+  'prompt'
+
+zstyle ':prezto:module:editor' key-bindings 'emacs'
+
+# Auto convert .... to ../..
+zstyle ':prezto:module:editor' dot-expansion 'yes'
+
+# Set the prompt theme to load.
+zstyle ':prezto:module:prompt' theme 'steeef'
+
+# Auto start a session when Zsh is launched in a local terminal.
+zstyle ':prezto:module:tmux:auto-start' local 'yes'
+
+# Enable all syntax highlighting
+zstyle ':prezto:module:syntax-highlighting' highlighters \
+               'main' \
+               'brackets' \
+               'pattern' \
+               'cursor' \
+               'root'

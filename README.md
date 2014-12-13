@@ -1,26 +1,26 @@
 Dotfiles
 ========
-My config files for Vim and tmux
+My config files.
 
 Screenies!
 --------
 _Vim_<br/>
-![](vim.png)
+![](screenshots/vim.png)
 <br/>
 
 _tmux/Vim/zsh_<br/>
-![](all_together.png)
+![](screenshots/all_together.png)
 
-Dependencies
------
-*.vimrc*
-- [Vundle](http://www.vim.org/scripts/script.php?script_id=3458)
-- Then open the .vimrc file and run `:PluginInstall` to get the rest of the plugins.
+Install
+----
+`git clone https://github.com/charles-l/dotfiles ~/.dotfiles` <br/>
+`sh ~/.dotfiles/install.sh`
 
 Features and overview of .vimrc
 ----
-- Minimal cruft. As few plugins as possible (features are instead implemented in vimrc). This limits the number of odd dependency issues, and opens up the vimrc to more configuration.
+- Minimal cruft.
 - Plugins enabled and configured:
+  - [Vundle](http://www.vim.org/scripts/script.php?script_id=3458)
   - [Vundle](http://www.vim.org/scripts/script.php?script_id=3458)
   - [Taglist](http://www.vim.org/scripts/script.php%3Fscript_id%3D273)
   - [Vim Fugitive](https://github.com/tpope/vim-fugitive)
