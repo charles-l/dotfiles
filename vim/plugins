@@ -1,0 +1,52 @@
+"Boilerplate to enable Vundle
+set rtp+=~/.vim/bundle/Vundle.vim/
+call vundle#begin()
+
+Plugin 'gmarik/Vundle.vim' "Plugin Manager
+Plugin 'taglist.vim' "Source code browser
+Plugin 'tpope/vim-fugitive' "Git wrapper
+Plugin 'scrooloose/syntastic' "Syntax checking
+Plugin 'kien/ctrlp.vim'  "Fuzzy searching if dmenu isn't avaliable
+Plugin 'kien/rainbow_parentheses.vim' "Makes working with lisp easier
+Plugin 'wgibbs/vim-irblack' "Nice, low contrast color scheme
+Plugin 'mtth/scratch.vim' " For taking notes or as a temp buffer for pasting crap
+Plugin 'fatih/vim-go' "Because vim stuff that comes with go is crap
+
+call vundle#end()
+
+"""""""""""""""""
+" PLUGIN CONFIG "
+"""""""""""""""""
+"Configure file browser
+let g:netrw_browse_split = 0
+
+"Configure syntastic
+let g:syntastic_c_include_dirs = [ '/usr/local/include']
+
+" Rainbow parentheses
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
+let g:rbpt_colorpairs = [
+        \ ['brown',       'RoyalBlue3'],
+        \ ['Darkblue',    'SeaGreen3'],
+        \ ['darkgray',    'DarkOrchid3'],
+        \ ['darkgreen',   'firebrick3'],
+        \ ['darkcyan',    'RoyalBlue3'],
+        \ ['darkred',     'SeaGreen3'],
+        \ ['darkmagenta', 'DarkOrchid3'],
+        \ ['brown',       'firebrick3'],
+        \ ['gray',        'RoyalBlue3'],
+        \ ['green',       'SeaGreen3'],
+        \ ['darkmagenta', 'DarkOrchid3'],
+        \ ['Darkblue',    'firebrick3'],
+        \ ['darkgreen',   'RoyalBlue3'],
+        \ ['darkcyan',    'SeaGreen3'],
+        \ ['darkred',     'DarkOrchid3'],
+        \ ['red',         'firebrick3'],
+        \ ]
+
+syntax enable
+colorscheme ir_black

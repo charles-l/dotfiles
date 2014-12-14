@@ -21,7 +21,6 @@ Features and overview of .vimrc
 - Minimal cruft.
 - Plugins enabled and configured:
   - [Vundle](http://www.vim.org/scripts/script.php?script_id=3458)
-  - [Vundle](http://www.vim.org/scripts/script.php?script_id=3458)
   - [Taglist](http://www.vim.org/scripts/script.php%3Fscript_id%3D273)
   - [Vim Fugitive](https://github.com/tpope/vim-fugitive)
   - [Syntastic](https://github.com/scrooloose/syntastic)
@@ -38,3 +37,5 @@ Features in my .tmux.conf
 - Sensible defaults
 - Vim movement
 - Hidden status bar by default
+
+[See it in action](https://asciinema.org/a/14706)

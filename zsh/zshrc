@@ -1,0 +1,11 @@
+# CHUCK'S .ZSHRC
+
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+source $HOME/.dotfiles/zsh/variables.sh
+source $HOME/.dotfiles/zsh/aliases.sh
+source $HOME/.dotfiles/zsh/funcs.sh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh # fuzzy search

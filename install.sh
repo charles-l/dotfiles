@@ -58,6 +58,7 @@ echo "linking config files"
 ln -f vim/vimrc ~/.vimrc
 ln -f tmux/tmux.conf ~/.tmux.conf
 ln -f zsh/zpreztorc ~/.zpreztorc
+ln -f zsh/zshrc ~/.zshrc
 ln -f git/gitignore_global ~/.gitignore_global
 
 ln -f ~/.zprezto/runcoms/zlogin "${ZDOTDIR:-$HOME}/.zlogin"
