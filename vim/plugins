@@ -9,19 +9,31 @@ Plugin 'scrooloose/syntastic' "Syntax checking
 Plugin 'kien/ctrlp.vim'  "Fuzzy searching if dmenu isn't avaliable
 Plugin 'kien/rainbow_parentheses.vim' "Makes working with lisp easier
 Plugin 'wgibbs/vim-irblack' "Nice, low contrast color scheme
-Plugin 'mtth/scratch.vim' " For taking notes or as a temp buffer for pasting crap
+Plugin 'charles-l/writer' "For writing in vim
+
+"Snippets
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+
+"Language specific stuff
 Plugin 'fatih/vim-go' "Because vim stuff that comes with go is crap
+Plugin 'kchmck/vim-coffee-script' "Coffeescript support
+Plugin 'tpope/vim-bundler.git'
+Plugin 'tpope/vim-rails.git'
 
 call vundle#end()
 
 """""""""""""""""
 " PLUGIN CONFIG "
 """""""""""""""""
-"Configure file browser
-let g:netrw_browse_split = 0
-
 "Configure syntastic
 let g:syntastic_c_include_dirs = [ '/usr/local/include']
+
+"Snippets
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsSnippetDirectories=["bundle/vim-snippets/UltiSnips"]
 
 " Rainbow parentheses
 au VimEnter * RainbowParenthesesToggle

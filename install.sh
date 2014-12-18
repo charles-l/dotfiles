@@ -71,10 +71,11 @@ echo "to update, just \`git pull\` this repo"
 
 #######################
 
-echo "Do you want to install extras? (stuff without dotfiles, but still useful)"
+echo "Do you want to install extra utilities?"
 read line
 if [[ ${line:0:1} == "y" ]]; then echo "Continue"; else exit; fi
 
 install newsbeuter "RSS reader"
 install painobar   "Pandora client"
 install ruby       "General purpose scripting language. [dependency]"
+gem install t

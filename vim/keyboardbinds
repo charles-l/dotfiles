@@ -10,6 +10,7 @@ nnoremap <silent> <leader>s :Scratch<CR>
 nnoremap <silent> [b :bp<CR>
 nnoremap <silent> ]b :bn<CR>
 nnoremap <leader>b :ls<CR>:b<Space>
+nnoremap ; :
 inoremap <C-F> <C-X><C-F>
 
 "Move windows with C-Direction

@@ -7,12 +7,15 @@ set t_Co=256 "MORE COLORS
 set encoding=utf-8
 set fenc=utf-8
 set termencoding=utf-8
-set shiftwidth=8
-set tabstop=8
-set softtabstop=8
 set backspace=2
-set laststatus=2
-set number expandtab smarttab autoindent smartindent hidden nowrap autochdir
+set laststatus=1
+set tags=./tags
+set shiftwidth=4
+set tabstop=4
+set number expandtab smarttab autoindent smartindent hidden nowrap relativenumber
+
+"Configure file browser
+let g:netrw_browse_split = 0
 
 " Minor highlight tweaks
 highlight clear SignColumn
