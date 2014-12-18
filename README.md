@@ -25,7 +25,8 @@ Features and overview of .vimrc
   - [Vim Fugitive](https://github.com/tpope/vim-fugitive)
   - [Syntastic](https://github.com/scrooloose/syntastic)
   - [Rainbow Parentheses](https://github.com/kien/rainbow_parentheses.vim)
-  - [Scratch.vim](https://github.com/mtth/stratch.vim)
+  - [Writer](https://github.com/charles-l/writer)
+  - [Ultisnips](https://github.com/SirVer/ultisnips)
 - Ctrl-P-like file searching using dmenu. Much faster and lighter weight. (If Dmenu isn't avaliable, defaults back to ctrl-p)
 - Leader is mapped to `,`
 - Switch between C/C++ source files and header files using `,a`
