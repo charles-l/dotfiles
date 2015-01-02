@@ -40,3 +40,16 @@ Features in my .tmux.conf
 - Hidden status bar by default
 
 [See it in action](https://asciinema.org/a/14706)
+
+------
+File Layout
+------
+`git/` Git configuration (`.gitignore_global`)
+
+`shell/` Generic shell configuration (POSIX complient variables, functions, aliases)
+
+`tmux/` Tmux configuration (`.tmux.conf`)
+
+`zsh/` Zsh and zprezto specific config (`.zshrc`, `.zpreztorc`)
+
+`vim/` Vim config (split out for plugins, global configuration, etc.)

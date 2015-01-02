@@ -1,0 +1,3 @@
+[submodule "shell/shmark"]
+	path = shell/shmark
+	url = https://github.com/charles-l/shmark

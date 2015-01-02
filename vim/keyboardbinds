@@ -7,6 +7,7 @@ nnoremap <silent> <leader>f :Exp<CR>
 nnoremap <silent> <leader>a :call SwapSourceFile("e")<CR>
 nnoremap <silent> <leader>t :TlistToggle<CR>
 nnoremap <silent> <leader>s :Scratch<CR>
+nnoremap <silent> <leader>m :Make!<CR>
 nnoremap <silent> [b :bp<CR>
 nnoremap <silent> ]b :bn<CR>
 nnoremap <leader>b :ls<CR>:b<Space>

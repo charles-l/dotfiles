@@ -5,15 +5,18 @@ brew=`command -v brew`
 apt=`command -v apt-get`
 yum=`command -v yum`
 pacman=`command -v pacman`
+xbps=`command -v xbps-install`
 
-if [[ -n "$brew" ]]; then
+if [ -n "$brew" ]; then
         INSTALLCOMMAND="brew install"
-elif [[ -n "$apt" ]]; then
+elif [ -n "$apt" ]; then
         INSTALLCOMMAND="apt-get install"
-elif [[ -n "$yum" ]]; then
+elif [ -n "$yum" ]; then
         INSTALLCOMMAND="yum install"
-elif [[ -n "$pacman" ]]; then
+elif [ -n "$pacman" ]; then
         INSTALLCOMMAND="pacman -S"
+elif [ -n "$xbps" ]; then
+        INSTALLCOMMAND="xbps-install"
 else
         echo "Huh. Unknown package manager."
         echo "quitting..."
@@ -31,12 +34,8 @@ install() {
         fi
 }
 
-echo "#################### WARNING ###################"
-echo "# It is assumed that this directory is located #"
-echo "# ~/.dotfiles. Some paths depend on it.        #"
-echo "#################### WARNING ###################"
+echo "WARNING! '~/.dotfiles' must exist for this to work!"
 
-install git  "Version control"
 install vim  "Editor"
 install mutt "Email client"
 install tmux "Terminal multiplexer"
@@ -47,9 +46,6 @@ git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$H
 echo "installing vundle for vim"
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
-echo "installing vundle plugins"
-vim +PluginInstall +qall
-
 echo "moving old config files"
 mv ~/.vimrc ~/.vimrc.old
 mv ~/.tmux.conf ~/.tmux.conf.old
@@ -59,7 +55,11 @@ ln -f vim/vimrc ~/.vimrc
 ln -f tmux/tmux.conf ~/.tmux.conf
 ln -f zsh/zpreztorc ~/.zpreztorc
 ln -f zsh/zshrc ~/.zshrc
+ln -f bash/profile ~/.profile
 ln -f git/gitignore_global ~/.gitignore_global
+
+echo "installing vundle plugins"
+vim +PluginInstall +qall
 
 ln -f ~/.zprezto/runcoms/zlogin "${ZDOTDIR:-$HOME}/.zlogin"
 ln -f ~/.zprezto/runcoms/zlogout "${ZDOTDIR:-$HOME}/.zlogout"
@@ -67,7 +67,7 @@ ln -f ~/.zprezto/runcoms/zprofile "${ZDOTDIR:-$HOME}/.zprofile"
 ln -f ~/.zprezto/runcoms/zshenv "${ZDOTDIR:-$HOME}/.zprofile"
 
 echo "finished installation"
-echo "to update, just \`git pull\` this repo"
+echo "to update, just \`git pull\` this repo and run install.sh again"
 
 #######################
 
@@ -76,6 +76,4 @@ read line
 if [[ ${line:0:1} == "y" ]]; then echo "Continue"; else exit; fi
 
 install newsbeuter "RSS reader"
-install painobar   "Pandora client"
-install ruby       "General purpose scripting language. [dependency]"
-gem install t
+install pianobar   "Pandora client"

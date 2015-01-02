@@ -1,7 +1,0 @@
-alias ga='git add'
-alias gc='git commit'
-alias gca='git commit --all'
-alias gp='git push'
-alias gs='git status'
-alias co='pbcopy'
-alias pa='pbpaste'

@@ -5,11 +5,15 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim' "Plugin Manager
 Plugin 'taglist.vim' "Source code browser
 Plugin 'tpope/vim-fugitive' "Git wrapper
-Plugin 'scrooloose/syntastic' "Syntax checking
+"Plugin 'scrooloose/syntastic' "Syntax checking
 Plugin 'kien/ctrlp.vim'  "Fuzzy searching if dmenu isn't avaliable
 Plugin 'kien/rainbow_parentheses.vim' "Makes working with lisp easier
 Plugin 'wgibbs/vim-irblack' "Nice, low contrast color scheme
 Plugin 'charles-l/writer' "For writing in vim
+Plugin 'tpope/vim-markdown'
+Plugin 'tpope/vim-dispatch'
+Plugin 'vim-scripts/SyntaxRange'
+Plugin 'sudar/vim-arduino-syntax'
 
 "Snippets
 Plugin 'SirVer/ultisnips'
