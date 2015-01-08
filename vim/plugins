@@ -5,33 +5,40 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim' "Plugin Manager
 Plugin 'taglist.vim' "Source code browser
 Plugin 'tpope/vim-fugitive' "Git wrapper
-"Plugin 'scrooloose/syntastic' "Syntax checking
 Plugin 'kien/ctrlp.vim'  "Fuzzy searching if dmenu isn't avaliable
+Plugin 'tacahiroy/ctrlp-funky'
+Plugin 'ivalkeen/vim-ctrlp-tjump'
 Plugin 'kien/rainbow_parentheses.vim' "Makes working with lisp easier
 Plugin 'wgibbs/vim-irblack' "Nice, low contrast color scheme
 Plugin 'charles-l/writer' "For writing in vim
-Plugin 'tpope/vim-markdown'
-Plugin 'tpope/vim-dispatch'
+Plugin 'tpope/vim-dispatch' "Better build plugin
 Plugin 'vim-scripts/SyntaxRange'
-Plugin 'sudar/vim-arduino-syntax'
+Plugin 'gregsexton/MatchTag'
+Plugin 'geekq/vim-go'
+Plugin 'Raimondi/delimitMate'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'vim-scripts/matchit.zip'
+
+Plugin 'kana/vim-textobj-user'
+Plugin 'nelstrom/vim-textobj-rubyblock'
 
 "Snippets
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 
 "Language specific stuff
-Plugin 'fatih/vim-go' "Because vim stuff that comes with go is crap
-Plugin 'kchmck/vim-coffee-script' "Coffeescript support
+Plugin 'kchmck/vim-coffee-script'
 Plugin 'tpope/vim-bundler.git'
 Plugin 'tpope/vim-rails.git'
+Plugin 'tpope/vim-markdown'
+Plugin 'sudar/vim-arduino-syntax'
+Plugin 'vim-scripts/JavaScript-Indent'
 
 call vundle#end()
 
 """""""""""""""""
 " PLUGIN CONFIG "
 """""""""""""""""
-"Configure syntastic
-let g:syntastic_c_include_dirs = [ '/usr/local/include']
 
 "Snippets
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -46,6 +53,7 @@ au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
 let g:rbpt_colorpairs = [
+        \ ['darkgreen',   'firebrick3'],
         \ ['brown',       'RoyalBlue3'],
         \ ['Darkblue',    'SeaGreen3'],
         \ ['darkgray',    'DarkOrchid3'],
@@ -60,9 +68,11 @@ let g:rbpt_colorpairs = [
         \ ['Darkblue',    'firebrick3'],
         \ ['darkgreen',   'RoyalBlue3'],
         \ ['darkcyan',    'SeaGreen3'],
-        \ ['darkred',     'DarkOrchid3'],
         \ ['red',         'firebrick3'],
         \ ]
 
 syntax enable
 colorscheme ir_black
+
+nnoremap <silent> <leader>t :TlistToggle<CR>
+nnoremap <silent> <leader>m :Make<CR>

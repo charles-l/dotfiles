@@ -2,8 +2,8 @@
 set nocompatible
 filetype plugin indent on
 
-source ~/.dotfiles/vim/plugins
 source ~/.dotfiles/vim/basicconfig
 source ~/.dotfiles/vim/filesearch
 source ~/.dotfiles/vim/headerswap
 source ~/.dotfiles/vim/keyboardbinds
+source ~/.dotfiles/vim/plugins

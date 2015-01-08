@@ -39,6 +39,7 @@ echo "WARNING! '~/.dotfiles' must exist for this to work!"
 install vim  "Editor"
 install mutt "Email client"
 install tmux "Terminal multiplexer"
+install hub  "GitHub utility"
 
 echo "installing zprezto for zsh"
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"

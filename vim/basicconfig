@@ -14,6 +14,8 @@ set shiftwidth=4
 set tabstop=4
 set number expandtab smarttab autoindent smartindent hidden nowrap relativenumber
 
+autocmd BufNewfile,BufRead *.go setf go
+
 "Configure file browser
 let g:netrw_browse_split = 0
 
