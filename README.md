@@ -8,7 +8,7 @@ _Vim_<br/>
 ![](screenshots/vim.png)
 <br/>
 
-_tmux/Vim/zsh_<br/>
+_tmux/Vim/mksh_<br/>
 ![](screenshots/all_together.png)
 
 Install
@@ -19,15 +19,7 @@ Install
 Features and overview of .vimrc
 ----
 - Minimal cruft.
-- Plugins enabled and configured:
-  - [Vundle](http://www.vim.org/scripts/script.php?script_id=3458)
-  - [Taglist](http://www.vim.org/scripts/script.php%3Fscript_id%3D273)
-  - [Vim Fugitive](https://github.com/tpope/vim-fugitive)
-  - [Syntastic](https://github.com/scrooloose/syntastic)
-  - [Rainbow Parentheses](https://github.com/kien/rainbow_parentheses.vim)
-  - [Writer](https://github.com/charles-l/writer)
-  - [Ultisnips](https://github.com/SirVer/ultisnips)
-- Ctrl-P-like file searching using dmenu. Much faster and lighter weight. (If Dmenu isn't avaliable, defaults back to ctrl-p)
+- Lots 'o plugins configured and ready to go ([See for yourself](./vim/plugins.vim))
 - Leader is mapped to `,`
 - Switch between C/C++ source files and header files using `,a`
 
@@ -39,7 +31,11 @@ Features in my .tmux.conf
 - Vim movement
 - Hidden status bar by default
 
-[See it in action](https://asciinema.org/a/14706)
+-----
+Shell
+----
+
+Shell configuration is POSIX complient and will work in most shells. I personally prefer mksh ('cause it's lightweight and has many of the useful features of bash)
 
 ------
 File Layout

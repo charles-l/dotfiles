@@ -9,3 +9,5 @@ source $HOME/.dotfiles/zsh/aliases.sh
 source $HOME/.dotfiles/zsh/funcs.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh # fuzzy search
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

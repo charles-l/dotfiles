@@ -13,29 +13,15 @@ set tags=./tags
 set shiftwidth=4
 set tabstop=4
 set number expandtab smarttab autoindent smartindent hidden nowrap relativenumber
+set path=$PWD/**
 
 autocmd BufNewfile,BufRead *.go setf go
 
 "Configure file browser
 let g:netrw_browse_split = 0
 
-" Minor highlight tweaks
-highlight clear SignColumn
-highlight Pmenu ctermbg=DarkGrey ctermfg=White
-"highlight VertSplit ctermbg=black ctermfg=black
-
 "Strip trailing whitespace when writing a file
 autocmd BufWritePre * :%s/\s\+$//e
-
-" Change cursor shape
-if &term == 'xterm-256color' || &term == 'screen-256color'
-        let &t_SI = "\<Esc>[5 q"
-        let &t_EI = "\<Esc>[1 q"
-endif
-if exists('$TMUX')
-        let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-        let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-endif
 
 """"""""ANNOYANCES""""""""
 " Don't jump when I merge lines
@@ -63,10 +49,10 @@ set wildignore+=*.a,*.o
 set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png
 set wildignore+=.DS_Store,.git,.hg,.svn
 set wildignore+=*~,*.swp,*.tmp
-
 " Remove useless backup files
 set nobackup nowritebackup
-
 " Very rarely does anyone need swap files anymore
 set noswapfile
+" Minor highlight tweaks
+highlight Pmenu ctermbg=DarkGrey ctermfg=White
 

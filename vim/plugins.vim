@@ -7,31 +7,40 @@ Plugin 'taglist.vim' "Source code browser
 Plugin 'tpope/vim-fugitive' "Git wrapper
 Plugin 'kien/ctrlp.vim'  "Fuzzy searching if dmenu isn't avaliable
 Plugin 'tacahiroy/ctrlp-funky'
-Plugin 'ivalkeen/vim-ctrlp-tjump'
 Plugin 'kien/rainbow_parentheses.vim' "Makes working with lisp easier
 Plugin 'wgibbs/vim-irblack' "Nice, low contrast color scheme
 Plugin 'charles-l/writer' "For writing in vim
 Plugin 'tpope/vim-dispatch' "Better build plugin
+Plugin 'tpope/vim-surround'
+Plugin 'scrooloose/nerdcommenter' "Magical commenting
 Plugin 'vim-scripts/SyntaxRange'
 Plugin 'gregsexton/MatchTag'
 Plugin 'geekq/vim-go'
 Plugin 'Raimondi/delimitMate'
 Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'vim-scripts/matchit.zip'
-
+"Plugin 'scrooloose/syntastic'
 Plugin 'kana/vim-textobj-user'
-Plugin 'nelstrom/vim-textobj-rubyblock'
+Plugin 'ervandew/supertab'
+Plugin 'jgdavey/tslime.vim'
 
-"Snippets
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-
-"Language specific stuff
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'tpope/vim-bundler.git'
+"Ruby
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-rails.git'
+Plugin 'tpope/vim-rvm'
+Plugin 'tpope/vim-bundler.git'
+Plugin 'thoughtbot/vim-rspec'
+
+"Coffeescript
+Plugin 'kchmck/vim-coffee-script'
+
+"Markdown
 Plugin 'tpope/vim-markdown'
+
+"Arduino
 Plugin 'sudar/vim-arduino-syntax'
+
+"JavaScript
 Plugin 'vim-scripts/JavaScript-Indent'
 
 call vundle#end()
@@ -39,12 +48,6 @@ call vundle#end()
 """""""""""""""""
 " PLUGIN CONFIG "
 """""""""""""""""
-
-"Snippets
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-let g:UltiSnipsSnippetDirectories=["bundle/vim-snippets/UltiSnips"]
 
 " Rainbow parentheses
 au VimEnter * RainbowParenthesesToggle
@@ -71,8 +74,21 @@ let g:rbpt_colorpairs = [
         \ ['red',         'firebrick3'],
         \ ]
 
-syntax enable
-colorscheme ir_black
+"Supertab
+let g:SuperTabDefaultCompletionType = "context"
+
+"Ctrl-P Funky
+nnoremap <Leader>fu :CtrlPFunky<Cr>
+
+"Tslime
+vmap <Leader>r <Plug>SendSelectionToTmux
+
+"Delimitmate
+let g:delimitMate_expand_cr = 1
+let g:delimitMate_expand_space = 1
 
 nnoremap <silent> <leader>t :TlistToggle<CR>
 nnoremap <silent> <leader>m :Make<CR>
+
+syntax enable
+colorscheme ir_black
