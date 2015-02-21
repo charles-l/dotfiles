@@ -24,6 +24,7 @@ Plugin 'ervandew/supertab'
 Plugin 'jgdavey/tslime.vim'
 
 "Ruby
+Plugin 'ngmy/vim-rubocop'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-rails.git'
