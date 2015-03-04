@@ -10,7 +10,7 @@ set termencoding=utf-8
 set backspace=2
 set laststatus=1
 set tags=./tags
-set shiftwidth=4
+set shiftwidth=2
 set tabstop=4
 set number expandtab smarttab autoindent smartindent hidden nowrap relativenumber
 set path=$PWD/**
