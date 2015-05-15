@@ -1,0 +1,21 @@
+#!/bin/sh
+pkill wpa_supplicant
+pkill dhcpcd
+
+DEV=`ip link | cut -d' ' -f 2 | cut -d':' -f 1 | grep -v '^$' | grep enp`
+echo "Using $DEV"
+
+function doconnect() {
+    ip link set $DEV up
+    iwlist $DEV scan | grep -B 1 "ESSID:"
+
+    wpa_supplicant -B -Dnl80211,wext -i $DEV -c /etc/wpa_supplicant/wpa_supplicant.conf
+    sleep 2
+    dhcpcd $DEV
+}
+
+case $1 in
+    connect)
+        doconnect
+        ;;
+esac

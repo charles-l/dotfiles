@@ -1,0 +1,45 @@
+#!/bin/sh
+#
+# z3bra - (c) wtfpl 2014
+# record a gif from a specific window until ^D
+
+usage () {
+    cat <<EOF
+usage: `basename $0` [-h] <file>
+    -h : print this help
+
+environment:
+    BORDERS  : set the window border size (default: 5)
+EOF
+}
+
+case $1 in
+    -h) usage && exit 0;;
+     *) test $# -lt 1 && usage && exit 1
+esac
+
+# the size of your window manager borders, to include them in the gif
+BORDERS=${BORDER:-2}
+FIFO=${FIFO:-/tmp/xgif-$$.fifo}
+
+# let the user grab a window
+geom=$(xwininfo|grep -E "Wid|Hei|Abs"|sed 's/.*:\s*//g'|tr '\n' :|sed 's/:$//')
+
+# extract window size/position
+x=$(echo $geom|cut -d: -f1)
+y=$(echo $geom|cut -d: -f2)
+w=$(echo $geom|cut -d: -f3)
+h=$(echo $geom|cut -d: -f4)
+
+# add the borders to the width/heigh
+w=$(( $w + 2 * $BORDERS))
+h=$(( $h + 2 * $BORDERS))
+
+# this hackery serves the purpose of recording until the user press ^D
+test -p $FIFO || mkfifo $FIFO
+
+byzanz-record -x $x -y $y -w $w -h $h -e "cat $FIFO" $1 &
+
+# will hold the fifo openned until ^D is pressed
+cat > $FIFO
+rm $FIFO

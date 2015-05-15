@@ -1,0 +1,18 @@
+#!/bin/sh
+#
+# z3bra - (c) wtfpl 2014
+# fetch weather and temperature using openweathermap API
+
+CITY=${1:-allentown-us}
+FORECAST=${FORECAST:-5}
+UNITS=${UNITS:-imperial}
+
+URL="http://api.openweathermap.org/data/2.5/forecast/daily/?q=$CITY&cnt=$FORECAST&mode=xml&units=$UNITS"
+
+curl -s "$URL" | sed -e 's/.*time day="\([^" ]*\).*/\1,/p'          \
+                     -e 's/^.*symbol.*name="\([^"]*\).*$/\1,/p'     \
+                     -e 's/^.*temperature.*day="\([^"]*\).*$/\1°F/p'\
+                     -e 'd'                                         \
+               | paste -d "" - - -                                  \
+               | sed 's/^\(.*\),\(.*\),\(.*\)/\1,\3,\2/'            \
+               | column -t -s, -o" - "

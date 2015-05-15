@@ -1,0 +1,35 @@
+#include ".config/colors/darktooth"
+
+URxvt*termName:         rxvt-256color
+URxvt*loginShell:       false
+URxvt*saveLines:        4096
+URxvt*geometry:         60x20
+URxvt*allow_bold:       true
+URxvt*scrollBar:        false
+URxvt*cursorBlink:      false
+URxvt*internalBorder:   20
+URxvt*perl-ext-common:  default,clipboard,keyboard-select,url-select
+URxvt.keysym.M-c:       perl:clipboard:copy
+URxvt.keysym.M-v:       perl:clipboard:paste
+URxvt.keysym.C-i:       perl:url-select:select_next
+URxvt.keysym.M-Escape:  perl:keyboard-select:activate
+URxvt.keysym.M-s:       perl:keyboard-select:activate:search
+URxvt.clipboard.copycmd:  xsel -ib
+URxvt.clipboard.pastecmd: xsel -ob
+URxvt*clipboard.autocopy: true
+URxvt*url-select.autocopy: true
+URxvt*url-select.underline: true
+URxvt*url-select.launcher: /usr/bin/dwb
+URxvt*url-select.button: 1
+
+*font:                  -*-gohufont-medium-*-*--14-*-*-*-*-*-*-1
+
+URxvt*boldFont:
+
+Xft.antialias:          true
+Xft.autohint:           0
+Xft.dpi:                96
+Xft.hinting:            full
+Xft.hintstyle:          hintfull
+Xft.lcdfilter:          lcddefault
+Xft.rgba:               rgb

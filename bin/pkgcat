@@ -1,0 +1,50 @@
+#!/bin/sh
+# Script by Ypnose - http://ypnose.org
+# Query PKGBUILD online
+# TODO: REWORK DAT UGLY CRAP!
+
+usage() {
+	printf "%s\n" "Usage: ${0##*/} [-a]"
+	printf "%s\n" "  OPTARG:"
+	printf "%s\n" "    -a 	Search package on AUR."
+	printf "%s\n\n" "If OPTARG is empty, pkgcat will query package on [core], [extra] and then [community] repos."
+}
+
+if [ -z "$1" ] || [ "$1" = -h ]; then
+	usage
+	exit 1
+fi
+
+LET="$(echo $2 | awk '{print substr ($0, 0, 2)}')"
+AUR="https://aur.archlinux.org/packages/$LET/$2/PKGBUILD"
+URLP="https://projects.archlinux.org/svntogit/packages.git/plain/trunk/PKGBUILD?h=packages/$1"
+URLC="https://projects.archlinux.org/svntogit/community.git/plain/trunk/PKGBUILD?h=packages/$1"
+
+if [ "$1" = "-a" ] && [ "$#" -eq 2 ]; then
+	printf "\033[1;32m%s\033[0m\n" "Searching on AUR..."
+	if [ -z "$(curl -s $AUR | awk '/404/')" ]; then
+		printf "\n%s\n" "$(curl -s $AUR)"
+		exit 0
+	else
+		printf "\033[1;31m%s\033[0m\n" "Package not found!"
+		exit 1
+	fi
+fi
+
+printf "\033[1;32m%s\033[0m\n" "Trying core / extra repo..."
+if [ "$(curl -s $URLP | awk 'NR == 1 {print $1}')" != "<!DOCTYPE" ]; then
+	printf "\n%s\n" "$(curl -s $URLP)"
+	exit 0
+else
+	printf "\033[1;31m%s\033[0m\n" "Package not found in core / extra"
+	printf "\033[1;32m%s\033[0m\n" "Trying community repo..."
+	if [ "$(curl -s $URLC | awk 'NR == 1 {print $1}')" != "<!DOCTYPE" ]; then
+		printf "\n%s\n" "$(curl -s $URLC)"
+		exit 0
+	else
+		printf "\033[1;31m%s\033[0m\n" "Package not found!"
+		exit 1
+	fi
+fi
+
+exit 0

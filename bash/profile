@@ -1,8 +1,7 @@
-PS1="$(tput setaf 8)___$(tput sgr0) "
+PS1=" . "
 
+PATH=$PATH:$HOME/bin
+PATH=$PATH:$HOME/.gem/ruby/2.2.0/bin
 . $HOME/.dotfiles/shell/aliases.sh
 . $HOME/.dotfiles/shell/funcs.sh
 . $HOME/.dotfiles/shell/shmark/shmark.sh
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-. $HOME/.rvm/scripts/rvm
