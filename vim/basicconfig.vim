@@ -31,3 +31,4 @@ nnoremap <silent> <leader>b :CtrlPBuffer<CR>
 nnoremap <silent> <leader>o :CtrlP<CR>
 nnoremap <silent> <leader>t :NERDTree<CR>
 nnoremap <silent> <leader>m :make<CR>
+nnoremap <silent> <leader>d :Ack <C-R><C-W><CR>

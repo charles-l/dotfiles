@@ -1,6 +1,6 @@
 PS1=" . "
 
-PATH=$PATH:$HOME/bin
+PATH=$PATH:$HOME/bin:$HOME/.dotfiles/shell/pk
 PATH=$PATH:$HOME/.gem/ruby/2.2.0/bin
 . $HOME/.dotfiles/shell/aliases.sh
 . $HOME/.dotfiles/shell/funcs.sh

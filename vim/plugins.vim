@@ -1,14 +1,22 @@
 "Boilerplate to enable Vundle
-set rtp+=~/.vim/bundle/Vundle.vim/
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
-Plugin 'gmarik/Vundle.vim' "Plugin Manager
-Plugin 'tpope/vim-fugitive' "Git wrapper
-Plugin 'kien/ctrlp.vim'  "Fuzzy searching if dmenu isn't avaliable
-Plugin 'kien/rainbow_parentheses.vim' "Makes working with lisp easier
-Plugin 'wgibbs/vim-irblack' "Nice, low contrast color scheme
-Plugin 'tpope/vim-surround'
-Plugin 'Raimondi/delimitMate'
-Plugin 'scrooloose/nerdtree'
+Plug 'junegunn/vim-pseudocl'
+Plug 'junegunn/vim-oblique'
+Plug 'gmarik/Vundle.vim' "Plugin Manager
+Plug 'tpope/vim-fugitive' "Git wrapper
+Plug 'kien/ctrlp.vim', {'on': ['CtrlP', 'CtrlPBuffer']}
+Plug 'kien/rainbow_parentheses.vim' "Makes working with lisp easier
+Plug 'tpope/vim-surround'
+Plug 'Raimondi/delimitMate'
+Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
+Plug 'mileszs/ack.vim'
+Plug 'tomasr/molokai'
+Plug 'gastonsimone/vim-dokumentary'
 
-call vundle#end()
+"Ruby
+Plug 'vim-ruby/vim-ruby'
+
+call plug#end()
+
+colorscheme molokai

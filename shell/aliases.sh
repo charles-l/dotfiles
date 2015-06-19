@@ -3,7 +3,12 @@ export MAIL=$HOME/var/mail/INBOX
 export EDITOR=vim
 export VISUAL=vim
 
-alias ls='ls --color=always'
+if [ "`uname`" == 'Darwin' ]; then
+    alias ls='ls -G'
+else
+    alias ls='ls --color=always'
+fi
+
 alias ga='git add'
 alias gc='git commit'
 alias gca='git commit --all'

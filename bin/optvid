@@ -1,0 +1,18 @@
+#!/bin/sh
+
+usage()
+{
+  echo "usage: optvid [videos]"
+}
+
+while true; do
+  case $1 in
+    -h | --help)
+      usage
+      exit ;;
+    * )
+      ffmpeg -i $1 $1.mp4
+      exit;;
+  esac
+  shift || break
+done

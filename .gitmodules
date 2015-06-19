@@ -1,3 +1,6 @@
 [submodule "shell/shmark"]
 	path = shell/shmark
 	url = https://github.com/charles-l/shmark
+[submodule "shell/pk"]
+	path = shell/pk
+	url = https://github.com/charles-l/pk
