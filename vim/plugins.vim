@@ -3,7 +3,6 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'junegunn/vim-pseudocl'
 Plug 'junegunn/vim-oblique'
-Plug 'gmarik/Vundle.vim' "Plugin Manager
 Plug 'tpope/vim-fugitive' "Git wrapper
 Plug 'kien/ctrlp.vim', {'on': ['CtrlP', 'CtrlPBuffer']}
 Plug 'kien/rainbow_parentheses.vim' "Makes working with lisp easier
