@@ -15,11 +15,11 @@ ln -f zsh/zshrc ~/.zshrc
 ln -f bash/profile ~/.profile
 ln -f git/gitignore_global ~/.gitignore_global
 
-echo "installing vundle for vim"
-git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+echo "installing plug for vim"
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 echo "installing vundle plugins"
-vim +PluginInstall +qall
+vim +PlugInstall +qall
 
 echo "finished installation"
 echo "to update, just \`git pull\` this repo and run install.sh again"

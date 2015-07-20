@@ -10,6 +10,8 @@ set backspace=2
 set laststatus=1
 set shiftwidth=4
 set tabstop=4
+set modeline
+set modelines=5
 set number expandtab smarttab autoindent smartindent hidden nowrap nobackup
 set path=$PWD/**
 syntax enable

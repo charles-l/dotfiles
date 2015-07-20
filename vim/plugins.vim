@@ -12,6 +12,7 @@ Plug 'Raimondi/delimitMate'
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 Plug 'mileszs/ack.vim'
 Plug 'tomasr/molokai'
+Plug 'tpope/vim-sleuth'
 Plug 'gastonsimone/vim-dokumentary'
 
 "Ruby
