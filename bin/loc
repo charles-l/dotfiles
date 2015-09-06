@@ -1,0 +1,5 @@
+#!/bin/sh
+# slock then turn monitor off
+slock &
+sleep 1
+xset dpms force standby

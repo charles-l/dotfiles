@@ -5,4 +5,4 @@ filetype plugin indent on
 source ~/.dotfiles/vim/basicconfig.vim
 source ~/.dotfiles/vim/headerswap.vim
 source ~/.dotfiles/vim/plugins.vim
-
+colorscheme maui

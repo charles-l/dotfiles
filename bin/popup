@@ -8,7 +8,7 @@
 
 # bar options
 #font='-*-stlarch-medium-r-*-*-10-*-*-*-*-*-*-*'
-font="-*-creep-*-*-*--16-*-*-*-*-*-*-1"
+#font="-*-creep-*-*-*--16-*-*-*-*-*-*-1"
 bg="#ff040201"
 fg="#ffdfd5d2"
 hl="#ff443232"
@@ -42,5 +42,4 @@ done
 GEOM=${GEOM:-$(default_geometry)}
 SLEEP=${SLEEP:-3}
 
-(echo "%{c}$@"; sleep $SLEEP) | lemonbar -d -g $GEOM -f $font -B $bg -F $fg
-
+(echo "%{c}$@"; sleep $SLEEP) | lemonbar -d -g $GEOM -B $bg -F $fg #-f $font

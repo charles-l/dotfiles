@@ -1,0 +1,3 @@
+#!/bin/sh
+CHANNEL=$1
+livestreamer --player=ffplay http://twitch.tv/$CHANNEL high
