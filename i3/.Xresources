@@ -1,4 +1,4 @@
-#include ".config/colors/darktooth"
+#include ".config/colors/dynamic"
 
 URxvt*termName:         rxvt-256color
 URxvt*loginShell:       false
@@ -19,10 +19,9 @@ URxvt.clipboard.pastecmd: xsel -ob
 URxvt*clipboard.autocopy: true
 URxvt*url-select.autocopy: true
 URxvt*url-select.underline: true
-URxvt*url-select.launcher: /usr/bin/dwb
 URxvt*url-select.button: 1
 
-*font:                  -*-gohufont-medium-*-*--14-*-*-*-*-*-*-1
+*font:                  -nil-profont-medium-r-normal--12-120-72-72-c-60-iso8859-1
 
 URxvt*boldFont:
 
