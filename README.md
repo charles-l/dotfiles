@@ -4,12 +4,8 @@ My config files.
 
 Screenies!
 --------
-Clean<br/>
-![](screenshots/clean.png)
+![](screenshots/all_together.png)
 <br/>
-
-(fake) Busy<br/>
-![](screenshots/busy.png)
 
 Install
 ----
