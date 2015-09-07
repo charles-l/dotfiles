@@ -12,10 +12,9 @@ Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 Plug 'mileszs/ack.vim'
 Plug 'tpope/vim-sleuth'
 Plug 'gastonsimone/vim-dokumentary'
+Plug 'junegunn/goyo.vim'
 
 "Ruby
 Plug 'vim-ruby/vim-ruby'
-
-Plug 'zsoltf/vim-maui'
 
 call plug#end()

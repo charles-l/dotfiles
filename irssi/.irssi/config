@@ -1,0 +1,7 @@
+settings = {
+    core = {real_name="charlie"; user_name = "ninjacharlie"; nick="ninjacharlie";};
+    prompt = "$c%K └─ ";
+    "fe-common/core" = {
+        theme = "chr.theme"
+    };
+};
