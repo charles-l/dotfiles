@@ -1,0 +1,16 @@
+#!/bin/env lua
+
+if not arg[1] then
+    print("usage: " .. arg[0] .. " PROGRESS")
+    print("  PROGRESS should be in terms of 100")
+    os.exit(0)
+end
+
+-- symbol = "┅"
+-- symbol = "═"
+-- symbol = "━"
+symbol = "-"
+
+for i=1, math.floor(tonumber(arg[1]) / 10) do
+    io.write(symbol)
+end

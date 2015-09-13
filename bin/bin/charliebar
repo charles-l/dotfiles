@@ -1,0 +1,26 @@
+#!/bin/sh
+
+default_geometry() {
+    # get screen size
+    x=$(wattr w `lsw -r`)
+    y=$(wattr h `lsw -r`)
+
+    width=500
+    height=20
+
+    offy=0
+    offx=$(( x - x/2 - $width/2 ))
+
+    echo "${width}x${height}+${offx}+${offy}"
+}
+
+while true
+do
+    VOL=`progbar $(volume | sed -e 's/%.*$//')`
+    CUR_DESKTOP=`bspc control --get-status | sed -e 's/:\(O\|F\)\([^:]*\)/:%{+u}\2%{-u}/' | sed -e 's/:\(f\|o\)/ /g' | sed -e 's/\(WM1\|:LT\)//g' | tr ':' ' '`
+    TIME=`date "+%H:%M"`
+    echo " vol $VOL %{c}$CUR_DESKTOP" "%{r}$TIME "
+done | lemonbar -g `default_geometry` \
+    -f "-nil-profont-medium-r-normal--12-120-72-72-c-60-iso8859-1"
+
+echo "□"

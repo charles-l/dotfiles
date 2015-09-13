@@ -1,4 +1,4 @@
-#include ".config/colors/dynamic"
+#include "/home/ninjacharlie/.config/colors/dynamic"
 
 URxvt*termName:         rxvt-256color
 URxvt*loginShell:       false

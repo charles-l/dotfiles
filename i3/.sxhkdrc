@@ -1,0 +1,8 @@
+XF86AudioRaiseVolume
+  volume + && popup volume: $(volume level)
+
+XF86AudioLowerVolume
+  volume - && popup volume: $(volume level)
+
+XF86AudioMute
+  volume ! && popup volume: $(volume state)

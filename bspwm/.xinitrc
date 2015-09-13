@@ -13,6 +13,8 @@ sudo setfacl -m u:ninjacharlie:rw /dev/snd/*
 xrdb -merge $HOME/.Xresources
 sxhkd -c $HOME/.sxhkdrc &
 
+charliebar & # start lemonbar with my configs
+
 # Normal cursor
 xsetroot -cursor_name left_ptr
 
@@ -21,4 +23,4 @@ statnot /home/ninjacharlie/.config/statnot/statnotrc &
 
 compton &
 
-exec i3
+exec bspwm

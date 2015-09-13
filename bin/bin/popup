@@ -19,11 +19,12 @@ default_geometry() {
     x=$(wattr w `lsw -r`)
     y=$(wattr h `lsw -r`)
 
-    width=500
+    width=200
     height=28
 
     offy=10
-    offx=$(( x - x/2 - $width/2 ))
+    #offx=$(( x - x/2 - $width/2 ))
+    offx=$(( x - $width - 10))
 
     echo "${width}x${height}+${offx}+${offy}"
 }

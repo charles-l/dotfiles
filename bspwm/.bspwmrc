@@ -37,7 +37,7 @@ i=1
 for monitor in $(bspc query -M); do
     bspc monitor $monitor \
          -n "$i" \
-         -d {i,ii,iii,iv,v,vi,vii,viii,ix,x}
+         -d {0000,0001,0010,0011,0100,0101,0110,0111,1000,1001}
     let i++
 done
 NMON=$i
