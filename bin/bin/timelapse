@@ -1,0 +1,40 @@
+#!/bin/bash
+#
+# start it by going time-lapse.sh start will keep running till termination
+# then issue time-lapse.sh compile <optinal music file>
+
+interval=5
+
+arg=$1
+
+if [ "$2" ]; then
+music=$2
+else
+music=
+fi
+
+if [ -z $arg ]; then
+   exit 0
+fi
+
+if [ $arg = "start" ]; then
+   echo starting in $interval seconds
+   sleep $interval
+   while true
+   do
+      touch counter #incase this is our first run
+      counter=`cat counter`
+      counter=`expr $counter + 1`
+      scrot temp.png
+      convert -quality 100 -resize 800x temp.png `printf "%06d" $counter`.jpg
+      echo "frame: $counter"
+      echo $counter > counter
+      sleep $interval
+   done
+elif [ $arg = "compile" ]; then
+   if [ "$music" ]; then
+      ffmpeg -r 24 -i %06d.jpg -i "$music" -r 24 -shortest -qscale 3 video.avi
+   else
+      ffmpeg -r 24 -i %06d.jpg -r 24 -qscale 3 video.avi
+   fi
+fi
