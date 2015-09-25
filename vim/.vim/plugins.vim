@@ -13,6 +13,8 @@ Plug 'mileszs/ack.vim'
 Plug 'tpope/vim-sleuth'
 Plug 'gastonsimone/vim-dokumentary'
 Plug 'junegunn/goyo.vim'
+Plug 'tpope/vim-repeat'
+Plug 'Lokaltog/vim-distinguished'
 
 "Ruby
 Plug 'vim-ruby/vim-ruby'
