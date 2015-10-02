@@ -14,8 +14,8 @@ Plug 'tpope/vim-sleuth'
 Plug 'gastonsimone/vim-dokumentary'
 Plug 'junegunn/goyo.vim'
 Plug 'tpope/vim-repeat'
-Plug 'Lokaltog/vim-distinguished'
-Plug 'kana/vim-fakeclip' " For working on OSX
+Plug 'chriskempson/vim-tomorrow-theme'
+Plug 'mtth/scratch.vim'
 
 "Ruby
 Plug 'vim-ruby/vim-ruby'

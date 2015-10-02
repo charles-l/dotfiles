@@ -15,7 +15,6 @@ Plug 'gastonsimone/vim-dokumentary'
 Plug 'junegunn/goyo.vim'
 Plug 'tpope/vim-repeat'
 Plug 'Lokaltog/vim-distinguished'
-Plug 'kana/vim-fakeclip' " For working on OSX
 
 "Ruby
 Plug 'vim-ruby/vim-ruby'
