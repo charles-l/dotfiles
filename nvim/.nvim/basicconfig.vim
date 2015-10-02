@@ -39,7 +39,8 @@ nnoremap <silent> <leader>m :term make<CR>
 nnoremap <silent> <leader>d :Ack <C-R><C-W><CR>
 nnoremap <silent> <leader>s :Scratch<CR>
 
-nnoremap <leader>r yyp!!sh<CR>
-vnoremap <leader>r yo<ESC>p!!sh<CR>
+nnoremap <leader>r yyp!!sh<CR> "Run current line in shell and get results
+vnoremap <leader>r yo<ESC>p!!sh<CR> "Run current selection in shell and get results
+nnoremap <leader>R :let x=getline('.') \| vnew \| execute 'term '.x <CR> "Run command in shell
 
 vnoremap . :norm.<CR>
