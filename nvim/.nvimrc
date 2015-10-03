@@ -6,7 +6,7 @@ source ~/.nvim/basicconfig.vim
 source ~/.nvim/plugins.vim
 
 " SYNTAX
-au VimEnter * RainbowParenthesesToggle
+au VimEnter * RainbowParentheses
 
 set t_Co=256
-colorscheme Tomorrow-Night-Eighties
+colorscheme Tomorrow-Night

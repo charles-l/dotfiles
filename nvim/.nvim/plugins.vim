@@ -1,7 +1,7 @@
 "Boilerplate to enable Vundle
 call plug#begin('~/.vim/plugged')
 
-Plug 'chriskempson/vim-tomorrow-theme'
+Plug 'flazz/vim-colorschemes' "I can't choose!!!
 Plug 'gastonsimone/vim-dokumentary'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/rainbow_parentheses.vim' "Makes working with lisp easier
