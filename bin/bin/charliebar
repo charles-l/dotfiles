@@ -17,7 +17,7 @@ default_geometry() {
 while true
 do
     VOL=`progbar $(volume | sed -e 's/%.*$//')`
-    CUR_DESKTOP=`bspc control --get-status | sed -e 's/:\(O\|F\)\([^:]*\)/:%{+u}\2%{-u}/' | sed -e 's/:\(f\|o\)/ /g' | sed -e 's/\(WM1\|:LT\)//g' | tr ':' ' '`
+    CUR_DESKTOP=`bspc control --get-status | tr -d 'WLT:' | tr 'mMoOfF:0-9' '-=*+_+  '`
     TIME=`date "+%H:%M"`
     echo " vol $VOL %{c}$CUR_DESKTOP" "%{r}$TIME "
 done | lemonbar -g `default_geometry` \

@@ -31,6 +31,10 @@ nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
 inoremap <C-F> <C-X><C-F>
 
+" better tabs
+nmap <silent> <Space>n :tabn<CR>
+nmap <silent> <Space>p :tabp<CR>
+
 nnoremap <silent> <leader>w :w<CR>
 nnoremap <silent> <leader>b :CtrlPBuffer<CR>
 nnoremap <silent> <leader>o :CtrlP<CR>
