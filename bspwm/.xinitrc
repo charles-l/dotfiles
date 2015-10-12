@@ -1,7 +1,13 @@
 #!/bin/sh
 
 xset +fp /usr/share/fonts/misc
-xset +fp $HOME/.fonts
+for dir in /usr/share/fonts/bitmap/*
+do
+    if [ -d $dir ]
+    then
+        xset +fp $dir
+    fi
+done
 xset fp rehash
 sh ~/.config/colors/colors.sh > ~/.config/colors/dynamic
 
@@ -13,10 +19,12 @@ sudo setfacl -m u:ninjacharlie:rw /dev/snd/*
 xrdb -merge $HOME/.Xresources
 sxhkd -c $HOME/.sxhkdrc &
 
-charliebar & # start lemonbar with my configs
-
 # Normal cursor
 xsetroot -cursor_name left_ptr
+unclutter &
+mopidy &
+
+charliebar & # start lemonbar with my configs
 
 # Read libnotify garbage
 statnot /home/ninjacharlie/.config/statnot/statnotrc &

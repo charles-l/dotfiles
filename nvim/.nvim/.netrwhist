@@ -1,4 +1,9 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_cnt =7
 let g:netrw_dirhist_1='/Users/ninjacharlie/Dev/projects/charles-l.github.io/_drafts'
 let g:netrw_dirhist_2='/Users/ninjacharlie/.dotfiles/config'
+let g:netrw_dirhist_3='/home/ninjacharlie/.config'
+let g:netrw_dirhist_4='/usr/share/fonts/misc'
+let g:netrw_dirhist_5='/usr/share/fonts/bitmap'
+let g:netrw_dirhist_6='/home/ninjacharlie/dev'
+let g:netrw_dirhist_7='/etc/local.d'

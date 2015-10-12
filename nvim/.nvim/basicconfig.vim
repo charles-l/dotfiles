@@ -20,11 +20,6 @@ let g:netrw_browse_split = 0
 autocmd BufWritePre * :%s/\s\+$//e
 
 "Move windows with C-Direction
-tnoremap <C-h> <C-\><C-n><C-w>h
-tnoremap <C-j> <C-\><C-n><C-w>j
-tnoremap <C-k> <C-\><C-n><C-w>k
-tnoremap <C-l> <C-\><C-n><C-w>l
-tnoremap <Esc> <C-\><C-n>
 nmap <C-h> <C-w>h
 nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k

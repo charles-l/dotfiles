@@ -17,3 +17,5 @@ alias gs='git status -s'
 alias gl="git log --all --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
 alias v='vim'
 alias mk='make'
+# stupid irssi
+alias irssi='TERM=screen-256color irssi'

@@ -9,7 +9,7 @@ end
 -- symbol = "┅"
 -- symbol = "═"
 -- symbol = "━"
-symbol = "-"
+symbol = "─"
 
 for i=1, math.floor(tonumber(arg[1]) / 10) do
     io.write(symbol)

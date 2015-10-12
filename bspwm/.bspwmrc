@@ -1,17 +1,7 @@
 #!/bin/sh
 
-bspc config border_width        1
+bspc config border_width        2
 bspc config window_gap          8
-
-i=1
-for monitor in $(bspc query -M); do
-bspc monitor $monitor \
-        -n "$i" \
-        -d {term,web,code,files,soc,media}
-    let i++
-done
-NMON=$i
-unset i
 
 bspc config top_padding 16
 
@@ -37,8 +27,11 @@ i=1
 for monitor in $(bspc query -M); do
     bspc monitor $monitor \
          -n "$i" \
-         -d {0000,0001,0010,0011,0100,0101,0110,0111,1000,1001}
+         -d {0,1,2,3,4,5,6,7,8,9}
     let i++
 done
 NMON=$i
 unset i
+
+# rules
+bspc rule -a URxvtScratch sticky=on floating=on

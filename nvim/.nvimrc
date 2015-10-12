@@ -9,4 +9,4 @@ source ~/.nvim/plugins.vim
 au VimEnter * RainbowParentheses
 
 set t_Co=256
-colorscheme Tomorrow-Night
+colorscheme shblah

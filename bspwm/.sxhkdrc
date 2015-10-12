@@ -4,6 +4,9 @@
 super + q
   bspc window -c
 
+super + z
+  scratchwin
+
 # Toggle floating or fullscreen for a window
 super + {s, f}
   bspc window -t {floating,fullscreen}
@@ -53,7 +56,6 @@ super + !button{1,3}
 super + @button{1,3}
     bspc pointer -u
 
-# needs wg from ~/bin and wmutils
 super + {1,2,3,4,5}
     bspc desktop -f ^{1,2,3,4,5}
 
