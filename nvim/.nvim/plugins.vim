@@ -16,6 +16,8 @@ Plug 'tpope/vim-fugitive' "Git wrapper
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
+Plug 'ViewPort'
+Plug 'vim-indent-object'
 
 "Ruby
 Plug 'vim-ruby/vim-ruby'
