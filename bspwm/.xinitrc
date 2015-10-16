@@ -26,6 +26,7 @@ mopidy &
 
 charliebar & # start lemonbar with my configs
 
+sudo wifi connect &
 # Read libnotify garbage
 statnot /home/ninjacharlie/.config/statnot/statnotrc &
 

@@ -19,3 +19,6 @@ alias v='vim'
 alias mk='make'
 # stupid irssi
 alias irssi='TERM=screen-256color irssi'
+alias p='mpc toggle'
+
+[ -z "`which nvim 2>/dev/null`" ] || alias vim='nvim'
