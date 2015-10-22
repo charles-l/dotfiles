@@ -78,3 +78,9 @@ XF86AudioLowerVolume
 
 XF86AudioMute
   volume ! && popup volume: $(volume state)
+
+XF86Audio{Prev,Next}
+    mpc {prev, next}
+
+XF86AudioPlay
+    mpc toggle
