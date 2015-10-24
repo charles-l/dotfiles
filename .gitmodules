@@ -5,5 +5,5 @@
 	path = shell/pk
 	url = https://github.com/charles-l/pk
 [submodule "tmux/.tmux/tpm"]
-	path = tmux/.tmux/tpm
+	path = tmux/.tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
