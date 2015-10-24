@@ -17,8 +17,13 @@ alias gs='git status -s'
 alias gl="git log --all --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
 alias v='vim'
 alias mk='make'
+
+cd() {
+    builtin cd "$1" && echo -e "\033[1;30m`pwd`\033[0m"
+}
+
 # stupid irssi
 alias irssi='TERM=screen-256color irssi'
-alias p='mpc toggle'
 
+alias p='mpc toggle'
 [ -z "`which nvim 2>/dev/null`" ] || alias vim='nvim'
