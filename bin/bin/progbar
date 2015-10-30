@@ -1,4 +1,6 @@
 #!/bin/env lua
+-- display a progress bar from a passed percentage
+-- charlie - (c) 2015
 
 if not arg[1] then
     print("usage: " .. arg[0] .. " PROGRESS")

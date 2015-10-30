@@ -1,4 +1,0 @@
-#!/bin/sh
-
-#curl "$(youtube-dl -g $*)" | mplayer -cache 1024 -
-mplayer -cache 1024 "$(youtube-dl -g $*)" 

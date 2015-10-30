@@ -1,0 +1,32 @@
+#!/bin/sh
+#
+# scrot - maim wrapper
+# based on script by onodera, https://github.com/onodera-punpun
+
+# Set location where the screenie get saves
+scrotdir=$HOME/img/scrots
+
+usage ()
+{
+        echo -e "Usage: screenie [options]\n"
+        echo "options:"
+        echo "  -s       take selection scrot"
+        echo "  -h       print help and exit"
+}
+
+if [ -z "$1" ]; then
+        maim --hidecursor $scrotdir/screenie$(ls $scrotdir | wc -l).png
+        popup "screenshotted to $scrotdir" &
+else
+        case "$1" in
+                -h)
+                        usage;;
+                -s)
+                        maim --hidecursor -s -b 3 -c 250,250,250 $scrotdir/screenie$(ls $scrotdir | wc -l).png
+                        popup "screenshotted to $scrotdir" & ;;
+                *)
+                        usage;;
+        esac
+fi
+
+unset scrotdir

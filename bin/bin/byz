@@ -1,0 +1,10 @@
+#!/bin/sh
+if [ -z $1 ]; then
+    D=15
+else
+    D=$1
+fi
+
+eval $(slop)
+
+byzanz-record -x ${X} -y ${Y} -w ${W} -h ${H} -d ${D} -v $(date +%s).gif

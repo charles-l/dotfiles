@@ -1,0 +1,7 @@
+#!/bin/sh
+#
+# record - record your desktop and convert to webm
+#
+
+ffmpeg -f x11grab -s 1920x1080 -r 24 -i :0.0 -q:v 0 -vcodec huffyuv ~/tmp/grab.mkv
+ffmpeg -threads 4 -i ~/tmp/grab.mkv -crf 10 -b:v 3M ~/tmp/grab.webm

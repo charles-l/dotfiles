@@ -1,4 +1,13 @@
 #!/bin/sh
+# create a scratch window in the lower left corner of the screen
+# thanks to z3bra for inspiration!
+#
+# deps
+#  - urxvt
+#  - wmutils
+#
+# charlie - (c) 2015
+
 SF=/tmp/scratch
 if [ -f $SF ]; then
     W="$(more $SF)"

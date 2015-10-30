@@ -1,5 +1,13 @@
 #!/bin/sh
-#TODO: perhaps grep info from git status, so it's faster
+# pretty ls
+# WARNING: broken!
+# deps:
+#   - git
+#
+# charlie - (c) 2015
+#
+# TODO: perhaps grep info from git status, so it's faster
+
 DIR="$1"
 RED=$(echo '\033[0;31m')
 GREEN=$(printf '\033[0;32m')

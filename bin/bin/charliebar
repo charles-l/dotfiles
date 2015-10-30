@@ -1,4 +1,13 @@
 #!/bin/sh
+# my bar!
+#
+# deps:
+#  - wmutils
+#  - github.com/charles-l/bin
+#  - bspwm
+#  - lemonbar
+#
+# charlie - (c) 2015
 
 default_geometry() {
     # get screen size

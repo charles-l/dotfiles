@@ -1,5 +1,12 @@
 #!/bin/sh
-# slock then turn monitor off
+# slock wrapper to turn off monitor first
+#
+# deps:
+#  - slock
+#  - xset
+#
+# charlie - (c) 2015
+
 slock &
 sleep 1
 xset dpms force standby

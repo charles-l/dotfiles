@@ -1,0 +1,6 @@
+#!/bin/sh
+# convert a markdown file to a pdf
+#
+# charlie - (c) 2015
+
+markdown $1 | smartypants2 | htmldoc -f output.pdf -

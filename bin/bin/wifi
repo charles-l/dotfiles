@@ -1,4 +1,6 @@
 #!/bin/sh
+# stupid wifi wrapper, 'cause I need to restart it often... :(
+# WARNING: crap! DO NOT USE!
 
 DEV=`ip link | cut -d' ' -f 2 | cut -d':' -f 1 | grep -v '^$' | grep enp`
 DEV="wlp4s0b1"
