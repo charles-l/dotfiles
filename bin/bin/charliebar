@@ -18,7 +18,7 @@ while true
 do
     VOL=`progbar $(volume | sed -e 's/%.*$//')`
     CUR_SONG=`cursong`
-    CUR_DESKTOP=`bspc control --get-status | tr -d 'WLT:mM0-9=' | tr 'oOfF' '.o.o'`
+    CUR_DESKTOP=`bspc control --get-status | tr -d 'WLT:mM0-9=' | sed -e 's/[of]//g' | sed -e 's/[OF]//g'`
     [ -z "$CUR_SONG" ] && MID="$CUR_DESKTOP" || MID="  $CUR_SONG"
     TIME=`date "+%H:%M"`
     echo "  $VOL %{c} $MID" "%{r}$TIME "
