@@ -17,9 +17,10 @@ default_geometry() {
 while true
 do
     VOL=`progbar $(volume | sed -e 's/%.*$//')`
-    CUR_SONG=`mpc | head -n1`
+    CUR_SONG=`cursong`
     CUR_DESKTOP=`bspc control --get-status | tr -d 'WLT:mM0-9=' | tr 'oOfF' '.o.o'`
+    [ -z "$CUR_SONG" ] && MID="$CUR_DESKTOP" || MID="  $CUR_SONG"
     TIME=`date "+%H:%M"`
-    echo "  $VOL %{c}$CUR_DESKTOP" "%{r}$TIME "
+    echo "  $VOL %{c} $MID" "%{r}$TIME "
 done | lemonbar -g `default_geometry` \
     -f "-*-creep-*-*-*--*-*-*-*-*-*-*-*" -f "-*-siji-*-*-*--*-*-*-*-*-*-*-*"

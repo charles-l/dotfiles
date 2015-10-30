@@ -85,7 +85,7 @@ abstracts = {
   # msgnick = "$1-$0%K·%N %|";
   #msgnick = "%K$0%N $1 %K│ %|%N";
   # msgnick = "%K$0%N $1 %K· %|%N";
-  msgnick = "%K%N $1 %K│  %N";
+  msgnick = "%K%N $1 │  %N";
 
   # $0 = nick mode, $1 = nick
   ownmsgnick = "{msgnick $0 $1}";
@@ -231,7 +231,7 @@ abstracts = {
   topicsbstart = "%BChannel: %b\"$*";
   topicsbend = "$*%b\"";
 
-  prompt = " %r» %n ";
+  prompt = " %r> %n ";
 
   sb = "[$*]";
   sbmode = " %K[%g%g+%n$*%K]";
