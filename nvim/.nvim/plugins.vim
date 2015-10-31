@@ -1,12 +1,12 @@
 "Boilerplate to enable Vundle
 call plug#begin('~/.vim/plugged')
 
-Plug 'flazz/vim-colorschemes' "I can't choose!!!
 Plug 'gastonsimone/vim-dokumentary'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/rainbow_parentheses.vim' "Makes working with lisp easier
 Plug 'junegunn/vim-oblique'
 Plug 'junegunn/vim-pseudocl'
+Plug 'kana/vim-fakeclip' " For working on OSX
 Plug 'kien/ctrlp.vim', {'on': ['CtrlP', 'CtrlPBuffer']}
 Plug 'mileszs/ack.vim'
 Plug 'mtth/scratch.vim'
@@ -18,6 +18,8 @@ Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'ViewPort'
 Plug 'vim-indent-object'
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-notes'
 
 "Ruby
 Plug 'vim-ruby/vim-ruby'
