@@ -18,10 +18,6 @@ alias gl="git log --all --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Cres
 alias v='vim'
 alias mk='make'
 
-cd() {
-    builtin cd "$1" && echo -e "\033[1;30m`pwd`\033[0m"
-}
-
 # stupid irssi
 alias irssi='TERM=screen-256color irssi'
 

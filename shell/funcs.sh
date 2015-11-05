@@ -17,9 +17,22 @@ man() {
     man "$@"
 }
 
+function manf() {
+  man -P "less -p \"^ +$2\"" $1
+}
+
 scratch() {
     new_dir="/tmp/scratch-`date +'%s'`"
     mkdir -p $new_dir
     cd $new_dir
     echo "New scratch dir ready"
+}
+
+cd() {
+    if [[ $1 == 'b.'* ]]; then
+        builtin cd `echo "$*" | sed -e "s/b//g" | sed -e "s|.|../|g"`
+    else
+        builtin cd "$*"
+    fi
+    echo -e "\033[1;30m`pwd`\033[0m"
 }
