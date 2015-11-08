@@ -6,7 +6,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/rainbow_parentheses.vim' "Makes working with lisp easier
 Plug 'junegunn/vim-oblique'
 Plug 'junegunn/vim-pseudocl'
-Plug 'kana/vim-fakeclip' " For working on OSX
+Plug 'kana/vim-fakeclip'
 Plug 'kien/ctrlp.vim', {'on': ['CtrlP', 'CtrlPBuffer']}
 Plug 'mileszs/ack.vim'
 Plug 'mtth/scratch.vim'
@@ -20,6 +20,7 @@ Plug 'ViewPort'
 Plug 'vim-indent-object'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
+Plug 'terryma/vim-multiple-cursors'
 
 "Ruby
 Plug 'vim-ruby/vim-ruby'
