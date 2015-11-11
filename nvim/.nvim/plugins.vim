@@ -10,7 +10,7 @@ Plug 'kana/vim-fakeclip'
 Plug 'kien/ctrlp.vim', {'on': ['CtrlP', 'CtrlPBuffer']}
 Plug 'mileszs/ack.vim'
 Plug 'mtth/scratch.vim'
-Plug 'Raimondi/delimitMate'
+"Plug 'Raimondi/delimitMate'
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 Plug 'tpope/vim-fugitive' "Git wrapper
 Plug 'tpope/vim-repeat'
@@ -21,6 +21,7 @@ Plug 'vim-indent-object'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'kovisoft/paredit'
 
 "Ruby
 Plug 'vim-ruby/vim-ruby'
