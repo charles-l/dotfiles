@@ -1,4 +1,5 @@
 #!/bin/sh
+# matrix transpose
 awk '
 {
     for (i=1; i<=NF; i++)  {
