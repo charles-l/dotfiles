@@ -1,0 +1,41 @@
+# Set default Xft(3) font
+# fontname "sans-serif:pixelsize=14:bold"
+
+# Turn on sticky-group mode
+sticky yes
+
+# Any entry here is shown in the application menu
+command chromium         chromium
+command jumanji          jumanji
+command steam		 steam
+command top              "urxvt -e top"
+
+# Autogroup definitions
+autogroup 3 "urxvt,XTerm"
+autogroup 3 "xterm,XTerm"
+
+# Key bindings
+bind 4-r        label
+bind 4S-q       delete
+bind 4-p        exec
+bind C4M-r      restart
+bind 4-Return   urxvt
+bind S4-h       hmaximize
+bind S4-v       vmaximize
+bind 4-1        group1
+bind 4-2        group2
+bind 4-3        group3
+bind 4-Tab      cycle
+bind 4S-Tab     rcycle
+bind 4S-1       movetogroup1
+bind 4S-2       movetogroup2
+bind 4S-3       movetogroup3
+
+bind 4C-h       bigmoveleft
+bind 4C-l       bigmoveright
+bind 4C-j       bigmovedown
+bind 4C-k       bigmoveup
+
+# Mouse bindings
+mousebind 4-1   window_move
+mousebind 4-3   window_resize

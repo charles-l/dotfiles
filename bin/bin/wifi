@@ -3,7 +3,8 @@
 # WARNING: crap! DO NOT USE!
 
 DEV=`ip link | cut -d' ' -f 2 | cut -d':' -f 1 | grep -v '^$' | grep enp`
-DEV="wlp4s0b1"
+DEV=wlp2s0u1u1
+DEV=enp2s0u1u1
 
 function doconnect() {
     ip link set $DEV up

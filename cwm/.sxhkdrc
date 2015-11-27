@@ -1,0 +1,22 @@
+# vim: set ft=sxhkdrc:
+
+super + z
+  sctchwin
+
+super + w
+    chromium
+
+XF86AudioRaiseVolume
+  volume + && popup volume: $(volume level)
+
+XF86AudioLowerVolume
+  volume - && popup volume: $(volume level)
+
+XF86AudioMute
+  volume ! && popup volume: $(volume state)
+
+XF86Audio{Prev,Next}
+    mpc {prev, next}
+
+XF86AudioPlay
+    mpc toggle
