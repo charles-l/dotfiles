@@ -13,4 +13,4 @@ usage()
 }
 
 [ -z "$1" ] && usage && exit 1
-livestreamer --player=ffplay http://twitch.tv/$1 high
+livestreamer --player=mpv http://twitch.tv/$1 high

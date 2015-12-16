@@ -1,0 +1,1 @@
+.dotfiles/cwm/.xinitrc
