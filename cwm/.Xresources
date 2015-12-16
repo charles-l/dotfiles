@@ -1,4 +1,4 @@
-#include "/home/ninjacharlie/.config/colors/branch"
+#include "/home/nc/.config/colors/branch"
 
 URxvt*termName:         rxvt-256color
 URxvt*loginShell:       false
@@ -16,10 +16,10 @@ URxvt*url-select.autocopy: true
 URxvt*url-select.underline: true
 URxvt*url-select.button: 1
 
-! *font:                  -*-creep-*-*-*--*-*-*-*-*-*-*-*
-! URxvt.letterSpace: -1
+*font:                  -*-creep-*-*-*--*-*-*-*-*-*-*-*
+URxvt.letterSpace: -1
 
-! URxvt*boldFont:
+URxvt*boldFont:
 
 *background:   bg
 *foreground:   fg
