@@ -18,6 +18,9 @@ alias gl="git log --all --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Cres
 alias v='vim'
 alias mk='make'
 
+# pulseaudio-less steam!
+alias steam="LD_PRELOAD=/usr/lib32/libasound.so.2 STEAM_RUNTIME=1 SDL_AUDIODRIVER=alsa steam"
+
 # stupid irssi
 alias irssi='TERM=screen-256color irssi'
 
