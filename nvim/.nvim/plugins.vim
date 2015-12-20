@@ -23,6 +23,10 @@ Plug 'xolox/vim-notes'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'kovisoft/paredit'
 
+"Blehscript
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+
 "Ruby
 Plug 'vim-ruby/vim-ruby'
 

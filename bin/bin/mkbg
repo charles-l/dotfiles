@@ -1,2 +1,2 @@
-curl -s -L https://source.unsplash.com/random/1920x1080 > /tmp/background.jpg
+curl -s -L https://source.unsplash.com/category/nature/1920x1080 > /tmp/background.jpg
 hsetroot -center /tmp/background.jpg

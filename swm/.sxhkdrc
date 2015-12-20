@@ -1,0 +1,48 @@
+# vim: set ft=sxhkdrc:
+
+super + Q
+  killw $(pfw)
+
+super + t
+  GAP=80 tile
+
+super + f
+  fullscreen $(pfw)
+
+
+super + {h,j,k,l}
+ closest {h,j,k,l}
+
+super + {H,J,K,L}
+ GAP=80 snap {h,j,k,l}
+
+###
+
+super + p
+  dmenu_run -x 5 -y 5 -h 20 -w 400
+
+super + z
+  sctchwin
+
+super + w
+    chromium
+
+XF86AudioRaiseVolume
+  volume + && popup volume: $(volume level)
+
+XF86AudioLowerVolume
+  volume - && popup volume: $(volume level)
+
+XF86AudioMute
+  volume ! && popup volume: $(volume state)
+
+XF86Audio{Prev,Next}
+    mpc {prev, next}
+
+XF86AudioPlay
+    mpc toggle
+
+###
+
+super + Return
+  urxvt

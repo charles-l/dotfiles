@@ -19,8 +19,8 @@ default_geometry() {
     x=$(wattr w `lsw -r`)
     y=$(wattr h `lsw -r`)
 
-    width=300
-    height=28
+    width=200
+    height=40
 
     offy=10
     #offx=$(( x - x/2 - $width/2 ))

@@ -3,7 +3,7 @@ GRAY="[34m"
 NC="[00m"
 PS1=" $GRAY───$NC "
 
-PATH=$PATH:$HOME/bin:/home/ninjacharlie/.gem/ruby/2.2.0/bin
+PATH=$HOME/bin:$PATH
 . $HOME/.dotfiles/shell/aliases.sh
 . $HOME/.dotfiles/shell/funcs.sh
 . $HOME/.dotfiles/shell/shmark/shmark.sh
