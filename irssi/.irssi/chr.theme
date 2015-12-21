@@ -8,8 +8,6 @@
 # Visit irc.unixhub.net #unixhub :)
 #
 
-
-
 # default foreground color (%N) - -1 is the "default terminal color"
 default_color = "-1";
 
@@ -82,10 +80,10 @@ abstracts = {
   ########### messages #################################
 
   # the basic styling of how to print message, $0 = nick mode, $1 = nick
-  # msgnick = "$1-$0%K·%N %|";
+  msgnick = "$1-$0%K·%N %|";
   #msgnick = "%K$0%N $1 %K│ %|%N";
   # msgnick = "%K$0%N $1 %K· %|%N";
-  msgnick = "%K%N $1 │  %N";
+  #msgnick = "%K%N $1 │  %N";
 
   # $0 = nick mode, $1 = nick
   ownmsgnick = "{msgnick $0 $1}";

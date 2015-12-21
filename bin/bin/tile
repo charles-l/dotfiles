@@ -4,7 +4,7 @@
 # arrange windows in a tiled pattern
 
 # default values for gaps and master area
-PANEL=${PANEL:-0}
+PANEL=${PANEL:-20}
 GAP=${GAP:-20}
 MASTER=${MASTER:-900}
 

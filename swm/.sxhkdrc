@@ -9,12 +9,14 @@ super + t
 super + f
   fullscreen $(pfw)
 
-
 super + {h,j,k,l}
  closest {h,j,k,l}
 
 super + {H,J,K,L}
  GAP=80 snap {h,j,k,l}
+
+super + Tab
+  focus next
 
 ###
 
