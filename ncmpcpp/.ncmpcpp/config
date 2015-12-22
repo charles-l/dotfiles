@@ -25,3 +25,5 @@ alternative_ui_separator_color = "white"
 active_column_color = "white"
 active_window_border = "white"
 window_border_color = "white"
+
+visualizer_fifo_path = "/tmp/mpd.fifo"

@@ -31,5 +31,5 @@ do
     [ -z "$CUR_SONG" ] && MID="$CUR_DESKTOP" || MID="  $CUR_SONG"
     TIME=`date "+%H:%M"`
     echo "  $VOL %{c} $MID" "%{r}$TIME "
-done | lemonbar -g -d `default_geometry` \
+done | lemonbar -d -g `default_geometry` -B '#000' \
     -f "-*-creep-*-*-*--*-*-*-*-*-*-*-*" -f "-*-siji-*-*-*--*-*-*-*-*-*-*-*"

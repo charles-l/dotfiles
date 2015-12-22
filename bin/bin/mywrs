@@ -1,0 +1,7 @@
+W=$(pfw)
+case $1 in
+    h) wrs -40 0 $W && focus $W ;;
+    j) wrs 0  40 $W && focus $W ;;
+    k) wrs 0 -40 $W && focus $W ;;
+    l) wrs 40  0 $W && focus $W ;;
+esac

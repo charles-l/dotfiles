@@ -12,11 +12,30 @@ super + f
 super + {h,j,k,l}
  closest {h,j,k,l}
 
+# Keyboard movement
+super + {y,u,b,n}
+  snap {tl,tr,bl,br}
+
+super + g
+  wmv -a $(($(wattr w `lsw -r`) / 2)) $(($(wattr h `lsw -r`) / 2)) $(pfw)
+
 super + {H,J,K,L}
- GAP=80 snap {h,j,k,l}
+  mywmv {h,j,k,l}
+
+super + alt + {h,j,k,l}
+  mywrs {h,j,k,l}
+
+super + N
+  fullscreen $(pfw) v
+
+super + M
+  fullscreen $(pfw) h
 
 super + Tab
   focus next
+
+super + shift + Tab
+  focus prev
 
 ###
 
@@ -42,9 +61,9 @@ XF86Audio{Prev,Next}
     mpc {prev, next}
 
 XF86AudioPlay
-    mpc toggle
+    mpc toggle && popup `mpc current`
 
 ###
 
 super + Return
-  urxvt
+  urxvt -e tmux
