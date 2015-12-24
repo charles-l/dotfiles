@@ -4,7 +4,7 @@ super + Q
   killw $(pfw)
 
 super + t
-  GAP=80 tile
+  GAP=40 snap tile
 
 super + f
   fullscreen $(pfw)
@@ -14,7 +14,7 @@ super + {h,j,k,l}
 
 # Keyboard movement
 super + {y,u,b,n}
-  snap {tl,tr,bl,br}
+  GAP=40 snap {tl,tr,bl,br}
 
 super + g
   wmv -a $(($(wattr w `lsw -r`) / 2)) $(($(wattr h `lsw -r`) / 2)) $(pfw)
@@ -40,13 +40,13 @@ super + shift + Tab
 ###
 
 super + p
-  dmenu_run -x 5 -y 5 -h 20 -w 400
+  dmenu_run -x 5 -y 5 -h 30 -w 400
 
 super + z
   sctchwin
 
 super + w
-    chromium
+  chromium
 
 XF86AudioRaiseVolume
   volume + && popup volume: $(volume level)
@@ -61,9 +61,9 @@ XF86Audio{Prev,Next}
     mpc {prev, next}
 
 XF86AudioPlay
-    mpc toggle && popup `mpc current`
+    mpc toggle && popup `cursong`
 
 ###
 
 super + Return
-  urxvt -e tmux
+  urxvt -e tmux && wtp 40 40 120 240 $(pfw)

@@ -15,6 +15,7 @@ alias gl="git log --all --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Cres
 alias grep='grep --color=auto'
 alias v="$EDITOR"
 alias mk='make'
+alias xsel='xsel -b'
 
 # pulseaudio-less steam!
 alias steam="LD_PRELOAD=/usr/lib32/libasound.so.2 STEAM_RUNTIME=1 SDL_AUDIODRIVER=alsa steam"

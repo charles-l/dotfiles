@@ -1,7 +1,7 @@
 export LANG=en_US.UTF-8
 GRAY="[34m"
 NC="[00m"
-PS1=" $GRAY┄$NC "
+PS1=" $GRAY : $NC "
 EDITOR="vim"
 
 PATH=$PATH:$HOME/bin:$HOME/perl5/bin/

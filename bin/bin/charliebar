@@ -14,22 +14,25 @@ default_geometry() {
     x=$(wattr w `lsw -r`)
     y=$(wattr h `lsw -r`)
 
-    width=500
-    height=20
+    width=200
+    height=40
 
-    offy=0
-    offx=$(( x - x/2 - $width/2 ))
+    offy=$(($y - $height - 5))
+    #offx=$(( x - x/2 - $width/2 ))
+    offx=5
 
     echo "${width}x${height}+${offx}+${offy}"
+}
+
+lemoncommand() {
+    lemonbar -d -g `default_geometry` -B '#000' -F'#333' \
+        -f "-*-creep-*-*-*--*-*-*-*-*-*-*-*" -f "-*-siji-*-*-*--*-*-*-*-*-*-*-*"
 }
 
 while true
 do
     VOL=`progbar $(volume | sed -e 's/%.*$//')`
-    CUR_SONG=`cursong`
-    # CUR_DESKTOP=`bspc control --get-status | tr -d 'WLT:mM0-9=' | sed -e 's/[of]//g' | sed -e 's/[OF]//g'`
-    [ -z "$CUR_SONG" ] && MID="$CUR_DESKTOP" || MID="  $CUR_SONG"
     TIME=`date "+%H:%M"`
-    echo "  $VOL %{c} $MID" "%{r}$TIME "
-done | lemonbar -d -g `default_geometry` -B '#000' \
-    -f "-*-creep-*-*-*--*-*-*-*-*-*-*-*" -f "-*-siji-*-*-*--*-*-*-*-*-*-*-*"
+    echo "   $VOL %{r}$TIME  "
+    sleep 0.5
+done | lemoncommand
