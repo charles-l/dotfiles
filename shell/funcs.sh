@@ -17,7 +17,7 @@ man() {
     man "$@"
 }
 
-function manf() {
+manf() {
   man -P "less -p \"^ +$2\"" $1
 }
 
@@ -35,4 +35,10 @@ cd() {
     builtin cd "$*"
   fi
   echo -e "\033[1;30m`pwd`\033[0m"
+}
+
+whoops() {
+  c="$1 $(fc -l1 | cut -f2)"
+  echo $c
+  $c
 }

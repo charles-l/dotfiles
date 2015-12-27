@@ -9,8 +9,8 @@
 # bar options
 #font='-*-stlarch-medium-r-*-*-10-*-*-*-*-*-*-*'
 font="-*-creep-*-*-*--16-*-*-*-*-*-*-1"
-bg="#333"
-fg="#ffdfd5d2"
+bg="#CCC"
+fg="#333"
 hl="#ff443232"
 
 
@@ -19,12 +19,12 @@ default_geometry() {
     x=$(wattr w `lsw -r`)
     y=$(wattr h `lsw -r`)
 
-    width=250
+    width=300
     height=40
 
-    offy=10
+    offy=40
     #offx=$(( x - x/2 - $width/2 ))
-    offx=$(( x - $width - 10))
+    offx=$(( x - $width - $offy))
 
     echo "${width}x${height}+${offx}+${offy}"
 }

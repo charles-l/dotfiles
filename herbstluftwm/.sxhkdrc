@@ -16,12 +16,18 @@ XF86AudioMute
   volume ! && popup volume: $(volume state)
 
 XF86Audio{Prev,Next}
-  mpc {prev, next} || sc {prev, next}
+  sc {prev, next}
 
 XF86AudioPlay
   mpc toggle && popup `cursong` || sc pause && popup `sc cur_playing | cut -d'|' -f1`
 
+Print
+  screenie -s
+
+super + Print
+  screenie
+
 ###
 
 super + Return
-  urxvt -e tmux && wtp 40 40 120 240 $(pfw)
+  urxvt -e tmux

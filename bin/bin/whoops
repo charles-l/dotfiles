@@ -1,5 +1,0 @@
-#!/bin/sh
-# run last command with $1 in front
-# use case: whoops sudo # runs last command as sudo
-
-echo "$1 $(history | tail -n1 | cut -f2)"
