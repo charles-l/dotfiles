@@ -17,7 +17,7 @@ hc keyunbind --all
 # if you have a super key you will be much happier with Mod set to Mod4
 Mod=Mod4   # Use the super key as the main modifier
 
-hc keybind $Mod-Shift-q quit
+hc keybind $Mod-Shift-0 quit
 hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-c close
 
