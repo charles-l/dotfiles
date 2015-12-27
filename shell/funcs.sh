@@ -18,7 +18,7 @@ man() {
 }
 
 function manf() {
-man -P "less -p \"^ +$2\"" $1
+  man -P "less -p \"^ +$2\"" $1
 }
 
 scratch() {
@@ -35,17 +35,4 @@ cd() {
     builtin cd "$*"
   fi
   echo -e "\033[1;30m`pwd`\033[0m"
-}
-
-sc () {
-  # https://github.com/Spotifyd/spotifyd
-  echo $@ | socat - UNIX-CONNECT:/tmp/spotifyd 2>/dev/null
-}
-
-sc_dmenu () {
-	song=$(sc qlist \
-		| column -t -s '|' \
-		| dmenu -b -i -p "Song: " -l 10
-	)
-	sc play $(echo $song | awk '{print $1}')
 }

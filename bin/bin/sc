@@ -1,0 +1,17 @@
+sc () {
+  # https://github.com/Spotifyd/spotifyd
+  echo $@ | socat - UNIX-CONNECT:/tmp/spotifyd 2>/dev/null
+}
+
+sc_dmenu () {
+	song=$(sc qlist \
+		| column -t -s '|' \
+		| dmenu -b -i -p "Song: " -l 10
+	)
+	sc play $(echo $song | awk '{print $1}')
+}
+
+case $2 in
+    menu) sc_dmenu ;;
+    *) sc $@ ;;
+esac

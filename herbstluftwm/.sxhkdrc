@@ -1,0 +1,27 @@
+# vim: set ft=sxhkdrc:
+
+super + p
+  dmenu_run -x 5 -y 5 -h 30 -w 400
+
+super + w
+  chromium
+
+XF86AudioRaiseVolume
+  volume + && popup volume: $(volume level)
+
+XF86AudioLowerVolume
+  volume - && popup volume: $(volume level)
+
+XF86AudioMute
+  volume ! && popup volume: $(volume state)
+
+XF86Audio{Prev,Next}
+  mpc {prev, next} || sc {prev, next}
+
+XF86AudioPlay
+  mpc toggle && popup `cursong` || sc pause && popup `sc cur_playing | cut -d'|' -f1`
+
+###
+
+super + Return
+  urxvt -e tmux && wtp 40 40 120 240 $(pfw)

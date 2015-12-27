@@ -1,10 +1,10 @@
 use strict;
 use Irssi 20020101.0250 ();
-use vars qw($VERSION %IRSSI); 
+use vars qw($VERSION %IRSSI);
 $VERSION = "2";
 %IRSSI = (
     authors     => "Timo Sirainen, Ian Peters, David Leadbeater",
-    contact	=> "tss\@iki.fi", 
+    contact	=> "tss\@iki.fi",
     name        => "Nick Color",
     description => "assign a different color for each nick",
     license	=> "Public Domain",
@@ -93,7 +93,7 @@ sub sig_public {
   }
 
   $color = sprintf "\003%02d", $color;
-  $server->command('/^format pubmsg {pubmsgnick $2 {pubnick ' . $color . '$0}}$1');
+  $server->command('/^format pubmsg {pubmsgnick $2 {pubnick '.chr(3).$color.'$[-11]0}}$1');
 }
 
 sub cmd_color {
