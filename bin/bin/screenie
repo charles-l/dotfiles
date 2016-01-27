@@ -15,8 +15,10 @@ usage ()
 }
 
 if [ -z "$1" ]; then
-        maim --hidecursor $scrotdir/screenie$(ls $scrotdir | wc -l).png
+        f=$scrotdir/screenie$(ls $scrotdir | wc -l).png
+        maim --hidecursor $f
         popup "screenshotted to $scrotdir" &
+        echo $f
 else
         case "$1" in
                 -h)
