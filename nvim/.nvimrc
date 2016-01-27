@@ -6,4 +6,4 @@ source ~/.vim/basicconfig.vim
 source ~/.vim/plugins.vim
 
 set t_Co=256
-colorscheme bwop
+colorscheme shblah

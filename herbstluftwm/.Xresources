@@ -1,4 +1,4 @@
-#include "/home/nc/.config/colors/pine"
+#include "/home/nc/.config/colors/bulb"
 
 URxvt*termName:         rxvt-256color
 URxvt*loginShell:       false

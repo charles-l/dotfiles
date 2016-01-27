@@ -30,4 +30,4 @@ super + Print
 ###
 
 super + Return
-  urxvt -e tmux
+  urxvt

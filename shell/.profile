@@ -1,10 +1,16 @@
 export LANG=en_US.UTF-8
 GRAY="[34m"
 NC="[00m"
-PS1=" $GRAY : $NC "
-EDITOR="vim"
+export PS1=" $GRAY : $NC "
+export EDITOR="vim"
+export VISUAL="$EDITOR"
+export PAGER="less"
 
-PATH=$PATH:$HOME/bin:$HOME/perl5/bin/
+# mail
+export DEAD="/tmp/dead.letter"
+export MAIL="$HOME/mail/inbox/"
+
+export PATH=$PATH:$HOME/bin:$HOME/perl5/bin/
 . $HOME/.dotfiles/shell/aliases.sh
 . $HOME/.dotfiles/shell/funcs.sh
 . $HOME/.dotfiles/shell/shmark/shmark.sh

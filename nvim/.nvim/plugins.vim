@@ -10,17 +10,20 @@ Plug 'kana/vim-fakeclip'
 Plug 'kien/ctrlp.vim', {'on': ['CtrlP', 'CtrlPBuffer']}
 Plug 'mileszs/ack.vim'
 Plug 'mtth/scratch.vim'
-"Plug 'Raimondi/delimitMate'
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 Plug 'tpope/vim-fugitive' "Git wrapper
+Plug 'justinmk/vim-sneak'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'ViewPort'
 Plug 'vim-indent-object'
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-notes'
-Plug 'terryma/vim-multiple-cursors'
+Plug 'textobj-user'
+Plug 'matchit'
+Plug 'YankRing.vim'
+Plug 'matchit.zip'
+
+" Lisp
 Plug 'kovisoft/paredit'
 
 "Blehscript
@@ -29,5 +32,7 @@ Plug 'mxw/vim-jsx'
 
 "Ruby
 Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-rails'
+Plug 'textobj-rubyblock'
 
 call plug#end()

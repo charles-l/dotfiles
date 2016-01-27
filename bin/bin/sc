@@ -11,7 +11,7 @@ sc_dmenu () {
 	sc play $(echo $song | awk '{print $1}')
 }
 
-case $2 in
+case $1 in
     menu) sc_dmenu ;;
     *) sc $@ ;;
 esac

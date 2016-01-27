@@ -1,0 +1,8 @@
+#!/bin/sh
+while true; do
+    popup "start working!"
+    sleep 1500 && popup "break"; sleep 300 && popup "back to work"
+    sleep 1500 && popup "break"; sleep 300 && popup "back to work"
+    sleep 1500 && popup "break"; sleep 300 && popup "back to work"
+    sleep 1500 && popup "break"; sleep 900 && popup "back to work"
+done

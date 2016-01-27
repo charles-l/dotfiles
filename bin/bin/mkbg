@@ -1,2 +1,4 @@
-curl -s -L https://source.unsplash.com/category/nature/1920x1080 > /tmp/background.jpg
-hsetroot -center /tmp/background.jpg
+curl -s -L https://source.unsplash.com/category/nature/1920x1080 | convert - /tmp/background.png
+hsetroot -center /tmp/background.png
+COL=`colors /tmp/background.png | tail -n3 | head -n1`
+herbstclient set window_border_active_color "$COL"

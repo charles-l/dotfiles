@@ -6,10 +6,11 @@ do
 done
 fc-cache -fv
 
-compton &
 sxhkd -c ~/.sxhkdrc &
 
 # ermm.... figure out how do not use this hack sometime?
 sudo setfacl -m u:nc:rw /dev/snd/*
+
+compton --config $HOME/.compton.conf &
 
 exec herbstluftwm

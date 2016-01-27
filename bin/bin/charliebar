@@ -2,9 +2,6 @@
 # my bar!
 #
 # deps:
-#  - wmutils
-#  - github.com/charles-l/bin
-#  - bspwm
 #  - lemonbar
 #
 # charlie - (c) 2015
@@ -15,11 +12,11 @@ default_geometry() {
     y=$(wattr h `lsw -r`)
 
     width=200
-    height=30
+    height=20
 
-    offy=$(($y - $height - 5))
+    offy=$(($y - $height))
     #offx=$(( x - x/2 - $width/2 ))
-    offx=5
+    offx=0
 
     echo "${width}x${height}+${offx}+${offy}"
 }
@@ -31,8 +28,9 @@ lemoncommand() {
 
 while true
 do
-    VOL=`progbar $(volume | sed -e 's/%.*$//')`
-    TIME=`date "+%H:%M"`
-    echo "   $VOL %{r}$TIME  "
-    sleep 0.5
+    MC=`ls mail/inbox/new/ | wc -l`
+    FEEDS=`newsbeuter -x print-unread | head -n1 | cut -d' ' -f1`
+    TIME=`date "+%H:%M %-m/%-d"`
+    echo " %{c}$TIME  $MC  $FEEDS"
+    sleep 60
 done | lemoncommand
