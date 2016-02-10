@@ -22,6 +22,7 @@ Plug 'textobj-user'
 Plug 'matchit'
 Plug 'YankRing.vim'
 Plug 'matchit.zip'
+Plug 'w0ng/vim-hybrid'
 
 " Lisp
 Plug 'kovisoft/paredit'

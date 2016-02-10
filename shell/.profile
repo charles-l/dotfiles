@@ -1,7 +1,7 @@
 export LANG=en_US.UTF-8
 GRAY="[34m"
 NC="[00m"
-export PS1=" $GRAY : $NC "
+export PS1="$GRAY% $NC "
 export EDITOR="vim"
 export VISUAL="$EDITOR"
 export PAGER="less"

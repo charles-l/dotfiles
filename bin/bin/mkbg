@@ -1,4 +1,14 @@
-curl -s -L https://source.unsplash.com/category/nature/1920x1080 | convert - /tmp/background.png
-hsetroot -center /tmp/background.png
-COL=`colors /tmp/background.png | tail -n3 | head -n1`
-herbstclient set window_border_active_color "$COL"
+#!/bin/sh
+if [ -z "$1" ]
+then
+    curl -s -L https://source.unsplash.com/category/nature/1920x1080 | convert - /tmp/background.png
+else
+    cp "$1" /tmp/background.png
+fi
+
+if [ "$2" == "-t" ]
+then
+    hsetroot -tile /tmp/background.png
+else
+    hsetroot -center /tmp/background.png
+fi

@@ -22,7 +22,7 @@ default_geometry() {
 }
 
 lemoncommand() {
-    lemonbar -d -g `default_geometry` -B '#000' -F'#333' \
+    lemonbar -d -g `default_geometry` -B '#000' -F'#AAA' \
         -f "-*-creep-*-*-*--*-*-*-*-*-*-*-*" -f "-*-siji-*-*-*--*-*-*-*-*-*-*-*"
 }
 

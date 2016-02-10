@@ -6,4 +6,5 @@ source ~/.vim/basicconfig.vim
 source ~/.vim/plugins.vim
 
 set t_Co=256
-colorscheme shblah
+set background=dark
+colorscheme hybrid
