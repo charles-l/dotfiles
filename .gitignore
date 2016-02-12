@@ -2,3 +2,6 @@ nvim/.nvim/.netrwhist
 nvim/.nvim/spell
 nvim/.nvim/plugged/
 tmux/.tmux/plugins/tmux-*
+cache.db
+history.cmdline
+history.search

@@ -12,6 +12,7 @@ sxhkd -c ~/.sxhkdrc &
 sudo setfacl -m u:nc:rw /dev/snd/*
 
 compton --config $HOME/.compton.conf &
+mkbg &
 
 while xsetroot -name "`date '+%m/%d %H:%M'`"
 do

@@ -1,0 +1,17 @@
+reload-threads 4
+
+article-sort-order date-asc
+feedlist-format "%S%n %11u %t"
+articlelist-format "%D %f %?T?;%-17T; ?%t"
+datetime-format %m-%d
+color background white black
+color listnormal white black
+color listfocus black white
+color info black white
+color article white black
+
+browser "chromium %u"
+
+bind-key k up
+bind-key j down
+bind-key O open-in-browser-and-mark-read
