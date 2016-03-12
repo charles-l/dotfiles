@@ -5,10 +5,4 @@ then
 else
     cp "$1" /tmp/background.png
 fi
-
-if [ "$2" == "-t" ]
-then
-    hsetroot -tile /tmp/background.png
-else
-    hsetroot -center /tmp/background.png
-fi
+hsetroot -tile /tmp/background.png

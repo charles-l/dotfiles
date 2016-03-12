@@ -1,5 +1,5 @@
 #!/bin/sh
 [ -z "$1" ] && echo "ack! I need a filename!" && exit 1
 
-ffmpeg -f alsa -ac 1 -i plughw:2 -f x11grab -r 25 -s 1280x720 -i :0.0+0,24 -acodec pcm_s16le \
+ffmpeg -f alsa -ac 1 -i plughw:2 -f x11grab -r 25 -s 1280x720 -i :0.0+1080,0 -acodec pcm_s16le \
     -vcodec libx264 -threads 0 $1.mkv

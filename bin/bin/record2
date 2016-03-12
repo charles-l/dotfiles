@@ -11,5 +11,6 @@ ffmpeg \
 -f pulse -i "$OUTPUT" \
 -filter_complex amix=inputs=2 \
 -f x11grab -s `xdpyinfo | grep -i dimensions: | sed 's/[^0-9]*pixels.*(.*).*//' | sed 's/[^0-9x]*//'` -r 25 -i :0.0+0,0 \
+-f v4l2 -framerate 25 -video_size 640x480 -i /dev/video0 \
 -vcodec libx264 -preset veryfast -crf 18 \
 $HOME/vid/$F.mkv

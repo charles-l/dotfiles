@@ -1,9 +1,8 @@
 xrdb -merge $HOME/.Xresources
+# fix monitor order
+xrandr --auto --output HDMI-0 --primary --right-of DVI-D-0 --output DVI-D-0 --rotate right
 
-for f in `ls /usr/share/fonts/bitmap`
-do
-	xset fp+ /usr/share/fonts/bitmap/$f
-done
+xset fp+ /usr/share/fonts/misc
 fc-cache -fv
 
 sxhkd -c ~/.sxhkdrc &
@@ -12,9 +11,9 @@ sxhkd -c ~/.sxhkdrc &
 sudo setfacl -m u:nc:rw /dev/snd/*
 
 compton --config $HOME/.compton.conf &
-mkbg &
+mkbg ~/img/bkg/tile/escheresque_ste.png &
 
-while xsetroot -name "`date '+%m/%d %H:%M'`"
+while xsetroot -name "`mpc 1>/dev/null 2>/dev/null && mpc cur_playing | head -n1`| `date '+%m/%d %H:%M'`"
 do
     sleep 1
 done &

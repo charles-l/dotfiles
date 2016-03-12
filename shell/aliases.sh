@@ -19,7 +19,9 @@ alias xsel='xsel -b'
 alias news='newsbeuter'
 
 # pulseaudio-less steam!
-alias steam="LD_PRELOAD=/usr/lib32/libasound.so.2 STEAM_RUNTIME=1 SDL_AUDIODRIVER=alsa steam"
+alias steam1="LD_PRELOAD=/usr/lib32/libasound.so.2 STEAM_RUNTIME=1 SDL_AUDIODRIVER=alsa steam"
+# fix for csgo (for some reason GLVND does something funky and breaks csgo)
+alias steam2="__GLVND_DISALLOW_PATCHING=1 steam"
 
 # stupid irssi
 alias irssi='TERM=screen-256color irssi'
