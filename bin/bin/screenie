@@ -15,7 +15,7 @@ usage ()
 }
 
 if [ -z "$1" ]; then
-        f=$scrotdir/screenie$(ls $scrotdir | wc -l).png
+        f=$scrotdir/screenie$(($(ls $scrotdir | wc -l) + 1)).png
         maim --hidecursor $f
         popup "screenshotted to $scrotdir" &
         echo $f
