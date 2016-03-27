@@ -7,11 +7,17 @@ Plug 'junegunn/rainbow_parentheses.vim' "Makes working with lisp easier
 Plug 'junegunn/vim-oblique'
 Plug 'junegunn/vim-pseudocl'
 Plug 'kana/vim-fakeclip'
-Plug 'kien/ctrlp.vim', {'on': ['CtrlP', 'CtrlPBuffer']}
+
+Plug 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_reuse_window = 'startify'
 let g:ctrlp_match_window_bottom = 0
 let g:ctrlp_match_window_reversed = 0
 let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend|png|jpg)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
+
+Plug 'tacahiroy/ctrlp-funky'
+nnoremap <Leader>fu :CtrlPFunky<Cr>
+nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
+
 Plug 'mileszs/ack.vim'
 Plug 'mtth/scratch.vim'
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}

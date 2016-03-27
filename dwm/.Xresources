@@ -1,4 +1,4 @@
-#include "/home/nc/.config/colors/nuin"
+#include "/home/nc/.config/colors/mon"
 
 URxvt*loginShell:       true
 URxvt*saveLines:        4096
