@@ -13,5 +13,6 @@ if [ -z "$1" ]; then
 fi
 
 FILE=$1
-ffmpeg -i $FILE -r 60 /tmp/$FILE.gif
+eval $(slop)
+ffmpeg -video_size $Wx$H -f x11grab -framerate 25 -video_size cif -i :0.0+$X,$Y /tmp/$FILE.gif
 gifsicle --delay=3 --optimize=3 /tmp/$FILE.gif > $FILE.gif

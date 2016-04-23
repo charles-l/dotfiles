@@ -7,3 +7,4 @@ history.cmdline
 history.search
 *.db
 *.lock
+*.log

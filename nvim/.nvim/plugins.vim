@@ -22,15 +22,12 @@ Plug 'mileszs/ack.vim'
 Plug 'mtth/scratch.vim'
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 Plug 'tpope/vim-fugitive' "Git wrapper
-Plug 'justinmk/vim-sneak'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
-Plug 'ViewPort'
 Plug 'vim-indent-object'
 Plug 'textobj-user'
 Plug 'matchit.zip'
-Plug 'a.vim'
 Plug 'mhinz/vim-startify'
 let g:startify_bookmarks = ['~/.vimrc']
 let g:startify_custom_header = [
@@ -54,7 +51,6 @@ Plug 'kovisoft/paredit'
 
 "Blehscript
 Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
 
 "Ruby
 Plug 'vim-ruby/vim-ruby'

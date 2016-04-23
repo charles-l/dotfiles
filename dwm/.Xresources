@@ -1,4 +1,4 @@
-#include "/home/nc/.config/colors/mon"
+#include "/home/nc/.config/colors/bitmute"
 
 URxvt*loginShell:       true
 URxvt*saveLines:        4096

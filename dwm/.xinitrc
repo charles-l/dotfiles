@@ -11,7 +11,7 @@ sxhkd -c ~/.sxhkdrc &
 sudo setfacl -m u:nc:rw /dev/snd/*
 
 compton --config $HOME/.compton.conf &
-mkbg ~/img/bkg/tile/escheresque_ste.png &
+feh --bg-fill ~/img/bkg/m1.jpg &
 
 while xsetroot -name "`mpc 1>/dev/null 2>/dev/null && mpc cur_playing | head -n1`| `date '+%m/%d %H:%M'`"
 do

@@ -34,18 +34,12 @@ nnoremap <silent> <leader>w :w<CR>
 nnoremap <silent> <leader>b :CtrlPBuffer<CR>
 nnoremap <silent> <leader>o :CtrlP<CR>
 nnoremap <silent> <leader>t :NERDTreeToggle<CR>
-nnoremap <silent> <leader>m :term make<CR>
 nnoremap <silent> <leader>d :Ack <C-R><C-W><CR>
-nnoremap <silent> <leader>a :A <CR>
 nnoremap <silent> <leader>s :Scratch<CR>
 "insert timestamp
 nnoremap <silent> <F5> O<ESC>:read !date "+\%Y-\%m-\%d \%H:\%m:\%S"<CR>kdd
 
-vmap     <silent> S :MultipleCursorsFind<Space>
-
 nnoremap <leader>r yyp!!sh<CR>
-nnoremap <leader>R :let x=getline('.') \| vnew \| execute 'term '.x <CR>
-
 vnoremap . :norm.<CR>
 
 " SYNTAX
