@@ -6,9 +6,7 @@
 # depends: lemonbar, wattr and common sense
 
 # bar options
-#font='-*-stlarch-medium-r-*-*-10-*-*-*-*-*-*-*'
-font="-*-creep-*-*-*--16-*-*-*-*-*-*-1"
-iconfont="-*-siji-*-*-*--*-*-*-*-*-*-*-1"
+font='-*-tewi-medium-*-*-*-*-*-*-*-*-*-*-*'
 bg="#CCC"
 fg="#333"
 hl="#ff443232"
@@ -18,30 +16,53 @@ default_geometry() {
     x=$(wattr w `lsw -r`)
     y=$(wattr h `lsw -r`)
 
-    width=500
-    height=20
+    width=250
+    height=40
 
-    offy=$((y - $height))
-    offx=200
-    #offx=$(( x - x/2 - $width/2 ))
-    #offx=$(( x - $width - $offy))
+    offy=20
+    offx=$(( x - width - 20))
 
     echo "${width}x${height}+${offx}+${offy}"
 }
 
-while getopts "d:g:h" opt; do
+default_button_geometry() {
+    # get screen size
+    x=$(wattr w `lsw -r`)
+    y=$(wattr h `lsw -r`)
+
+    width=250
+    height=40
+
+    offy=65
+    offx=$(( x - width - 20))
+
+    echo "${width}x${height}+${offx}+${offy}"
+}
+
+while getopts "c:d:g:h" opt; do
     case $opt in
-        d) SLEEP=$OPTARG ;;
-        g) GEOM=$OPTARG  ;;
-        h) usage; exit 0 ;;
+        d) SLEEP=$OPTARG   ;;
+        g) GEOM=$OPTARG    ;;
+        h) usage; exit 0   ;;
+        c) COMMAND=$OPTARG ;;
     esac
 done
 
 GEOM=${GEOM:-$(default_geometry)}
-SLEEP=${SLEEP:-3}
+SLEEP=${SLEEP:-5}
 
 if [ -t 0 ]; then
-    (echo "%{c}$@"; sleep $SLEEP) | lemonbar -d -g $GEOM -B $bg -F $fg -f $iconfont
+    CONTENT=$@
 else
-    (echo "%{c}$@ $(cat)"; sleep $SLEEP) | lemonbar -d -g $GEOM -B $bg -F $fg -f $font -f $iconfont
+    CONTENT=$(cat)
 fi
+
+str="$CONTENT"
+
+if [ ! -z "$COMMAND" ]; then
+    str="%{A:$COMMAND:}$str%{A}"
+fi
+
+str="%{c}$str"
+
+(echo $str; sleep $SLEEP) | lemonbar -d -g $GEOM -B $bg -F $fg -f $font | sh &

@@ -6,6 +6,8 @@ xset fp+ /usr/share/fonts/misc
 fc-cache -fv
 
 sxhkd -c ~/.sxhkdrc &
+sh ~/dev/ntfyd/ntfyd & # notification daemon
+mopidy &
 
 # ermm.... figure out how do not use this hack sometime?
 sudo setfacl -m u:nc:rw /dev/snd/*
@@ -13,7 +15,7 @@ sudo setfacl -m u:nc:rw /dev/snd/*
 compton --config $HOME/.compton.conf &
 feh --bg-fill ~/img/bkg/m1.jpg &
 
-while xsetroot -name "`mpc 1>/dev/null 2>/dev/null && mpc cur_playing | head -n1`| `date '+%m/%d %H:%M'`"
+while xsetroot -name "`mpc 1>/dev/null 2>/dev/null && mpc cur | head -n1` | `date '+%m/%d %H:%M'`"
 do
     sleep 1
 done &
