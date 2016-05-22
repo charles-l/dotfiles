@@ -23,6 +23,7 @@ Plug 'matchit.zip'
 Plug 'Townk/vim-autoclose'
 Plug 'vimwiki'
 Plug 'simonhicks/bufedit.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 let g:vimwiki_list = [{'syntax': 'markdown', 'ext': '.md'}]
 
