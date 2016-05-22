@@ -11,26 +11,24 @@ default_geometry() {
     x=$(wattr w `lsw -r`)
     y=$(wattr h `lsw -r`)
 
-    width=200
+    width=100
     height=20
 
-    offy=$(($y - $height))
+    offy=0 #$(($y - $height))
     #offx=$(( x - x/2 - $width/2 ))
-    offx=0
+    offx=$(($x - $width))
 
     echo "${width}x${height}+${offx}+${offy}"
 }
 
 lemoncommand() {
     lemonbar -d -g `default_geometry` -B '#000' -F'#AAA' \
-        -f "-*-creep-*-*-*--*-*-*-*-*-*-*-*" -f "-*-siji-*-*-*--*-*-*-*-*-*-*-*"
+        -f "-*-tewi-medium-*-*--*-*-*-*-*-*-*-*" -f "-*-siji-*-*-*--*-*-*-*-*-*-*-*"
 }
 
 while true
 do
-    MC=`ls mail/inbox/new/ | wc -l`
-    FEEDS=`newsbeuter -x print-unread | head -n1 | cut -d' ' -f1`
     TIME=`date "+%H:%M %-m/%-d"`
-    echo " %{c}$TIME  $MC  $FEEDS"
+    echo " %{c}$TIME"
     sleep 60
 done | lemoncommand

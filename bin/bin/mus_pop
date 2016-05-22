@@ -1,0 +1,32 @@
+#!/bin/sh
+
+sleep=5
+font='-*-tewi-medium-*-*--11-*-*-*-*-*-*-*'
+default_geometry() {
+    # get screen size
+    x=$(wattr w `lsw -r`)
+    y=$(wattr h `lsw -r`)
+
+    width=300
+    height=50
+
+    offy=20
+    offx=$(( x - width - 20))
+
+    #echo "${width}x${height}+${offx}+${offy}"
+}
+
+default_geometry
+title=$(mpc current -f '%title%')
+artist=$(mpc current -f '%artist%')
+album=$(mpc current -f '%album%')
+
+# grab cover art
+glyrc cover -w /tmp/cur_cover.jpg --artist "$artist" --album "$album" 1>/dev/null 2>/dev/null && \
+    convert -scale '50x50' /tmp/cur_cover.jpg /tmp/cur_cover.xpm
+
+(echo \
+"^pa(0;0)^i(/tmp/cur_cover.xpm)^ib(1)\
+^pa(55;5)^fg(#fff)$title^fg()\
+^pa(55;20)^fg(#aaa)$artist^fg()\
+^pa(55;35)^fg(#aaa)$album^fg()") | dzen2 -x $offx -y $offy -w $width -h $height -p $sleep -ta 'l' -fn $font -bg "#000"

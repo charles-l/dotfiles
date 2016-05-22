@@ -17,6 +17,7 @@ alias v="$EDITOR"
 alias mk='make'
 alias xsel='xsel -b'
 alias news='newsbeuter'
+alias wget='wget -q --show-progress --progress=dot'
 
 # pulseaudio-less steam!
 alias steam1="LD_PRELOAD=/usr/lib32/libasound.so.2 STEAM_RUNTIME=1 SDL_AUDIODRIVER=alsa steam"

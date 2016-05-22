@@ -1,13 +1,5 @@
 #!/bin/sh
-# pretty ls
-# WARNING: broken!
-# deps:
-#   - git
-#
-# charlie - (c) 2015
-#
-# TODO: perhaps grep info from git status, so it's faster
-
+#TODO: perhaps grep info from git status, so it's faster
 DIR="$1"
 RED=$(echo '\033[0;31m')
 GREEN=$(printf '\033[0;32m')
@@ -33,21 +25,21 @@ function inject_git() {
         STAGED_FILES=`git diff --name-only --cached 2>/dev/null`
 
         for f in $DIRTY_FILES; do
-            OUT=`printf "$OUT" | sed "s|$f$|$YELLOW\|$NC $f|"`
+            OUT=`printf "$OUT" | sed "s| $f$|$YELLOW\|$NC $f|"`
         done
 
         for f in $UNTRACKED_FILES; do
-            OUT=`printf "$OUT" | sed "s|$f$|$GRAY\|$NC $f|"`
+            OUT=`printf "$OUT" | sed "s| $f$|$GRAY\|$NC $f|"`
         done
 
         for f in $STAGED_FILES; do
-            OUT=`printf "$OUT" | sed "s|$f$|$GREEN\|$NC $f|"`
+            OUT=`printf "$OUT" | sed "s| $f$|$GREEN\|$NC $f|"`
         done
 
         for f in $COMMITTED_FILES; do
             printf "$OUT" | grep "^.*|.* $f$" 1>/dev/null 2>/dev/null
             if [[ $? == 1 ]]; then
-                OUT=`printf "$OUT" | sed "s|$f$|$BLUE\|$NC $f|"`
+                OUT=`printf "$OUT" | sed "s| $f$|$BLUE\|$NC $f|"`
             fi
         done
     fi

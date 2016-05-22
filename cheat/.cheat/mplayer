@@ -1,0 +1,2 @@
+# to listen to an online radio stream
+mplayer http://stream.nute.net:8000/kohina/stream.ogg

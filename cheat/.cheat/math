@@ -1,0 +1,7 @@
+# length of vector a
+|a| = sqrt((ax * ax) + (ay * ay) + (az * az))
+
+# normalize a vector (i.e. put it in terms of 1)
+x = ax/|a|
+y = ay/|a|
+z = az/|a|

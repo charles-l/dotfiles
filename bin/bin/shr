@@ -1,5 +1,0 @@
-#!/bin/sh
-
-HOST="root@10.0.1.56"
-rsync -a ~/share $HOST:/ &> /dev/null
-rsync -a $HOST:/share ~/ &> /dev/null

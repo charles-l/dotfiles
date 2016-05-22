@@ -1,7 +1,0 @@
-W=$(pfw)
-case $1 in
-    h) wmv -40 0 $W && focus $W ;;
-    j) wmv 0  40 $W && focus $W ;;
-    k) wmv 0 -40 $W && focus $W ;;
-    l) wmv 40  0 $W && focus $W ;;
-esac

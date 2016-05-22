@@ -1,9 +1,0 @@
-#!/bin/sh
-# formats C files yo!
-#
-# deps:
-#  - astyle
-#
-# charlie - (c) 2015
-
-find . -name '*.c' -or -name '*.h' | xargs astyle --style=kr -n

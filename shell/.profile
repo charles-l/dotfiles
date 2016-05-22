@@ -17,3 +17,4 @@ export PATH=$PATH:$HOME/bin:$HOME/perl5/bin/
 
 # OPAM configuration
 . /home/nc/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
+

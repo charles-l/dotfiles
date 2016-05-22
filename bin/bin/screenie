@@ -17,15 +17,15 @@ usage ()
 if [ -z "$1" ]; then
         f=$scrotdir/screenie$(($(ls $scrotdir | wc -l) + 1)).png
         maim --hidecursor $f
-        popup "screenshotted to $scrotdir" &
+        popup "screenshotted"
         echo $f
 else
         case "$1" in
                 -h)
                         usage;;
                 -s)
-                        maim --hidecursor -s -b 3 -c 250,250,250 $scrotdir/screenie$(ls $scrotdir | wc -l).png
-                        popup "screenshotted to $scrotdir" & ;;
+                        maim --hidecursor -s -b 3 -c 250,250,250 $scrotdir/screenie$(($(ls $scrotdir | wc -l) + 1)).png
+                        popup "screenshotted" ;;
                 *)
                         usage;;
         esac
