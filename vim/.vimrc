@@ -21,6 +21,7 @@ Plug 'vim-indent-object'
 Plug 'textobj-user'
 Plug 'matchit.zip'
 Plug 'Townk/vim-autoclose'
+Plug 'justinmk/vim-sneak'
 Plug 'vimwiki'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }

@@ -16,4 +16,6 @@ feh --bg-fill ~/img/bkg/m1.jpg &
 charliebar &
 #statusbar &
 
-mcwm 2>&1 > /tmp/wmlog
+while true; do
+    cwm
+done
