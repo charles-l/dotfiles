@@ -28,8 +28,15 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 let g:vimwiki_list = [{'syntax': 'markdown', 'ext': '.md'}]
 
+" Snippets - we'll see if I actually use them.
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'garbas/vim-snipmate'
+Plug 'honza/vim-snippets'
+Plug 'charles-l/vim-snippets-crystal'
+
 " Lisp
-Plug 'kovisoft/paredit'
+Plug 'guns/vim-sexp'
 
 "Ruby
 Plug 'vim-ruby/vim-ruby'

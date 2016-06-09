@@ -1,7 +1,6 @@
 xrdb -merge $HOME/.Xresources
 # fix monitor order
-xrandr --auto --output HDMI-0 --primary --right-of DP-1 --output DP-1 #--rotate right
-
+xrandr --auto --output HDMI-0 --primary --right-of DVI-D-0 --output DVI-D-0 --rotate right
 
 xset fp+ /usr/share/fonts/misc
 fc-cache -fv
@@ -9,14 +8,12 @@ fc-cache -fv
 sxhkd -c ~/.sxhkdrc &
 
 # ermm.... figure out how do not use this hack sometime?
-sudo setfacl -m u:nc:rw /dev/snd/*
+#sudo setfacl -m u:nc:rw /dev/snd/*
 
 compton --config $HOME/.compton.conf &
 feh --bg-fill ~/img/bkg/m1.jpg &
 
-charliebar &
-#statusbar &
-
-while true; do
+while true
+do
     cwm
 done
