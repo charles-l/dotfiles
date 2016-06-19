@@ -4,16 +4,10 @@ super + {h,j,k,l}
   closest {h,j,k,l}
 
 XF86AudioRaiseVolume
-  volume + && popup volume: $(volume level)
+  volume + ; echo "volume: $(volume level)" | popup
 
 XF86AudioLowerVolume
-  volume - && popup volume: $(volume level)
+  volume - ; echo "volume: $(volume level)" | popup
 
 XF86AudioMute
-  volume ! && popup volume: $(volume state)
-
-XF86Audio{Prev,Next}
-  mpc {prev, next}
-
-XF86AudioPlay
-  mpc toggle
+  volume ! ; echo "volume $(volume state)" | popup

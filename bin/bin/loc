@@ -10,3 +10,4 @@
 slock &
 sleep 1
 xset dpms force standby
+sudo s2ram

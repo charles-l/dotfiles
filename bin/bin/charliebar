@@ -11,7 +11,7 @@ default_geometry() {
     x=$(wattr w `lsw -r`)
     y=$(wattr h `lsw -r`)
 
-    width=100
+    width=160
     height=20
 
     offy=0 #$(($y - $height))
@@ -23,12 +23,12 @@ default_geometry() {
 
 lemoncommand() {
     lemonbar -d -g `default_geometry` -B '#000' -F'#AAA' \
-        -f "-*-tewi-medium-*-*--*-*-*-*-*-*-*-*" -f "-*-siji-*-*-*--*-*-*-*-*-*-*-*"
+        -f "-*-tewi-medium-*-*--*-*-*-*-*-*-*-*" #-f "-*-siji-*-*-*--*-*-*-*-*-*-*-*"
 }
 
 while true
 do
     TIME=`date "+%H:%M %-m/%-d"`
-    echo " %{c}$TIME"
+    echo "  %{l} bat $(progbar $(acpi -b | cut -d',' -f2 | tr -d ' %')) %{r}$TIME"
     sleep 60
 done | lemoncommand

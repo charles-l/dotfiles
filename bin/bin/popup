@@ -7,9 +7,10 @@
 
 # bar options
 font='-*-tewi-medium-*-*-*-*-*-*-*-*-*-*-*'
-bg="#CCC"
-fg="#333"
+bg="#000"
+fg="#CCC"
 hl="#ff443232"
+strlen=30
 
 default_geometry() {
     # get screen size
@@ -17,10 +18,10 @@ default_geometry() {
     y=$(wattr h `lsw -r`)
 
     width=250
-    height=40
+    height=20
 
-    offy=20
-    offx=$(( x - width - 20))
+    offy=0
+    offx=$(( x - width ))
 
     echo "${width}x${height}+${offx}+${offy}"
 }
@@ -49,6 +50,8 @@ if [ ! -z "$COMMAND" ]; then
     str="%{A:$COMMAND:}$str%{A}"
 fi
 
-str="%{c}$str"
-
-(echo $str; sleep $SLEEP) | lemonbar -d -g $GEOM -B $bg -F $fg -f $font | sh &
+if [[ $(expr length "$str") -gt $strlen ]]; then
+    (echo $str | skroll -n $strlen -d0.1 -r) | xargs -I@ echo "%{c}" @ | lemonbar -d -g $GEOM -B $bg -F $fg -f $font | sh &
+else
+    (echo "%{c}" $str; sleep $SLEEP) | lemonbar -d -g $GEOM -B $bg -F $fg -f $font | sh &
+fi

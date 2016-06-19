@@ -10,9 +10,17 @@ end
 
 -- symbol = "┅"
 -- symbol = "═"
--- symbol = "━"
-symbol = "─"
+-- symbol = "─"
+symbol = "━"
 
-for i=1, math.floor(tonumber(arg[1]) / 10) do
+fill = math.floor(tonumber(arg[1]) / 10)
+empty = 10 - fill
+
+for i=1, fill do
     io.write(symbol)
 end
+
+for i=1, empty do
+    io.write(" ")
+end
+io.write("╸")
