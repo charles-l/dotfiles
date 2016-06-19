@@ -1,0 +1,14 @@
+# remove package + deps
+emerge -cav <package>
+
+# remove no longer needed packages
+emerge -av --depclean
+
+# upgrade all packages
+emerge -u @world
+
+# upgrade installed packages and deps
+emerge -avuDU --with-bdeps=y --keep-going=y @world
+
+# update system to use new USE flags
+emerge --update --deep --newuse @world

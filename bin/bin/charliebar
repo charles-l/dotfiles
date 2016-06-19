@@ -23,7 +23,7 @@ default_geometry() {
 
 lemoncommand() {
     lemonbar -d -g `default_geometry` -B '#000' -F'#AAA' \
-        -f "-*-tewi-medium-*-*--*-*-*-*-*-*-*-*" #-f "-*-siji-*-*-*--*-*-*-*-*-*-*-*"
+        -f "-*-tewi-medium-*-*--*-*-*-*-*-*-*-*"
 }
 
 while true

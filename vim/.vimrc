@@ -63,11 +63,13 @@ set modeline
 set modelines=5
 set number expandtab smarttab autoindent smartindent hidden nowrap nobackup
 set path=$PWD/**
+set path+=/usr/include/**
 syntax enable
 let g:netrw_browse_split = 0
 
 "Strip trailing whitespace when writing a file
-autocmd BufWritePre * :%s/\s\+$//e
+au BufWritePre * :%s/\s\+$//e
+au BufWritePost *.c,*.cpp,*.h silent! !ctags -R &
 
 "Move windows with C-Direction
 nmap <C-h> <C-w>h
