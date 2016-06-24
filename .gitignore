@@ -5,6 +5,7 @@ tmux/.tmux/plugins/tmux-*
 cache.db
 history.cmdline
 history.search
+config/.config
 *.db
 *.lock
 *.log

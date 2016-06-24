@@ -1,15 +1,17 @@
 #!/bin/sh
 
 case $1 in
-    i) # install packages
+    i|install) # install packages
 	shift
-	xbps-install -S $@;;
-    s) # search for packages
+	sudo xbps-install -S $@;;
+    s|search) # search for packages
 	shift
 	xbps-query -Rs $@;;
-    l) # list installed packages
+    l|list) # list installed packages
 	xbps-query -l;;
     ''|h|help) # get help
 	echo "usage: `basename $0` [ilsh]"
 	cat $0 | grep ') #' | grep -v 'grep' | tr -d ')' | column -s '#' -t;;
+    *)
+	$0 help;;
 esac
