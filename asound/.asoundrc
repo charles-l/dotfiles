@@ -1,0 +1,4 @@
+defaults.pcm.rate_converter "speexrate_best"
+defaults.pcm.card 2
+defaults.ctl.card 2
+#defaults.pcm.device 0

@@ -1,8 +1,7 @@
 xrdb -merge $HOME/.Xresources
-# fix monitor order
-xrandr --auto --output HDMI-0 --primary --right-of DVI-D-0 --output DVI-D-0 --rotate right
 
 xset fp+ /usr/share/fonts/misc
+xset fp+ /usr/share/fonts/tewi-font/out/
 fc-cache -fv
 
 sxhkd -c ~/.sxhkdrc &
