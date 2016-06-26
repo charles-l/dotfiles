@@ -1,8 +1,9 @@
 #!/bin/sh
+xhost +
 docker run -it \
     --net host \
     --cpuset-cpus 0 \
-    --memory 4096mb \
+    --memory 6000mb \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     -e DISPLAY=unix$DISPLAY \
     -v $HOME/down:/root/Downloads \
