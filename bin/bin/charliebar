@@ -6,6 +6,9 @@
 #
 # charlie - (c) 2015
 
+WHITE="%{F#FFF}"
+GRAY="%{F#555}"
+
 default_geometry() {
     # get screen size
     x=$(wattr w `lsw -r`)
@@ -23,12 +26,12 @@ default_geometry() {
 
 lemoncommand() {
     lemonbar -d -g `default_geometry` -B '#000' -F'#AAA' \
-        -f "-*-tewi-medium-*-*--*-*-*-*-*-*-*-*"
+        -f "-*-tamsyn-medium-*-*--15-*-*-*-*-*-*-*"
 }
 
 while true
 do
-    TIME=`date "+%H:%M %-m/%-d"`
-    echo "  %{l} bat $(progbar $(acpi -b | cut -d',' -f2 | tr -d ' %')) %{r}$TIME"
+    TIME=`date "+%H:%M %$WHITE%-m/%-d"`
+    echo "  %{l}$GRAY bat $WHITE$(acpi -b | cut -d',' -f2 | tr -d ' %') %{r}$GRAY$TIME"
     sleep 60
 done | lemoncommand
