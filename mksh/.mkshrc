@@ -16,4 +16,4 @@ export MAIL="$HOME/mail/inbox/"
 
 HISTFILE=$HOME/.history
 eval $(perl -I${HOME}/perl5/lib/perl5 -Mlocal::lib)
-export PATH="$PATH:$HOME/bin:$HOME/perl5/bin/:$HOME/.rvm/bin"
+export PATH="$PATH:$HOME/bin:$HOME/perl5/bin/:/home/nc/.gem/ruby/2.3.0/bin"

@@ -20,12 +20,16 @@ alias news='newsbeuter'
 alias wget='wget -q --show-progress --progress=dot'
 
 # pulseaudio-less steam!
-alias steam1="LD_PRELOAD=/usr/lib32/libasound.so.2 STEAM_RUNTIME=1 SDL_AUDIODRIVER=alsa steam"
+alias steam1="LD_PRELOAD=/usr/lib/libasound.so.2 STEAM_RUNTIME=1 SDL_AUDIODRIVER=alsa steam"
 # fix for csgo (for some reason GLVND does something funky and breaks csgo)
 alias steam2="__GLVND_DISALLOW_PATCHING=1 steam"
 
+# nmh
+alias n="next -noheader"
+alias p="prev -noheader"
+alias l="scan -noheader"
+alias s="show -noheader"
+alias pullmail="fdm fetch && inc"
+
 # stupid irssi
 alias irssi='TERM=screen-256color irssi'
-
-alias p='mpc toggle'
-[ -z "`which nvim 2>/dev/null`" ] || alias vim='nvim'

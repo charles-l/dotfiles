@@ -6,6 +6,12 @@
 #
 # charlie - (c) 2015
 
+if hash acpi 2>/dev/null; then
+    LAPTOP=true
+else
+    LAPTOP=false
+fi
+
 default_geometry() {
     # get screen size
     x=$(wattr w `lsw -r`)
@@ -15,8 +21,7 @@ default_geometry() {
     height=20
 
     offy=0 #$(($y - $height))
-    #offx=$(( x - x/2 - $width/2 ))
-    offx=$(($x - $width))
+    offx=$(( x - $width ))
 
     echo "${width}x${height}+${offx}+${offy}"
 }
@@ -29,6 +34,11 @@ lemoncommand() {
 while true
 do
     TIME=`date "+%H:%M %-m/%-d"`
-    echo "  %{l} bat $(progbar $(acpi -b | cut -d',' -f2 | tr -d ' %')) %{r}$TIME"
+    if $LAPTOP; then
+        BAT="bat $(progbar $(acpi -b | cut -d',' -f2 | tr -d ' %'))"
+        echo " %{l}$BAT%{r}$TIME "
+    else
+        echo "%{c}$TIME"
+    fi
     sleep 60
 done | lemoncommand

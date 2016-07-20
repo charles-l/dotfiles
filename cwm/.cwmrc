@@ -2,8 +2,7 @@
 fontname "tewi:pixelsize=14:medium"
 
 moveamount 10
-
-# Turn on sticky-group mode
+snapdist 10
 sticky yes
 
 # Any entry here is shown in the application menu
@@ -20,8 +19,10 @@ autogroup 2 "chromium"
 bind 4-r        label
 bind 4S-q       delete
 bind 4-p        exec
+bind 4-f        freeze
 bind C4M-r      restart
 bind 4-Return   st
+bind S4-Return  "st -e tmux"
 bind S4-h       hmaximize
 bind S4-v       vmaximize
 bind 4-x        fullscreen

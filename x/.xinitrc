@@ -2,15 +2,18 @@ xrdb -merge $HOME/.Xresources
 
 xset fp+ /usr/share/fonts/misc
 xset fp+ /usr/share/fonts/tewi-font/out/
+xset r rate 200 35
 fc-cache -fv
 
 sxhkd -c ~/.sxhkdrc &
 
-# ermm.... figure out how do not use this hack sometime?
-#sudo setfacl -m u:nc:rw /dev/snd/*
-
+sudo setfacl -m u:nc:rw /dev/snd/*
 compton --config $HOME/.compton.conf &
-feh --bg-fill ~/img/bkg/m1.jpg &
+hsetroot -full ~/img/bkg/e1.jpg
+charliebar &
+xbanish &
+compton &
+
 
 while true
 do

@@ -21,7 +21,6 @@ Plug 'vim-indent-object'
 Plug 'textobj-user'
 Plug 'matchit.zip'
 Plug 'Townk/vim-autoclose'
-Plug 'justinmk/vim-sneak'
 Plug 'vimwiki'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -33,20 +32,22 @@ Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
 Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
-Plug 'charles-l/vim-snippets-crystal'
 
 " Lisp
 Plug 'guns/vim-sexp'
 
-"Ruby
+" Ruby
 Plug 'vim-ruby/vim-ruby'
 Plug 'textobj-rubyblock'
 
-"C
+" C
 Plug 'scrooloose/syntastic'
+Plug 'Rip-Rip/clang_complete', {'dir': '~/.vim/plugged/clang_complete', 'do': 'make install'}
+let g:clang_close_preview=1
 
-"Crystal
+" Crystal
 Plug 'rhysd/vim-crystal'
+Plug 'charles-l/vim-snippets-crystal'
 
 call plug#end()
 
@@ -69,7 +70,6 @@ let g:netrw_browse_split = 0
 
 "Strip trailing whitespace when writing a file
 au BufWritePre * :%s/\s\+$//e
-au BufWritePost *.c,*.cpp,*.h silent! !ctags -R &
 
 "Move windows with C-Direction
 nmap <C-h> <C-w>h
