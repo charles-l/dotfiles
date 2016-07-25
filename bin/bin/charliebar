@@ -8,8 +8,10 @@
 
 if hash acpi 2>/dev/null; then
     LAPTOP=true
+    FONT="-*-tamsyn-medium-*-*--15-*-*-*-*-*-*-*"
 else
     LAPTOP=false
+    FONT="-*-tewi-medium-*-*--11-*-*-*-*-*-*-*"
 fi
 
 default_geometry() {
@@ -28,7 +30,7 @@ default_geometry() {
 
 lemoncommand() {
     lemonbar -d -g `default_geometry` -B '#000' -F'#AAA' \
-        -f "-*-tewi-medium-*-*--*-*-*-*-*-*-*-*"
+        -f $FONT
 }
 
 while true
