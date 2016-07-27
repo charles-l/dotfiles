@@ -10,7 +10,7 @@ datetime-format %m-%d
 #color info black white
 #color article white black
 
-browser "chromium %u"
+browser "xdg-open %u"
 
 bind-key k up
 bind-key j down

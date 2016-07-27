@@ -8,10 +8,12 @@ fi
 
 alias ga='git add'
 alias gc='git commit'
-alias gca='git commit --all'
-alias gp='git push'
+alias gp='git cherry --abbrev -v && git push'
 alias gs='git status -s'
+alias gfl='git log -u'
+alias gdc='git diff --cached HEAD^'
 alias gl="git log --all --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+
 alias grep='grep --color=auto'
 alias v="$EDITOR"
 alias mk='make'
