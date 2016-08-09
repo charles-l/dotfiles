@@ -69,7 +69,7 @@ def gen_menu_com(force_refresh=false)
     "cat #{fc} /tmp/path_cache /tmp/bang_cache" # returns the command to be called in shell pipeline (for optimization reasons)
 end
 
-input = menu(gen_menu_com).to_s
+input = menu(gen_menu_com).to_s.chomp
 
 exit if input.empty?
 
