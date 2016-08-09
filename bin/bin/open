@@ -1,0 +1,40 @@
+#!/usr/bin/env ruby
+# stupid wrapper around xdg-open, since I want something that's easy to tweak
+require 'tempfile'
+
+def handle_file mimetype, path
+    case mimetype.split('/')[0]
+    when "text"
+        return "st -e vim '#{path}'"
+    when "image"
+        return "feh '#{path}'"
+    when "pdf"
+        return "zathura #{path}"
+    when /^(audio|video)$/
+        return "mpv '#{path}'"
+    when "inode"
+        return "st -e sh -c 'cd \"#{path}\"; exec #{ENV["SHELL"] || "mksh"}'"
+    else
+        r = `dmenu_path | dmenu -p 'select fallback program'`
+        return "st -e sh -c 'cd \"#{path}\"; #{r} '#{path}'; exec #{ENV["SHELL"] || "mksh"}'"
+    end
+end
+
+arg = ARGV[0]
+abort "open: needs an argument" if !arg || arg.empty?
+ft = `file -L --mime-type #{arg}`.split(':')[1]
+
+fork do
+    system(
+        if File.exists? arg
+            handle_file ft.strip, File.absolute_path(arg)
+        elsif arg =~ /(^|\s)((https?:\/\/)?[\w-]+(\.[\w-]+)+\.?(:\d+)?(\/\S*)?)/
+            # to download instead:
+            #   t = Tempfile.new
+            #   `curl #{arg} > #{t.path}`
+            #   handle_file ft, t.path
+            "chrome #{arg}"
+        else # one last hoorah
+            "/usr/local/bin/xdg-open #{argv}"
+        end)
+end

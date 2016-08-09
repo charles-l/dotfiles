@@ -1,0 +1,87 @@
+#!/usr/bin/env ruby
+
+### UTIL ###
+
+# ripped from mkmf
+def find_executable(bin, path = nil)
+    if File.expand_path(bin) == bin
+        return bin if File.executable?(bin)
+        return nil
+    end
+    if path ||= ENV['PATH']
+        path = path.split(File::PATH_SEPARATOR)
+    else
+        path = %w[/usr/local/bin /usr/ucb /usr/bin /bin]
+    end
+    file = nil
+    path.each do |dir|
+        return file if File.executable?(file = File.join(dir, bin))
+    end
+    nil
+end
+
+def term(c)
+    fork {`st -e #{c}`}
+end
+
+def termsh(c)
+    fork {`st -e sh -c '#{c}'`}
+end
+
+def menu(com)
+    `#{com} | dmenu -fn yuki -l 10`
+end
+
+######
+
+$dir = File.absolute_path(ARGV[0] || ENV["HOME"])
+
+$bangs = {
+    ddg: -> (s) {`chrome 'ddg.gg/?q=#{s[1..-1].join(" ")}'`},
+    irc: -> (s) {term "weechat -r '/connect #{s[1]}; /join #{s[2]}'"},
+    scratch: -> (s) {term "vim -c :VimwikiMakeDiaryNote"},
+    wiki: -> (s) {term("vim #{menu("find /home/nc/vimwiki/ -path '/home/nc/vimwiki/.git' -prune -o -name '*#{s[2]}*'")}")},
+    when: -> (s) {
+        if s[1] == "edit"
+            term("when e")
+        elsif s[1] == "cal"
+            menu("when c")
+        else
+            menu("when")
+        end
+    },
+    cheat: -> (s) {
+        r = if s[1]
+                s[1]
+            else
+                menu("cheat -l | awk '{print $1}'").to_s
+            end
+        termsh("cheat #{r.chomp} | less")
+    },
+    refresh: -> (s) {menu(gen_menu_com true)}
+}
+
+def gen_menu_com(force_refresh=false)
+    fc = "/tmp/file_cache#{$dir.gsub('/', '.')}"
+    `find #{$dir} -type f > #{fc}` unless File.exists?(fc) || force_refresh
+    `dmenu_path > /tmp/path_cache` unless File.exists?("/tmp/path_cache") || force_refresh
+    File.write('/tmp/bang_cache', $bangs.keys.map{|k| "!" + k.to_s}.join("\n")) unless File.exists?("/tmp/bang_cache") || force_refresh
+    "cat #{fc} /tmp/path_cache /tmp/bang_cache" # returns the command to be called in shell pipeline (for optimization reasons)
+end
+
+input = menu(gen_menu_com).to_s
+
+exit if input.empty?
+
+if input[0] == "!"
+    s = input.split
+    c = s[0][1..-1]
+    puts s
+    $bangs[c.to_sym].call(s) if $bangs[c.to_sym]
+else
+    if find_executable input
+        system(input)
+    else
+        system("open #{input}")
+    end
+end

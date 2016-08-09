@@ -25,6 +25,7 @@ Plug 'vimwiki'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'pyte'
 let g:vimwiki_list = [{'syntax': 'markdown', 'ext': '.md'}]
 
 " Snippets - we'll see if I actually use them.
@@ -131,6 +132,6 @@ function SetSchemeOptions()
         call setpos('.', pos)
     endfun
 endfunction
+colorscheme pyte
 
-set background=dark
-colorscheme bwop
+set background=light

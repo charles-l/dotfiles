@@ -1,0 +1,9 @@
+#!/bin/sh
+
+slopoutput=$(slop -f "%x %y %w %h")
+X=$(echo $slopoutput | awk '{print $1}')
+Y=$(echo $slopoutput | awk '{print $2}')
+W=$(echo $slopoutput | awk '{print $3}')
+H=$(echo $slopoutput | awk '{print $4}')
+
+ffmpeg -video_size ${W}x${H} -f x11grab -i :0.0+$X,$Y /tmp/vid.mp4

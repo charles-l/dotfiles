@@ -1,0 +1,3 @@
+#!/bin/sh
+$(cd ~/mus && find . -type f | ruby -e 'puts STDIN.readlines.shuffle' > .playlist)
+cd ~/mus && mpv --gapless-audio --playlist=.playlist --no-video --keep-open --term-osd-bar --display-tags="" --term-playing-msg=""

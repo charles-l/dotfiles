@@ -6,7 +6,7 @@
 # depends: lemonbar, wattr and common sense
 
 # bar options
-font='-*-tewi-medium-*-*-*-*-*-*-*-*-*-*-*'
+font=$FONT
 bg="#000"
 fg="#CCC"
 hl="#ff443232"
@@ -50,8 +50,4 @@ if [ ! -z "$COMMAND" ]; then
     str="%{A:$COMMAND:}$str%{A}"
 fi
 
-if [[ $(expr length "$str") -gt $strlen ]]; then
-    (echo $str | skroll -n $strlen -d0.1 -r) | xargs -I@ echo "%{c}" @ | lemonbar -d -g $GEOM -B $bg -F $fg -f $font | sh &
-else
-    (echo "%{c}" $str; sleep $SLEEP) | lemonbar -d -g $GEOM -B $bg -F $fg -f $font | sh &
-fi
+(echo "%{c}" $str; sleep $SLEEP) | lemonbar -d -g $GEOM -B $bg -F $fg -f $font | sh &
