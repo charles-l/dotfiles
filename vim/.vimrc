@@ -20,13 +20,13 @@ Plug 'tpope/vim-surround'
 Plug 'vim-indent-object'
 Plug 'textobj-user'
 Plug 'matchit.zip'
-Plug 'Townk/vim-autoclose'
+"Plug 'Townk/vim-autoclose'
 Plug 'vimwiki'
+let g:vimwiki_list = [{'syntax': 'markdown', 'ext': '.md'}]
 Plug 'jlanzarotta/bufexplorer'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'pyte'
-let g:vimwiki_list = [{'syntax': 'markdown', 'ext': '.md'}]
 
 " Snippets - we'll see if I actually use them.
 Plug 'MarcWeber/vim-addon-mw-utils'
@@ -36,6 +36,8 @@ Plug 'honza/vim-snippets'
 
 " Lisp
 Plug 'guns/vim-sexp'
+Plug 'jpalardy/vim-slime'
+let g:slime_target = "tmux"
 
 " Ruby
 Plug 'vim-ruby/vim-ruby'
@@ -44,6 +46,7 @@ Plug 'textobj-rubyblock'
 " C
 Plug 'scrooloose/syntastic'
 Plug 'Rip-Rip/clang_complete', {'dir': '~/.vim/plugged/clang_complete', 'do': 'make install'}
+Plug 'FSwitch'
 let g:clang_close_preview=1
 
 " Crystal
@@ -63,7 +66,7 @@ set shiftwidth=4
 set tabstop=4
 set modeline
 set modelines=5
-set number expandtab smarttab autoindent smartindent hidden nowrap nobackup
+set nonumber expandtab smarttab autoindent smartindent hidden nowrap nobackup
 set path=$PWD/**
 set path+=/usr/include/**
 syntax enable
@@ -86,6 +89,7 @@ nmap <silent> <Space>p :tabp<CR>
 nnoremap <silent> <leader>w :w<CR>
 nnoremap <silent> <leader>o :FZF<CR>
 nnoremap <silent> <leader>t :NERDTreeToggle<CR>
+nnoremap <silent> <leader>a :FSHere<CR>
 nnoremap <silent> <leader>d :Ack <C-R><C-W><CR>
 
 nnoremap <leader>r yyp!!sh<CR>
@@ -93,7 +97,6 @@ vnoremap . :norm.<CR>
 
 " SYNTAX
 au VimEnter * RainbowParentheses
-let g:rainbow#blacklist = [224, 7]
 
 " chicken scheme stuff. TODO: move to .vim file
 au filetype scheme call SetSchemeOptions()
@@ -116,22 +119,8 @@ function SetSchemeOptions()
         silent! exec "normal! 99[(=%"
         call setpos('.', pos)
     endfun
-
-    nmap <silent> <leader>es :call Scheme_eval_defun()<cr>
-    nmap <silent> <leader>ef :call Scheme_send_sexp("(load \"" . expand("%:p") . "\")\n")<cr>
-
-    fun! Scheme_send_sexp(sexp)
-        let ss = escape(a:sexp, '\"')
-        call system("tmux select-pane -D && tmux send-keys \"" . ss . "\n\"")
-    endfun
-
-    fun! Scheme_eval_defun()
-        let pos = getpos('.')
-        silent! exec "normal! 99[(yab"
-        call Scheme_send_sexp(@")
-        call setpos('.', pos)
-    endfun
 endfunction
-colorscheme pyte
 
 set background=light
+colorscheme pyte
+

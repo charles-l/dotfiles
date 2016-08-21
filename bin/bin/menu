@@ -29,7 +29,8 @@ def termsh(c)
 end
 
 def menu(com)
-    `#{com} | dmenu -fn yuki -l 10`
+    `st -g80x15+10+10 -e sh -c '#{com} | fzf --color=bw --margin=1,1,1,1 > /tmp/.menu_result'`
+    File.read('/tmp/.menu_result')
 end
 
 ######
@@ -58,7 +59,8 @@ $bangs = {
             end
         termsh("cheat #{r.chomp} | less")
     },
-    refresh: -> (s) {menu(gen_menu_com true)}
+    refresh: -> (s) {menu(gen_menu_com true)},
+    weather: -> (s) {menu("weather")}
 }
 
 def gen_menu_com(force_refresh=false)

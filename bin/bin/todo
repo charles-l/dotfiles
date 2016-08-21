@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 #
 # z3bra - (c) wtfpl 2014
 # Manage a todo list.
@@ -21,7 +21,7 @@ append() {
 
 delete() {
     test -n "$1" || exit 1
-    sed -i "${1}d" $TODO 
+    sed -i "${1}d" $TODO
 }
 
 # delete line "$2" (see delete() function)

@@ -3,11 +3,11 @@ xrdb -merge $HOME/.Xresources
 xset r rate 200 35
 
 #sxhkd -c ~/.sxhkdrc &
-#compton --config $HOME/.compton.conf &
-feh --bg-fill --no-xinerama /home/nc/img/bkg/wallhaven-314278.jpg
+feh --bg-fill --no-xinerama /home/nc/img/bkg/bio_gameboy_double.jpg
 xbanish &
-compton &
 
+chrome &
+#exec ~/dev/wwm/wwm
 while true; do
-    mcwm
+   mcwm
 done

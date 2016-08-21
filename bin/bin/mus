@@ -1,3 +1,16 @@
 #!/bin/sh
-$(cd ~/mus && find . -type f | ruby -e 'puts STDIN.readlines.shuffle' > .playlist)
-cd ~/mus && mpv --gapless-audio --playlist=.playlist --no-video --keep-open --term-osd-bar --display-tags="" --term-playing-msg=""
+dir="$1"
+
+mpv_command() {
+    mpv --gapless-audio --no-video --keep-open --term-osd-bar --display-tags="" --term-playing-msg="" $@
+}
+
+cd ~/mus
+
+if [ -z "$dir" ]; then
+    # shuffle by default
+    $(find . -type f | ruby -e 'puts STDIN.readlines.shuffle' > .playlist)
+    mpv_command --playlist=.playlist
+else
+    mpv_command "$dir"
+fi
