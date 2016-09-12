@@ -1,24 +1,40 @@
-#include "/home/nc/.config/colors/bitmute"
+XTerm*font: *-terminus-medium-*-*-*-12-*-*-*-*-*-*-*
+XTerm*ScrollBar: False
+XTerm*internalBorder: 7
 
-*font:                  -*-yuki-*-*-*--11-*-*-*-*-*-*-*
+! special
+*.foreground:   #cccdcf
+*.background:   #22262f
+*.cursorColor:  #cccdcf
 
-*background:   bg
-*foreground:   fg
-*cursorColor:  cyn
+! black
+*.color0:       #33363f
+*.color8:       #66696f
 
-*color0:      blk
-*color8:      bblk
-*color1:      red
-*color9:      red
-*color2:      grn
-*color10:     grn
-*color3:      ylw
-*color11:     ylw
-*color4:      blu
-*color12:     blu
-*color5:      mag
-*color13:     mag
-*color6:      cyn
-*color14:     cyn
-*color7:      wht
-*color15:     wht
+! red
+*.color1:       #803c3c
+*.color9:       #b35959
+
+! green
+*.color2:       #758040
+*.color10:      #a4b359
+
+! yellow
+*.color3:       #806740
+*.color11:      #b39559
+
+! blue
+*.color4:       #406980
+*.color12:      #5995b3
+
+! magenta
+*.color5:       #804d66
+*.color13:      #b36b8f
+
+! cyan
+*.color6:       #408060
+*.color14:      #59b386
+
+! white
+*.color7:       #999a9f
+*.color15:      #cccdcf

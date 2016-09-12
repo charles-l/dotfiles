@@ -15,6 +15,8 @@ alias news='newsbeuter'
 alias pbc='xclip -selection clip-board'
 alias pbp='xclip -selection clip-board -o'
 
+alias sudo='doas'
+
 ###
 
 pb () {

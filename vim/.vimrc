@@ -1,18 +1,9 @@
-"Basic settings
 set nocompatible
 filetype plugin indent on
 
-"""""""""""
-" PLUGINS "
-"""""""""""
 call plug#begin('~/.vim/plugged')
 
-Plug 'junegunn/rainbow_parentheses.vim' "Makes working with lisp easier
-Plug 'junegunn/vim-oblique'
-Plug 'junegunn/vim-pseudocl'
 Plug 'kana/vim-fakeclip'
-Plug 'mileszs/ack.vim'
-Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 Plug 'tpope/vim-fugitive' "Git wrapper
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
@@ -20,7 +11,7 @@ Plug 'tpope/vim-surround'
 Plug 'vim-indent-object'
 Plug 'textobj-user'
 Plug 'matchit.zip'
-"Plug 'Townk/vim-autoclose'
+Plug 'Raimondi/delimitMate'
 Plug 'vimwiki'
 let g:vimwiki_list = [{'syntax': 'markdown', 'ext': '.md'}]
 Plug 'jlanzarotta/bufexplorer'
@@ -28,36 +19,19 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'pyte'
 
-" Snippets - we'll see if I actually use them.
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'tomtom/tlib_vim'
-Plug 'garbas/vim-snipmate'
-Plug 'honza/vim-snippets'
-
 " Lisp
-Plug 'guns/vim-sexp'
 Plug 'jpalardy/vim-slime'
 let g:slime_target = "tmux"
 
-" Ruby
-Plug 'vim-ruby/vim-ruby'
-Plug 'textobj-rubyblock'
-
 " C
 Plug 'scrooloose/syntastic'
-Plug 'Rip-Rip/clang_complete', {'dir': '~/.vim/plugged/clang_complete', 'do': 'make install'}
 Plug 'FSwitch'
 let g:clang_close_preview=1
 
-" Crystal
-Plug 'rhysd/vim-crystal'
-Plug 'charles-l/vim-snippets-crystal'
-
 call plug#end()
 
-"""""""""""""""""""""""
-" BASIC CONFIGURATION "
-"""""""""""""""""""""""
+"""
+
 let mapleader = ","
 
 set backspace=2
@@ -80,36 +54,24 @@ nmap <C-h> <C-w>h
 nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
-inoremap <C-F> <C-X><C-F>
-
-" better tabs
-nmap <silent> <Space>n :tabn<CR>
-nmap <silent> <Space>p :tabp<CR>
 
 nnoremap <silent> <leader>w :w<CR>
 nnoremap <silent> <leader>o :FZF<CR>
-nnoremap <silent> <leader>t :NERDTreeToggle<CR>
 nnoremap <silent> <leader>a :FSHere<CR>
 nnoremap <silent> <leader>d :Ack <C-R><C-W><CR>
 
 nnoremap <leader>r yyp!!sh<CR>
 vnoremap . :norm.<CR>
 
-" SYNTAX
-au VimEnter * RainbowParentheses
-
-" chicken scheme stuff. TODO: move to .vim file
+" chicken scheme stuff.
 au filetype scheme call SetSchemeOptions()
 function SetSchemeOptions()
     let b:delimitMate_quotes = "\""
-    setl complete+=,k~/.scheme-word-list
     setl include=\^\(\\(use\\\|require-extension\\)\\s\\+
     setl includeexpr=substitute(v:fname,'$','.scm','')
-    setl path+=/usr/local/lib/chicken/7/
+    setl path+=/usr/local/lib/chicken/8/
     setl suffixesadd+=.scm
-    setl lispwords+=let-values,condition-case,with-input-from-string
-    setl lispwords+=with-output-to-string,handle-exceptions,call/cc,rec,receive
-    setl lispwords+=call-with-output-file
+    setl lispwords+=handle-exceptions,call/cc,rec,receive
     nmap <silent> == :call Scheme_indent_top_sexp()<cr>
     let b:is_chicken=1
 
@@ -123,4 +85,3 @@ endfunction
 
 set background=light
 colorscheme pyte
-
