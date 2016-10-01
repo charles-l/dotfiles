@@ -17,7 +17,6 @@ let g:vimwiki_list = [{'syntax': 'markdown', 'ext': '.md'}]
 Plug 'jlanzarotta/bufexplorer'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'pyte'
 
 " Lisp
 Plug 'jpalardy/vim-slime'
@@ -84,4 +83,4 @@ function SetSchemeOptions()
 endfunction
 
 set background=light
-colorscheme pyte
+colorscheme delek

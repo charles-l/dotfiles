@@ -15,7 +15,6 @@ http://bjorn.tipling.com/feed
 https://blog.synflow.com/rss/
 http://ywstd.fr/blog/atom.xml
 http://blog.camposanto.com/rss
-http://feeds.hizook.com/Hizook
 http://hookrace.net/blog/feed/
 http://jasonwryan.com/atom.xml
 http://www.usebox.net/jjm/feed/
@@ -28,7 +27,6 @@ http://nullcode.org/blog/atom.xml
 http://prog21.dadgum.com/atom.xml
 https://idea.popcount.org/rss.xml
 http://blog.z3bra.org/rss/feed.xml
-http://ricardolovelace.com/atom.xml
 http://technomancy.us/feed/atom.xml
 http://labs.domipheus.com/blog/feed/
 http://www.jeffwofford.com/?feed=rss2
@@ -40,8 +38,6 @@ http://blog.invisiblethings.org/feed.xml
 http://journal.stuffwithstuff.com/rss.xml
 http://journal.stuffwithstuff.com/rss.xml
 https://blog.wearewizards.io/all.atom.xml
-http://chneukirchen.org/trivium/index.atom
-https://mercuryandlies.wordpress.com/feed/
 http://feeds.feedburner.com/usevim?format=xml
 http://inconsolation.wordpress.com/feed/?feed.rss
 http://hintjens.com/feed/pages/
@@ -56,7 +52,6 @@ http://jerrygamblin.com/feed/
 http://www.thecramped.com/feed/
 http://feeds.feedburner.com/codinghorror
 http://rapt.technology/feed.xml
-https://wildefyr.net/blog/feed.xml
 http://www.daemonology.net/blog/index.rss
 https://deftly.net/rss.xml
 http://allenchou.net/feed/
@@ -70,3 +65,5 @@ http://feeds2.feedburner.com/stevelosh
 http://charlesleifer.com/blog/rss/
 https://gkbrk.com/post/index.xml
 https://agraphicsguy.wordpress.com/feed/
+http://blog.johnnovak.net/feed.xml
+http://undeadly.org/cgi?action=rss
