@@ -19,13 +19,13 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 " Lisp
-Plug 'jpalardy/vim-slime'
-let g:slime_target = "tmux"
+Plug 'sjl/tslime.vim'
+Plug 'guns/vim-sexp'
+Plug 'tpope/vim-sexp-mappings-for-regular-people'
 
 " C
 Plug 'scrooloose/syntastic'
 Plug 'FSwitch'
-let g:clang_close_preview=1
 
 call plug#end()
 
@@ -57,7 +57,6 @@ nmap <C-l> <C-w>l
 nnoremap <silent> <leader>w :w<CR>
 nnoremap <silent> <leader>o :FZF<CR>
 nnoremap <silent> <leader>a :FSHere<CR>
-nnoremap <silent> <leader>d :Ack <C-R><C-W><CR>
 
 nnoremap <leader>r yyp!!sh<CR>
 vnoremap . :norm.<CR>
