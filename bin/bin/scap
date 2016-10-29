@@ -1,9 +1,4 @@
 #!/bin/sh
 
-slopoutput=$(slop -f "%x %y %w %h")
-X=$(echo $slopoutput | awk '{print $1}')
-Y=$(echo $slopoutput | awk '{print $2}')
-W=$(echo $slopoutput | awk '{print $3}')
-H=$(echo $slopoutput | awk '{print $4}')
-
-ffmpeg -video_size ${W}x${H} -f x11grab -i :0.0+$X,$Y /tmp/vid.mp4
+FILENAME="$(basename $(pwd))$(ls | wc -l).mkv"
+ffmpeg -thread_queue_size 512 -f alsa -ac 2 -ar 48000 -i hw:0 -s 1280x720 -f x11grab -probesize 10M -i :0 -r 30 -vcodec libx264 -pix_fmt yuv420p $FILENAME
