@@ -1,0 +1,4 @@
+#!/bin/sh
+r=`dmenu_path | dmenu "$@"`
+rr=`echo "$r" | tr -d '!'`
+$(echo "$r" | grep '!$' && st -e sh -c "$rr; sh" || sh -c "$rr") &

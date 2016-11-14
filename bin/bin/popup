@@ -6,10 +6,10 @@
 # depends: lemonbar, wattr and common sense
 
 # bar options
-font=$FONT
-bg="#000"
-fg="#CCC"
-hl="#ff443232"
+#font="-f terminus"
+bg="#000000"
+fg="#FFFFFF"
+hl="#FFFFFF"
 strlen=30
 
 default_geometry() {
@@ -20,7 +20,7 @@ default_geometry() {
     width=250
     height=20
 
-    offy=0
+    offy=${2:-$OFF}
     offx=$(( x - width ))
 
     echo "${width}x${height}+${offx}+${offy}"
@@ -50,4 +50,4 @@ if [ ! -z "$COMMAND" ]; then
     str="%{A:$COMMAND:}$str%{A}"
 fi
 
-(echo "%{c}" $str; sleep $SLEEP) | lemonbar -d -g $GEOM -B $bg -F $fg -f $font | sh &
+(echo "%{c}" $str; sleep $SLEEP) | lemonbar -d -g $GEOM -B $bg -F $fg $font | sh

@@ -8,6 +8,7 @@ alias gfl='git log -u'
 alias gdc='git diff --cached HEAD^'
 alias gl="git log --all --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
 
+alias gdb="gdb -q"
 alias mk='make'
 alias news='newsbeuter'
 
@@ -15,7 +16,8 @@ alias news='newsbeuter'
 alias pbc='xclip -selection clip-board'
 alias pbp='xclip -selection clip-board -o'
 
-alias sudo='doas'
+# OpenBSD
+#alias sudo='doas'
 
 ###
 
@@ -51,9 +53,10 @@ whoops() {
 
 GRAY="[34m"
 NC="[00m"
-export PS1="$GRAY$ $NC"
+export PS1="$GRAY> $NC"
 
 PATH=$HOME/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/X11R6/bin:/usr/local/bin:/usr/local/sbin:/usr/games:.
 TERM='xterm-256color'
+HISTFILE="$HOME/.history"
 
-export PATH HOME TERM
+export PATH HOME TERM HISTFILE

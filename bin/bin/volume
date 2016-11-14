@@ -1,7 +1,7 @@
 #!/bin/sh
 # Manage ALSA Master channel
 
-test "$1" = "-h" && echo "usage `basename $0` [+|-|!]" && exit 0
+test "$1" = "-h" && echo "usage `basename $0` [+|-|t]" && exit 0
 
 level() {
     amixer get Master | sed -n 's/^.*\[\([0-9]\+%\).*$/\1/p' | uniq
@@ -16,7 +16,7 @@ test $# -eq 0 && echo "`level` `state`" && exit 0
 case $1 in
     +)      amixer set Master 5%+ >/dev/null;;
     -)      amixer set Master 5%- >/dev/null;;
-    !)      amixer set Master toggle >/dev/null;;
+    t)      amixer set Master toggle >/dev/null;;
     state|level) $1;;
     *)    amixer set Master $1 >/dev/null;;
 esac

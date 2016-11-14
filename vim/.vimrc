@@ -1,22 +1,25 @@
 set nocompatible
+syntax enable
 filetype plugin indent on
+
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'kana/vim-fakeclip'
+let g:plug_url_format = 'git@github.com:%s.git'
+Plug 'lifepillar/vim-mucomplete'
 Plug 'tpope/vim-fugitive' "Git wrapper
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'vim-indent-object'
 Plug 'textobj-user'
+Plug 'junegunn/goyo.vim'
 Plug 'matchit.zip'
 Plug 'Raimondi/delimitMate'
 Plug 'vimwiki'
+Plug 'junegunn/vim-slash'
 let g:vimwiki_list = [{'syntax': 'markdown', 'ext': '.md'}]
 Plug 'jlanzarotta/bufexplorer'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
 
 " Lisp
 Plug 'sjl/tslime.vim'
@@ -40,10 +43,13 @@ set tabstop=4
 set modeline
 set modelines=5
 set nonumber expandtab smarttab autoindent smartindent hidden nowrap nobackup
-set path=$PWD/**
-set path+=/usr/include/**
-syntax enable
-let g:netrw_browse_split = 0
+set path+=**
+set wildmenu
+let g:netrw_banner = 0
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_liststyle = 3
+let g:netrw_list_hide = netrw_gitignore#Hide()
 
 "Strip trailing whitespace when writing a file
 au BufWritePre * :%s/\s\+$//e
@@ -55,7 +61,8 @@ nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
 
 nnoremap <silent> <leader>w :w<CR>
-nnoremap <silent> <leader>o :FZF<CR>
+nnoremap <silent> <leader>o :find<space>
+nnoremap <silent> <leader>t :vsplit .<CR>
 nnoremap <silent> <leader>a :FSHere<CR>
 
 nnoremap <leader>r yyp!!sh<CR>
@@ -69,6 +76,7 @@ function SetSchemeOptions()
     setl includeexpr=substitute(v:fname,'$','.scm','')
     setl path+=/usr/local/lib/chicken/8/
     setl suffixesadd+=.scm
+    set lisp
     setl lispwords+=handle-exceptions,call/cc,rec,receive
     nmap <silent> == :call Scheme_indent_top_sexp()<cr>
     let b:is_chicken=1
