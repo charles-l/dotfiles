@@ -16,10 +16,9 @@ http://feeds.feedburner.com/Blendernation?format=xml
 
 # electronics blogs
 https://hackaday.com/blog/feed/
-http://embedded.fm/blog/rss
+http://embedded.fm/blog?format=rss
 https://blog.adafruit.com/rss
-https://blog.synflow.com/rss/
-http://labs.domipheus.com/blog/feed/
+https://blog.synflow.com/rss/ http://labs.domipheus.com/blog/feed/
 http://librecores.org/planet/atom.xml
 https://helentronica.com/blog/feed/
 http://www.windytan.com/feeds/posts/default
@@ -39,6 +38,7 @@ http://geoff.greer.fm/feed/
 http://begriffs.com/atom.xml
 http://nullprogram.com/feed/
 http://bjorn.tipling.com/feed
+http://steve-yegge.blogspot.com/atom.xml
 http://ywstd.fr/blog/atom.xml
 http://hookrace.net/blog/feed/
 http://jasonwryan.com/atom.xml
@@ -80,6 +80,12 @@ http://ewontfix.com/feed.rss
 https://www.arrdem.com/feeds/all.xml
 http://toddbot.blogspot.com/feeds/posts/default
 http://250bpm.com/feed/pages/pagename/start/category/blog/t/250bpm-blogs/h/http%3A%2F%2Fwww.250bpm.com%2Fblog
+http://blog.kingcons.io/rss.xml
+https://www.hackerfactor.com/blog/index.php?/feeds/index.rss2
+
+## Startups
+http://www.aaronsw.com/2002/feeds/pgessays.rss
+https://themacro.com/feed.xml
 
 ## gamedev blogs
 http://blog.camposanto.com/rss
@@ -88,6 +94,7 @@ http://allenchou.net/feed/
 http://blog.habrador.com/feeds/posts/default
 https://metricpanda.com/feed.xml
 http://number-none.com/blow/blog/feed.xml
+https://quarterly.camposanto.com/feed
 
 ## lisp/scheme
 http://www.loper-os.org/?feed=rss2
@@ -110,6 +117,7 @@ http://feeds.feedburner.com/usevim?format=xml
 
 ## security
 http://jerrygamblin.com/feed/
+http://scarybeastsecurity.blogspot.com/feeds/posts/default
 
 ## linux
 http://tuxdiary.com/feed/
