@@ -2,11 +2,9 @@ set nocompatible
 syntax enable
 filetype plugin indent on
 
-
 call plug#begin('~/.vim/plugged')
 
-let g:plug_url_format = 'git@github.com:%s.git'
-Plug 'lifepillar/vim-mucomplete'
+"let g:plug_url_format = 'git@github.com:%s.git'
 Plug 'tpope/vim-fugitive' "Git wrapper
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
@@ -42,7 +40,7 @@ set shiftwidth=4
 set tabstop=4
 set modeline
 set modelines=5
-set nonumber expandtab smarttab autoindent smartindent hidden nowrap nobackup
+set nonumber expandtab smarttab autoindent smartindent hidden nowrap nobackup noswapfile
 set path+=**
 set wildmenu
 let g:netrw_banner = 0
@@ -89,5 +87,5 @@ function SetSchemeOptions()
     endfun
 endfunction
 
+colorscheme pablo
 set background=light
-colorscheme delek

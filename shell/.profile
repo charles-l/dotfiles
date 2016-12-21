@@ -54,9 +54,15 @@ whoops() {
 GRAY="[34m"
 NC="[00m"
 export PS1="$GRAY> $NC"
+export PS2="$GRAY* $NC"
 
 PATH=$HOME/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/X11R6/bin:/usr/local/bin:/usr/local/sbin:/usr/games:.
 TERM='xterm-256color'
 HISTFILE="$HOME/.history"
 
 export PATH HOME TERM HISTFILE
+
+# allow custom overrides
+for f in ~/.init.d/*; do
+  source $f;
+done

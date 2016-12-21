@@ -1,0 +1,6 @@
+#!/bin/sh
+
+case $1 in
+        success)
+                play -n -c1 synth sin %-12 sin %-9 sin %-5 sin %-2 fade q 0.1 1 0.1 2>/dev/null
+esac
