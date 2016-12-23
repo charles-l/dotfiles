@@ -1,7 +1,7 @@
 pcm.usb
 {
     type hw
-    card C920
+    card "I'm Fulla Schiit"
 }
 
 pcm.!default
