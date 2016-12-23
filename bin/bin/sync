@@ -1,0 +1,44 @@
+#!/bin/sh
+# an rsync wrapper to maintain syncage between computers
+
+# parse commands
+COMMAND=$1
+shift 1
+TARGET=$1
+shift 1
+FILES="$@"
+
+function usage() {
+    echo "usage: `basename $0` [push | pull] [TARGET] [FILE] ..."
+    exit 0
+}
+
+function push_file() {
+    echo rsync --progress -aze ssh $1 $TARGET:`dirname $1`
+}
+
+function pull_file() {
+    echo rsync --progress -aze ssh $TARGET:$1 `dirname $1`
+}
+
+function map_file_paths() {
+    for f in $FILES; do
+        p=`realpath $f`
+        if [ -n "$p" ]; then
+            `$1 $p`
+        fi
+    done
+}
+
+[[ -z "$TARGET" || -z "$FILES" ]] && usage
+
+case $COMMAND in
+    push)
+        map_file_paths push_file
+        ;;
+    pull)
+        map_file_paths pull_file
+        ;;
+    *)
+        usage ;;
+esac
