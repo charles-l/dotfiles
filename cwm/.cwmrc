@@ -6,6 +6,8 @@ snapdist 10
 sticky yes
 
 # Any entry here is shown in the application menu
+command lock             "sudo zzz && slock"
+command term             "st -e tmux"
 command chromium         chromium
 command qutebrowser      qutebrowser
 command steam		     steam

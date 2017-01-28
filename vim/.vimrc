@@ -19,6 +19,9 @@ Plug 'junegunn/vim-slash'
 let g:vimwiki_list = [{'syntax': 'markdown', 'ext': '.md'}]
 Plug 'jlanzarotta/bufexplorer'
 
+" Ruby
+Plug 'vim-ruby/vim-ruby'
+
 " Lisp
 Plug 'sjl/tslime.vim'
 Plug 'guns/vim-sexp'
@@ -27,6 +30,9 @@ Plug 'tpope/vim-sexp-mappings-for-regular-people'
 " C
 Plug 'scrooloose/syntastic'
 Plug 'FSwitch'
+
+" Go
+Plug 'fatih/vim-go'
 
 call plug#end()
 

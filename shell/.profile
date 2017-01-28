@@ -16,9 +16,6 @@ alias news='newsbeuter'
 alias pbc='xclip -selection clip-board'
 alias pbp='xclip -selection clip-board -o'
 
-# OpenBSD
-#alias sudo='doas'
-
 ###
 
 pb () {
