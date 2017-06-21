@@ -1,9 +1,9 @@
 # Set default Xft(3) font
-fontname "terminus:pixelsize=14:medium"
+fontname "Terminus:pixelsize=14:medium"
 
 moveamount 10
 snapdist 10
-sticky yes
+sticky no
 
 # Any entry here is shown in the application menu
 command lock             "sudo zzz && slock"
@@ -16,7 +16,6 @@ command top              "st -e top"
 # Autogroup definitions
 autogroup 1 "st-256color,XTerm"
 autogroup 2 "chromium"
-
 
 # Key bindings
 bind 4-r        label
@@ -70,6 +69,8 @@ mousebind M-1 unmap
 mousebind 4-1   window_move
 mousebind 4-3   window_resize
 
+borderwidth 2
 
-# hack for gamedev (don't jump to window with title "game")
+# hack for dev (don't jump to windows that get restarted)
 ignore game
+ignore bochs

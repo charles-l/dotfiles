@@ -1,5 +1,13 @@
 export ENV=~/.profile
 
+# set vim as my $EDITOR and alias vim as $EDITOR
+# this actually makes sense if i'm using neovim
+if [ -z "$EDITOR" ]; then
+  export EDITOR=vim
+  alias vim=$EDITOR
+  alias vi=$EDITOR
+fi
+
 alias ga='git add'
 alias gc='git commit'
 alias gp='git cherry --abbrev -v && git push'
@@ -43,7 +51,7 @@ cd() {
 }
 
 whoops() {
-  c="$1 $(fc -l1 | cut -f2)"
+  c="sudo $(fc -l1 | cut -f2)"
   echo $c
   $c
 }

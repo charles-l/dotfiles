@@ -4,7 +4,6 @@ filetype plugin indent on
 
 call plug#begin('~/.vim/plugged')
 
-"let g:plug_url_format = 'git@github.com:%s.git'
 Plug 'tpope/vim-fugitive' "Git wrapper
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
@@ -49,6 +48,7 @@ set modelines=5
 set nonumber expandtab smarttab autoindent smartindent hidden nowrap nobackup noswapfile
 set path+=**
 set wildmenu
+set synmaxcol=200
 let g:netrw_banner = 0
 let g:netrw_browse_split = 4
 let g:netrw_altv = 1
