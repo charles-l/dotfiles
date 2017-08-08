@@ -4,9 +4,9 @@ export ENV=~/.profile
 # this actually makes sense if i'm using neovim
 if [ -z "$EDITOR" ]; then
   export EDITOR=vim
-  alias vim=$EDITOR
-  alias vi=$EDITOR
 fi
+alias vim=$EDITOR
+alias vi=$EDITOR
 
 alias ga='git add'
 alias gc='git commit'
@@ -56,10 +56,8 @@ whoops() {
   $c
 }
 
-GRAY="[34m"
-NC="[00m"
-export PS1="$GRAY> $NC"
-export PS2="$GRAY* $NC"
+export PS1="> "
+export PS2="* "
 
 PATH=$HOME/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/X11R6/bin:/usr/local/bin:/usr/local/sbin:/usr/games:.
 TERM='xterm-256color'

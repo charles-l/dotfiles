@@ -8,6 +8,7 @@ Plug 'tpope/vim-fugitive' "Git wrapper
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
+Plug 'narrow'
 Plug 'vim-indent-object'
 Plug 'textobj-user'
 Plug 'junegunn/goyo.vim'
@@ -15,8 +16,10 @@ Plug 'matchit.zip'
 Plug 'Raimondi/delimitMate'
 Plug 'vimwiki'
 Plug 'junegunn/vim-slash'
+Plug 'robertmeta/nofrils'
 let g:vimwiki_list = [{'syntax': 'markdown', 'ext': '.md'}]
 Plug 'jlanzarotta/bufexplorer'
+Plug 'sjl/gundo.vim'
 
 " Ruby
 Plug 'vim-ruby/vim-ruby'
@@ -32,6 +35,9 @@ Plug 'FSwitch'
 
 " Go
 Plug 'fatih/vim-go'
+
+" APL
+Plug 'ngn/vim-apl'
 
 call plug#end()
 
@@ -93,5 +99,14 @@ function SetSchemeOptions()
     endfun
 endfunction
 
-colorscheme pablo
-set background=light
+if has("gui_running")
+    colorscheme nofrils-dark
+    set background=dark
+    set guioptions-=T
+    set guioptions-=L
+    set guioptions-=r
+    set guioptions-=m
+else
+    colorscheme nofrils-light
+    set background=light
+endif
