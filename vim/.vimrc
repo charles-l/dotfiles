@@ -16,6 +16,7 @@ Plug 'matchit.zip'
 Plug 'Raimondi/delimitMate'
 Plug 'vimwiki'
 Plug 'junegunn/vim-slash'
+let g:nofrils_strbackgrounds=1
 Plug 'robertmeta/nofrils'
 let g:vimwiki_list = [{'syntax': 'markdown', 'ext': '.md'}]
 Plug 'jlanzarotta/bufexplorer'

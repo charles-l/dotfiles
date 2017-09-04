@@ -1,11 +1,10 @@
 #!/bin/sh
-# turn a video into a gif
+# record a video
 #
 # deps:
 #  - ffmpeg
-#  - gifsicle
 #
-# charlie (c) 2015
+# charlie (c) 2017
 
 if [ -z "$1" ]; then
     echo "usage: `basename $0` filename"
@@ -19,5 +18,4 @@ H=$(echo $o | grep -o 'x[0-9]*' | tr -d x)
 X=$(echo $o | grep -o '+[0-9]*' | head -n1 | tr -d +)
 Y=$(echo $o | grep -o '+[0-9]*' | tail -n1 | tr -d +)
 
-ffmpeg -f x11grab -video_size "$W"x"$H" -framerate 25 -i :0.0+$X,$Y /tmp/$FILE.gif
-gifsicle --delay=3 --optimize=3 /tmp/$FILE.gif > $FILE.gif
+ffmpeg -f x11grab -video_size "$W"x"$H" -framerate 25 -i :0.0+$X,$Y /tmp/$FILE.mp4

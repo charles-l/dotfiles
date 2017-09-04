@@ -1,0 +1,11 @@
+#!/usr/bin/csi -script
+
+(use posix)
+(set-buffering-mode! (current-input-port) #:line)
+
+(define (f l)
+  (eval `(,(string->symbol (with-input-from-string
+                             (car (command-line-arguments))
+                             read-line)) (quote (,l)))))
+
+(print (f (read)))
