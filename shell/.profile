@@ -59,7 +59,7 @@ whoops() {
 export PS1="> "
 export PS2="* "
 
-PATH=$HOME/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/X11R6/bin:/usr/local/bin:/usr/local/sbin:/usr/games:.
+PATH=$PATH:$HOME/bin
 TERM='xterm-256color'
 HISTFILE="$HOME/.history"
 

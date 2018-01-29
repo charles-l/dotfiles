@@ -8,10 +8,12 @@ Plug 'tpope/vim-fugitive' "Git wrapper
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
+Plug 'sjl/gundo.vim'
 Plug 'narrow'
 Plug 'vim-indent-object'
 Plug 'textobj-user'
 Plug 'junegunn/goyo.vim'
+Plug 'reedes/vim-pencil'
 Plug 'matchit.zip'
 Plug 'Raimondi/delimitMate'
 Plug 'vimwiki'
@@ -45,6 +47,9 @@ Plug 'bitc/vim-hdevtools'
 
 " OCaml
 Plug 'ocaml/merlin'
+
+" Racket
+Plug 'wlangstroth/vim-racket'
 
 call plug#end()
 
@@ -105,6 +110,10 @@ function SetSchemeOptions()
         call setpos('.', pos)
     endfun
 endfunction
+
+autocmd FileType lisp,racket,scheme :iabbrev (.\ (λ<DEL>
+
+map <F11> :Goyo <bar> :TogglePencil <CR>
 
 " Haskell
 au FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>

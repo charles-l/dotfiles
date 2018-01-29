@@ -1,4 +1,4 @@
-xrandr --auto --output HDMI-0 --right-of DP-1
-nvidia-settings --assign CurrentMetaMode=DP-1:1920x1080_60 +0+0 { ForceFullCompositionPipeline = On }, HDMI-0:1920x1080_60 +1920+0 { ForceFullCompositionPipeline = On }
+xrandr --output HDMI-0 --auto --rotate normal --right-of DP-1 --output DP-1 --auto --rotate right
+xmodmap ~/.Xmodmap
 sh ~/.fehbg
 cwm
