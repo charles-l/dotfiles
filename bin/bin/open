@@ -1,40 +1,77 @@
 #!/usr/bin/env ruby
 # stupid wrapper around xdg-open, since I want something that's easy to tweak
 require 'tempfile'
+require 'shellwords'
+require 'pathname'
+require 'open3'
+require 'uri'
 
 def handle_file mimetype, path
-    case mimetype.split('/')[0]
-    when "text"
-        return "st -e vim '#{path}'"
-    when "image"
-        return "feh '#{path}'"
-    when "pdf"
-        return "zathura #{path}"
+    case mimetype
+    when /text/
+        "gvim-huge"
+    when "image/gif"
+        "mpv"
+    when /image/
+        "feh"
+    when /pdf/
+        "mupdf"
     when /^(audio|video)$/
-        return "mpv '#{path}'"
-    when "inode"
-        return "st -e sh -c 'cd \"#{path}\"; exec #{ENV["SHELL"] || "mksh"}'"
+        "mpv"
+    when /inode/
+        ["st", "-e", "sh", "-c", "cd #{Shellwords.escape(path)}; exec #{ENV["SHELL"] || "mksh"}"]
     else
-        r = `dmenu_path | dmenu -p 'select fallback program'`
-        return "st -e sh -c 'cd \"#{path}\"; #{r} '#{path}'; exec #{ENV["SHELL"] || "mksh"}'"
+        r = `dmenu_path | dmenu -p 'select fallback program'`.strip
+        [r, path]
     end
 end
 
 arg = ARGV[0]
-abort "open: needs an argument" if !arg || arg.empty?
-ft = `file -L --mime-type #{arg}`.split(':')[1]
+arg = `sselp` if !arg || arg.empty?
+arg = arg.chomp
+ft, _ = (Open3.capture2 "file", "-L", "--mime-type", arg)
+ft = ft.split(':')[1].strip unless ft =~ /No such file or directory/
 
-fork do
-    system(
-        if File.exists? arg
-            handle_file ft.strip, File.absolute_path(arg)
-        elsif arg =~ /(^|\s)((https?:\/\/)?[\w-]+(\.[\w-]+)+\.?(:\d+)?(\/\S*)?)/
-            # to download instead:
-            #   t = Tempfile.new
-            #   `curl #{arg} > #{t.path}`
-            #   handle_file ft, t.path
-            "chrome #{arg}"
-        else # one last hoorah
-            "/usr/local/bin/xdg-open #{argv}"
-        end)
+def guess_wdir()
+    pid = %x[xprop -id `pfw` | grep PID].split('=')[1].strip
+    pids = `ps --forest -o pid -g $(ps -o sid= -p #{pid})`.split
+    pids[0] = pid
+    names = pids.map{|e| `ps -p #{e} -o comm=`.strip}
+    dirs = `pwdx #{pids.join ' '} | cut -d: -f2`.split("\n").map(&:strip)
+    x = names.zip(dirs).map{|e| e.join(': ')}
+    # hehe - serialized and deserialized with ': ' separator because i'm lazy
+    (x.size > 1 ? `printf '#{x.join("\n")}' | dmenu` : x.first)&.split(':')[1]&.strip
+end
+
+def is_url? p
+    p =~ /(^|\s)((https?:\/\/)?[\w-]+(\.[\w-]+)+\.?(:\d+)?(\/\S*)?)/
+end
+
+if is_url? arg
+    `notify-send 'opening #{arg} in surf'`
+    exec("surf", arg)
+else
+    p = Pathname.new(arg)
+    if !p.absolute?
+        if !p.exist?
+            w = guess_wdir
+            exec 'notify-send', 'aborting' if w.nil?
+            guess = Pathname.new(w) + p
+            p = guess
+        end
+    end
+    if p.exist?
+        c = handle_file(ft, File.absolute_path(p))
+        if c.is_a? String
+            `notify-send 'aborting'` if c.empty?
+            `notify-send 'opening #{p} in #{c}'`
+            exec c, p
+        else
+            `notify-send 'aborting'` if c[0]
+            `notify-send 'opening #{p} in #{c[0]}'`
+            exec(*c)
+        end
+    else
+        `notify-send "failed to find location of #{p}"`
+    end
 end

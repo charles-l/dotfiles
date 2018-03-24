@@ -20,7 +20,7 @@ autogroup 2 "chromium"
 # Key bindings
 bind-key 4S-q       window-delete
 bind-key 4-p        menu-exec
-bind-key 4-g        "sh ~/bin/godothecorrectthing.sh"
+bind-key 4-g        "open"
 bind-key 4-f        window-freeze
 bind-key C4M-r      restart
 bind-key 4-Return   st
@@ -42,6 +42,9 @@ bind-key 4S-5       window-movetogroup-5
 bind-key 4S-6       window-movetogroup-6
 bind-key 4-Tab      window-cycle
 bind-key 4S-Tab     window-rcycle
+
+bind-key 4C-Tab      window-cycle-ingroup
+bind-key 4CS-Tab     window-rcycle-ingroup
 
 bind-key 4C-h       window-move-left-big
 bind-key 4C-l       window-move-right-big
