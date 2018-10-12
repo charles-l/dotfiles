@@ -21,6 +21,8 @@ bind-key 4-Return   xterm
 bind-key S4-Return  "xterm -e tmux"
 bind-key S4-h       window-hmaximize
 bind-key S4-v       window-vmaximize
+bind-key CS-h       window-htile
+bind-key CS-v       window-vtile
 bind-key 4-x        window-fullscreen
 bind-key 4-1        group-toggle-1
 bind-key 4-2        group-toggle-2
