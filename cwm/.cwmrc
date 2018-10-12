@@ -6,7 +6,7 @@ snapdist 10
 sticky no
 
 # Any entry here is shown in the application menu
-command lockscreen             "sudo zzz && slock"
+command lockscreen             "sudo zzz & sleep 0.5 && slock"
 command term             "st"
 command chromium         chromium
 command qutebrowser      qutebrowser
@@ -27,6 +27,8 @@ bind-key 4-Return   st
 bind-key S4-Return  "st -e tmux"
 bind-key S4-h       window-hmaximize
 bind-key S4-v       window-vmaximize
+bind-key CS-h       window-htile
+bind-key CS-v       window-vtile
 bind-key 4-x        window-fullscreen
 bind-key 4-1        group-toggle-1
 bind-key 4-2        group-toggle-2
@@ -75,5 +77,5 @@ bind-mouse 4-3   window-resize
 borderwidth 2
 
 # hack for dev (don't jump to windows that get restarted)
-ignore game
+#ignore game
 ignore bochs

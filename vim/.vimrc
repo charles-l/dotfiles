@@ -8,11 +8,11 @@ Plug 'tpope/vim-fugitive' "Git wrapper
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
-Plug 'sjl/gundo.vim'
-Plug 'narrow'
+Plug 'mbbill/undotree'
+Plug 'markonm/traces.vim'
 Plug 'vim-indent-object'
 Plug 'textobj-user'
-Plug 'junegunn/goyo.vim'
+Plug 'reedes/vim-wordy'
 Plug 'reedes/vim-pencil'
 Plug 'matchit.zip'
 Plug 'Raimondi/delimitMate'
@@ -22,34 +22,36 @@ let g:nofrils_strbackgrounds=1
 Plug 'robertmeta/nofrils'
 let g:vimwiki_list = [{'syntax': 'markdown', 'ext': '.md'}]
 Plug 'jlanzarotta/bufexplorer'
-Plug 'sjl/gundo.vim'
+Plug 'ludovicchabant/vim-gutentags'
 
-" Ruby
-Plug 'vim-ruby/vim-ruby'
+Plug 'jgdavey/tslime.vim'
+vmap <C-c><C-c> <Plug>SendSelectionToTmux
+nmap <C-c><C-c> <Plug>NormalModeSendToTmux
+nmap <C-c>r <Plug>SetTmuxVars
 
 " Lisp
-Plug 'sjl/tslime.vim'
 Plug 'guns/vim-sexp'
 Plug 'tpope/vim-sexp-mappings-for-regular-people'
 
 " C
 Plug 'w0rp/ale'
 Plug 'FSwitch'
+Plug 'skywind3000/asyncrun.vim'
 
-" Go
-Plug 'fatih/vim-go'
+" D
+autocmd FileType d set efm=%*[^@]@%f\(%l\):\ %m,%f\(%l\\,%c\):\ %m,%f\(%l\):\ %m
+let g:SuperTabDefaultCompletionType = '<C-X><C-O>'
 
-" APL
-Plug 'ngn/vim-apl'
+Plug 'idanarye/vim-dutyl'
+Plug 'ervandew/supertab'
 
-" Haskell
-Plug 'bitc/vim-hdevtools'
 
 " OCaml
 Plug 'ocaml/merlin'
 
 " Racket
 Plug 'wlangstroth/vim-racket'
+Plug 'vim-scripts/scribble.vim'
 
 call plug#end()
 
@@ -82,43 +84,51 @@ nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
 
+function! ToggleVExplorer()
+  if exists("t:expl_buf_num")
+      let expl_win_num = bufwinnr(t:expl_buf_num)
+      if expl_win_num != -1
+          let cur_win_nr = winnr()
+          exec expl_win_num . 'wincmd w'
+          close
+          exec cur_win_nr . 'wincmd w'
+          unlet t:expl_buf_num
+      else
+          unlet t:expl_buf_num
+      endif
+  else
+      exec '1wincmd w'
+      Vexplore
+      let t:expl_buf_num = bufnr("%")
+  endif
+endfunction
+
 nnoremap <silent> <leader>w :w<CR>
 nnoremap <silent> <leader>o :find<space>
-nnoremap <silent> <leader>t :vsplit .<CR>
+nnoremap <silent> <leader>f :call ToggleVExplorer()<CR>
 nnoremap <silent> <leader>a :FSHere<CR>
+nnoremap <silent> <leader>m :AsyncRun -program=make<CR>
+nnoremap <silent> <leader>e :call asyncrun#quickfix_toggle(6)<cr>
 
 nnoremap <leader>r yyp!!sh<CR>
 vnoremap . :norm.<CR>
 
-" chicken scheme stuff.
-au filetype scheme call SetSchemeOptions()
-function SetSchemeOptions()
-    let b:delimitMate_quotes = "\""
-    setl include=\^\(\\(use\\\|require-extension\\)\\s\\+
-    setl includeexpr=substitute(v:fname,'$','.scm','')
-    setl path+=/usr/local/lib/chicken/8/
-    setl suffixesadd+=.scm
-    set lisp
-    setl lispwords+=handle-exceptions,call/cc,rec,receive
-    nmap <silent> == :call Scheme_indent_top_sexp()<cr>
-    let b:is_chicken=1
+packadd termdebug
 
-    " Indent a toplevel sexp.
-    fun! Scheme_indent_top_sexp()
-        let pos = getpos('.')
-        silent! exec "normal! 99[(=%"
-        call setpos('.', pos)
-    endfun
-endfunction
-
+autocmd FileType lisp,racket,scheme :iabbrev .\ λ
 autocmd FileType lisp,racket,scheme :iabbrev (.\ (λ<DEL>
+autocmd FileType lisp,racket,scheme let b:delimitMate_quotes = "\""
 
-map <F11> :Goyo <bar> :TogglePencil <CR>
+func! WordProcessorMode()
+    setlocal formatoptions+=l
+    setlocal noexpandtab
+    iabbrev <buffer> -- –
+    iabbrev <buffer> --- —
+    execute "TogglePencil"
+    execute "Wordy weak"
+endfu
 
-" Haskell
-au FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
-au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
-au FileType haskell nnoremap <buffer> <silent> <F3> :HdevtoolsInfo<CR>
+map <F11> :call WordProcessorMode()<CR>
 
 " ## added by OPAM user-setup for vim / base ## 93ee63e278bdfc07d1139a748ed3fff2 ## you can edit, but keep this line
 let s:opam_share_dir = system("opam config var share")
@@ -153,9 +163,14 @@ for tool in s:opam_packages
 endfor
 " ## end of OPAM user-setup addition for vim / base ## keep this line
 
+if executable("ack")
+    set grepprg=ack\ -H\ --nocolor\ --nogroup\ --column
+    set grepformat=%f:%l:%c:%m
+endif
+
 if has("gui_running")
-    colorscheme nofrils-dark
-    set background=dark
+    colorscheme nofrils-light
+    set background=light
     set guioptions-=T
     set guioptions-=L
     set guioptions-=r
