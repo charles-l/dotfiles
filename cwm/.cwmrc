@@ -1,30 +1,24 @@
 # Set default Xft(3) font
-fontname "Terminus:pixelsize=14:medium"
+fontname "terminus:pixelsize=14:medium"
 
 moveamount 10
 snapdist 10
 sticky no
 
 # Any entry here is shown in the application menu
-command lockscreen             "sudo zzz && slock"
-command term             "st"
-command chromium         chromium
+command lockscreen      "zzz && xlock"
+command term             xterm
+command firefox          firefox
 command qutebrowser      qutebrowser
-command steam		     steam
-command top              "st -e top"
-
-# Autogroup definitions
-autogroup 1 "st-256color,XTerm"
-autogroup 2 "chromium"
+command top              "xterm -e top"
 
 # Key bindings
 bind-key 4S-q       window-delete
 bind-key 4-p        menu-exec
-bind-key 4-g        "open"
 bind-key 4-f        window-freeze
 bind-key C4M-r      restart
-bind-key 4-Return   st
-bind-key S4-Return  "st -e tmux"
+bind-key 4-Return   xterm
+bind-key S4-Return  "xterm -e tmux"
 bind-key S4-h       window-hmaximize
 bind-key S4-v       window-vmaximize
 bind-key 4-x        window-fullscreen
@@ -73,7 +67,3 @@ bind-mouse 4-1   window-move
 bind-mouse 4-3   window-resize
 
 borderwidth 2
-
-# hack for dev (don't jump to windows that get restarted)
-ignore game
-ignore bochs
