@@ -9,20 +9,15 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'mbbill/undotree'
-Plug 'markonm/traces.vim'
-Plug 'vim-indent-object'
-Plug 'textobj-user'
-Plug 'reedes/vim-wordy'
-Plug 'reedes/vim-pencil'
-Plug 'matchit.zip'
+Plug 'markonm/traces.vim' " nicer search/replace
+Plug 'vim-scripts/vim-indent-object'
+Plug 'vim-scripts/textobj-user'
+Plug 'vim-scripts/matchit.zip'
 Plug 'Raimondi/delimitMate'
-Plug 'vimwiki'
 Plug 'junegunn/vim-slash'
 let g:nofrils_strbackgrounds=1
 Plug 'robertmeta/nofrils'
-let g:vimwiki_list = [{'syntax': 'markdown', 'ext': '.md'}]
 Plug 'jlanzarotta/bufexplorer'
-Plug 'ludovicchabant/vim-gutentags'
 
 Plug 'jgdavey/tslime.vim'
 vmap <C-c><C-c> <Plug>SendSelectionToTmux
@@ -35,7 +30,7 @@ Plug 'tpope/vim-sexp-mappings-for-regular-people'
 
 " C
 Plug 'w0rp/ale'
-Plug 'FSwitch'
+Plug 'vim-scripts/FSwitch'
 Plug 'skywind3000/asyncrun.vim'
 
 " D
@@ -46,12 +41,8 @@ Plug 'idanarye/vim-dutyl'
 Plug 'ervandew/supertab'
 
 
-" OCaml
-Plug 'ocaml/merlin'
-
 " Racket
 Plug 'wlangstroth/vim-racket'
-Plug 'vim-scripts/scribble.vim'
 
 call plug#end()
 
@@ -119,50 +110,6 @@ autocmd FileType lisp,racket,scheme :iabbrev .\ λ
 autocmd FileType lisp,racket,scheme :iabbrev (.\ (λ<DEL>
 autocmd FileType lisp,racket,scheme let b:delimitMate_quotes = "\""
 
-func! WordProcessorMode()
-    setlocal formatoptions+=l
-    setlocal noexpandtab
-    iabbrev <buffer> -- –
-    iabbrev <buffer> --- —
-    execute "TogglePencil"
-    execute "Wordy weak"
-endfu
-
-map <F11> :call WordProcessorMode()<CR>
-
-" ## added by OPAM user-setup for vim / base ## 93ee63e278bdfc07d1139a748ed3fff2 ## you can edit, but keep this line
-let s:opam_share_dir = system("opam config var share")
-let s:opam_share_dir = substitute(s:opam_share_dir, '[\r\n]*$', '', '')
-
-let s:opam_configuration = {}
-
-function! OpamConfOcpIndent()
-  execute "set rtp^=" . s:opam_share_dir . "/ocp-indent/vim"
-endfunction
-let s:opam_configuration['ocp-indent'] = function('OpamConfOcpIndent')
-
-function! OpamConfOcpIndex()
-  execute "set rtp+=" . s:opam_share_dir . "/ocp-index/vim"
-endfunction
-let s:opam_configuration['ocp-index'] = function('OpamConfOcpIndex')
-
-function! OpamConfMerlin()
-  let l:dir = s:opam_share_dir . "/merlin/vim"
-  execute "set rtp+=" . l:dir
-endfunction
-let s:opam_configuration['merlin'] = function('OpamConfMerlin')
-
-let s:opam_packages = ["ocp-indent", "ocp-index", "merlin"]
-let s:opam_check_cmdline = ["opam list --installed --short --safe --color=never"] + s:opam_packages
-let s:opam_available_tools = split(system(join(s:opam_check_cmdline)))
-for tool in s:opam_packages
-  " Respect package order (merlin should be after ocp-index)
-  if count(s:opam_available_tools, tool) > 0
-    call s:opam_configuration[tool]()
-  endif
-endfor
-" ## end of OPAM user-setup addition for vim / base ## keep this line
-
 if executable("ack")
     set grepprg=ack\ -H\ --nocolor\ --nogroup\ --column
     set grepformat=%f:%l:%c:%m
@@ -176,7 +123,7 @@ if has("gui_running")
     set guioptions-=r
     set guioptions-=m
 else
-    colorscheme nofrils-light
-    set background=light
+    colorscheme nofrils-dark
+    set background=dark
 endif
 

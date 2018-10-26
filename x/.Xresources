@@ -1,4 +1,4 @@
-XTerm*font: *-terminus-medium-*-*-*-12-*-*-*-*-*-*-*
+XTerm*font: *-terminus-medium-*-*-*-16-*-*-*-*-*-*-*
 XTerm*ScrollBar: False
 XTerm*internalBorder: 7
 
